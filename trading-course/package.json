@@ -1,0 +1,17 @@
+{
+  "author": "Matthew Murphy <matt@mattmurphy.ca>",
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/node": "^7.15.4",
+    "@babel/preset-env": "^7.15.6"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "name": "blog-scraper",
+  "repository": "https://github.com/mattdanielmurphy/blog-scraper.git",
+  "scripts": {
+    "babel-node": "babel-node --presets='@babel/preset-env' --ignore='foo|bar|baz'",
+    "dev": "nodemon --exec npm run babel-node -- index.js"
+  },
+  "version": "1.0.0"
+}
