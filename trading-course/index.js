@@ -32,18 +32,41 @@ async function getBlogPostUrlsForNumberOfPages(url, pages = 1) {
 
 // Get Page Content
 
-async function getContentFromPage(url) {
+async function getHtmlFromPage(url) {
 	const $ = await fetchHtml(url)
-	function getContentUntilNextH2Tag(currentH2Tag, content, nextH2Tag) {}
+	const html = []
+	$('h2').each((i, cheerioEl) => {
+		let el = $(cheerioEl)
 
-	const content = ['']
-	const firstH2Tag = $('h2')
-	const h2Text = firstH2Tag.text()
-	getContentUntilNextH2Tag(firstH2Tag)
-	// retrieve text under each h2
-	// find first h2 tag
-	// use getNextSibling until you find another h2 tag, then separate and continue
-	// stop at <hr class="wp-block-separator">
+		if (el.text() === 'Trading Room') return
+
+		const h2AndItsContent = [el.toString()]
+		while ((el = el.next())) {
+			if (
+				el.length === 0 ||
+				el.get(0).tagName === 'h2' ||
+				el.get(0).tagName === 'hr'
+			) {
+				break
+			} else h2AndItsContent.push(el.toString())
+		}
+
+		html.push(h2AndItsContent.join(''))
+	})
+	return html
+}
+
+async function getContentFromPage(url) {
+	const html = await getHtmlFromPage(url)
+	const text = await Promise.all(
+		html.map(async (sectionHtml, i) => {
+			await writeLocalFile(`test-${i}.html`, sectionHtml)
+			const sectionText = htmlToText(sectionHtml)
+			await writeLocalFile(`test-${i}.txt`, sectionText)
+			return sectionText
+		}),
+	)
+	// console.log(text)
 }
 
 async function getContentFromBlog() {
