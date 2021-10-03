@@ -1,3 +1,6 @@
+# Exported files
+exports/
+
 # Logs
 logs
 *.log
