@@ -1,5 +1,5 @@
 const { htmlToText } = require('html-to-text')
-const { fetchHtml, writeLocalFile } = require('./utilities')
+const { fetchHtml, writeLocalFile, wrapHtml } = require('./utilities')
 
 // Get URLs
 
@@ -37,10 +37,10 @@ async function getHtmlFromPage(url) {
 	const html = []
 	$('h2').each((i, cheerioEl) => {
 		let el = $(cheerioEl)
+		const elString = el.toString()
+		if (elString === '<h2>Trading Room</h2>') return
 
-		if (el.text() === 'Trading Room') return
-
-		const h2AndItsContent = [el.toString()]
+		const h2AndItsContent = { heading: elString, sectionHtml: elString }
 		while ((el = el.next())) {
 			if (
 				el.length === 0 ||
@@ -48,10 +48,12 @@ async function getHtmlFromPage(url) {
 				el.get(0).tagName === 'hr'
 			) {
 				break
-			} else h2AndItsContent.push(el.toString())
+			} else
+				h2AndItsContent.sectionHtml =
+					h2AndItsContent.sectionHtml + el.toString()
+			console.log(h2AndItsContent)
 		}
-
-		html.push(h2AndItsContent.join(''))
+		html.push(h2AndItsContent)
 	})
 	return html
 }
@@ -59,8 +61,8 @@ async function getHtmlFromPage(url) {
 async function getContentFromPage(url) {
 	const html = await getHtmlFromPage(url)
 	const text = await Promise.all(
-		html.map(async (sectionHtml, i) => {
-			await writeLocalFile(`test-${i}.html`, sectionHtml)
+		html.map(async ({ heading, sectionHtml }, i) => {
+			await writeLocalFile(`test-${i}.html`, wrapHtml(sectionHtml, heading))
 			const sectionText = htmlToText(sectionHtml)
 			await writeLocalFile(`test-${i}.txt`, sectionText)
 			return sectionText
