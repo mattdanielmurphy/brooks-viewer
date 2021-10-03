@@ -1,10 +1,9 @@
 const cheerio = require('cheerio')
-const axios = require('axios')
+const axios = require('axios').default
 const fs = require('fs').promises
 const path = require('path')
 
 async function fetchHtml(url) {
-	// @ts-ignore
 	const { data } = await axios.get(url)
 	return cheerio.load(data)
 }
