@@ -1,11 +1,5 @@
-const cheerio = require('cheerio')
-const axios = require('axios')
-
-async function fetchHtml(url) {
-	// @ts-ignore
-	const { data } = await axios.get(url)
-	return cheerio.load(data)
-}
+const { htmlToText } = require('html-to-text')
+const { fetchHtml, writeLocalFile } = require('./utilities')
 
 // Get URLs
 
