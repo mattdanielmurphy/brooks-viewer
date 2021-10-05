@@ -11,7 +11,12 @@ async function fetchHtml(url) {
 async function writeLocalFile(pathName, content) {
 	const saveDir = 'exports'
 	await fs.rm(path.join(__dirname, saveDir, pathName)).catch(() => {})
-	fs.writeFile(path.join(__dirname, saveDir, pathName), content)
+	return await fs.writeFile(path.join(__dirname, saveDir, pathName), content)
+}
+
+async function makeLocalFolder(pathName, content) {
+	const saveDir = 'exports'
+	return await fs.mkdir(path.join(__dirname, saveDir, pathName)).catch(() => {})
 }
 
 function removeInlineColorInitial(htmlContent) {
@@ -28,13 +33,22 @@ function wrapHtml(htmlContent, title = 'Document') {
 			body {
 				font-family: 'Calibri', sans-serif;
 				max-width: 50rem;
-				margin: 5rem auto;
+				margin: 4vw auto;
+				padding: 2rem;
 			}
 			@media (prefers-color-scheme: dark) { 
 				body { background: #222; color: #eee; }
+				a { color: skyblue; text-decoration: none; }
+				a:visited { color: orchid}
+			}
+			li {
+				margin-bottom: .3rem;
+			}
+			img {
+				max-width: 100%;
 			}
 		</style></head>
 		<body>${htmlContent}</body></html>`
 }
 
-module.exports = { fetchHtml, writeLocalFile, wrapHtml }
+module.exports = { fetchHtml, writeLocalFile, wrapHtml, makeLocalFolder }
