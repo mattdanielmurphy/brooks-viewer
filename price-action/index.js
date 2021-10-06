@@ -12,7 +12,6 @@ const fs = require('fs').promises
 // Get URLs
 
 async function getBlogPostUrlsForPage(url) {
-	console.log(`fetching links for page @ ${url}...`)
 	const $ = await fetchHtml(url)
 	const urls = []
 	$('a.entry-title-link').each((i, el) => {
@@ -29,7 +28,7 @@ async function getBlogPostUrlsForPage(url) {
  */
 async function getBlogPostUrlsForNumberOfPages(url, pages = 1) {
 	const urls = { pages: [] }
-	console.log(`1/2 | Getting blog post URLs for page 1/${pages}...`)
+	console.log(`1/2 | Getting blog post URLs for page 1 of ${pages}...`)
 	urls.pages.push(await getBlogPostUrlsForPage(url))
 	if (pages > 1) {
 		for (let pageNumber = 2; pageNumber <= pages; pageNumber++) {
@@ -101,7 +100,6 @@ async function downloadImages(html, folderPath, i) {
 				// ! NEED TO FIX: (not removing image tag)
 				// ! NEED TO FIX: (not removing image tag)
 				// ! NEED TO FIX: (not removing image tag)
-				// ! NEED TO FIX: (not removing image tag)
 				text = htmlToText(html.replace(re, ''))
 			}
 		}
@@ -113,20 +111,24 @@ async function downloadImages(html, folderPath, i) {
 
 async function getContentFromPage(url) {
 	const [html, date] = await getHtmlFromPage(url)
-	if (typeof date !== 'string' || typeof html !== 'object') return
-	await makeLocalFolder(date)
+	if (typeof date !== 'string' || typeof html !== 'object') return // unnecessary really, put here so typescript would shut up
+	const [month, day, year] = date.split('-')
+	const dayDir = path.join(year, month, day)
+	await makeLocalFolder(dayDir)
 
 	const text = await Promise.all(
 		html.map(async ({ heading, sectionHtml }, i) => {
-			const dir = path.join(date, `${i}-${heading}`)
-			await makeLocalFolder(dir)
+			const j = i + 1 // non-zero index for normies
+			const dir = path.join(dayDir, `${j}-${heading}`)
+			// images are downloaded and refs are replaced with local downloaded ones
 			const [sectionHtmlImagesDownloaded, sectionText] = await downloadImages(
 				sectionHtml,
-				path.join(dir, 'images'),
-				i,
+				path.join(dir),
+				j,
 			)
+			await makeLocalFolder(dir)
 			await writeLocalFile(
-				path.join(date, `${i}-${heading}.html`),
+				path.join(year, month, `${day}-${j}-${heading}.html`),
 				wrapHtml(sectionHtmlImagesDownloaded, heading),
 			)
 			await writeLocalFile(path.join(dir, `${heading}.txt`), sectionText)
@@ -136,20 +138,22 @@ async function getContentFromPage(url) {
 }
 
 async function getContentFromPages({ pages }) {
-	pages.forEach(async (page, i) => {
-		console.log(`Getting content for page ${i} of ${pages.length}...`)
+	return await pages.forEach(async (page, i) => {
+		console.log(`2/2 | Getting content for page ${i + 1} of ${pages.length}...`)
 		return await page.forEach(async (url) => await getContentFromPage(url))
 	})
 }
 
 async function getContentFromBlog() {
-	await fs.mkdir(path.join(__dirname, 'exports')).catch(() => {}) // make exports folder if not already present
 	const urls = await getBlogPostUrlsForNumberOfPages(
 		'https://www.brookstradingcourse.com/blog/market-update',
-		3,
+		1,
 	)
 	await getContentFromPages(urls)
-	console.log('Done!')
+	//! FIX promises; this appears before it should
+	//! FIX promises; this appears before it should
+	//! FIX promises; this appears before it should
+	// console.log('Done!')
 }
 
 getContentFromBlog()
