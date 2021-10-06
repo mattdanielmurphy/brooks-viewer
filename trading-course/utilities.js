@@ -14,9 +14,10 @@ async function writeLocalFile(pathName, content) {
 	return await fs.writeFile(path.join(__dirname, saveDir, pathName), content)
 }
 
-async function makeLocalFolder(pathName, content) {
-	const saveDir = 'exports'
-	return await fs.mkdir(path.join(__dirname, saveDir, pathName)).catch(() => {})
+async function makeLocalFolder() {
+	const dirNames = [].slice.call(arguments)
+	const dirPath = path.join(__dirname, 'exports', ...dirNames)
+	return await fs.mkdir(dirPath, { recursive: true }).catch(() => {})
 }
 
 function removeInlineColorInitial(htmlContent) {
