@@ -1,10 +1,12 @@
 #!/usr/bin/env node
 
 import fsSync from 'fs'
+import { htmlToText } from 'html-to-text'
 import lowdb from 'lowdb'
 import parseInput from './cli-options'
 import path from 'path'
 import puppeteer from 'puppeteer'
+
 const fs = fsSync.promises
 require('dotenv').config()
 
@@ -31,33 +33,58 @@ async function signIn(page) {
 	await page.waitForSelector('.maintitle')
 }
 
-async function getPostsForMonth(page, year, month) {
-	// look at comments and author
-	// it's a post if either of the following are true:
-	// author=AlBrooks
-	// author=BPAAdmin && Replies > 2 && title doesn't contain "No Webinar" or "Holiday"
-	function authorIs(name) {}
-	function titleDoesNotContain() {
-		const args = [].slice.call(arguments)
-		// see if this works: Array.from(arguments)
-	}
-	// const name = await page.$('.row3 .name')
-	// const nameText = await name.evaluate((node) => node.firstChild.innerText)
-	const nameElements = await page.evaluate('.row3 .name')
-	// const authors = []
+async function getListOfPosts(page) {
+	return await await page.evaluate(() => {
+		const elements = document.querySelectorAll('.row3 .name')
+		const results = []
+		for (const el of elements) {
+			const author = el.firstChild.innerText
+			const numReplies = el.parentNode.parentNode.querySelectorAll(
+				'span.postdetails a[href^="postings_popup.php"]',
+			)[0].innerText
+			const title =
+				el.parentNode.parentNode.querySelectorAll('a.topictitle')[0].innerText
+			const href =
+				el.parentNode.parentNode.querySelectorAll('a.topictitle')[0].href
+			results.push([title, author, numReplies, href])
+		}
+		return results
+	})
+}
 
-	// 2:
-	// for (const el of nameElements) {
-	// 	console.log(el)
-	// 	const example_parent = (await el.$x('..'))[0]
-	// 	const innerHtml = await example_parent.evaluate((node) => node.innerHtml)
-	// 	console.log(innerHtml)
-	// }
+async function getAnalysisPostsForMonth(page, year, month) {
+	const posts = await getListOfPosts(page)
+	return await posts.filter(([title, author, numReplies]) => {
+		function titleDoesNotContain() {
+			const args = [].slice.call(arguments)
+			return args.every(
+				(string) => !title.toLowerCase().includes(string.toLowerCase()),
+			)
+		}
 
-	if (
-		authorIs('AlBrooks') ||
-		(authorIs('BPAAdmin') && titleDoesNotContain('No Webinar', 'Holiday'))
-	) {
+		return (
+			(titleDoesNotContain('no webinar', 'holiday') && author === 'AlBrooks') ||
+			(author === 'BPAAdmin' && numReplies > 0)
+		)
+	})
+}
+
+async function processPosts(page, analysisPosts) {
+	for (const post of analysisPosts) {
+		const [postTitle, , , url] = post
+		await page.goto(url)
+		await page
+			.waitForSelector('div.quote')
+			.catch((err) =>
+				error.log('Error looking for quote block... is this an old post?', err),
+			)
+		// first quote:
+		//   each bar is after a <br>
+		const analysisHTML = await page.evaluate(
+			() => document.querySelectorAll('div.quote')[0].innerHTML,
+		)
+		const analysis = htmlToText(analysisHTML)
+		console.log(analysis)
 	}
 }
 
@@ -67,9 +94,9 @@ async function scrape() {
 
 	await page.goto('https://www.brookspriceaction.com/viewforum.php?f=1')
 	await signIn(page)
-	console.log('sign in complete')
-	await getPostsForMonth(page, year, month)
-	browser.close()
+	const analysisPosts = await getAnalysisPostsForMonth(page, year, month)
+	await processPosts(page, analysisPosts.slice(0, 1))
+	// browser.close()
 }
 
 scrape()

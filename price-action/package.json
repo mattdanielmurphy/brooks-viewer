@@ -9,6 +9,7 @@
   "dependencies": {
     "commander": "^8.3.0",
     "dotenv": "^10.0.0",
+    "html-to-text": "^8.1.0",
     "lowdb": "github:dankreiger/lowdb#chore/esm-cjs-hybrid-WITH-LIB",
     "puppeteer": "^11.0.0"
   },
