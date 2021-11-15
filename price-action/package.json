@@ -1,24 +1,30 @@
 {
   "author": "Matthew Murphy <matt@mattmurphy.ca>",
   "devDependencies": {
+    "@babel/cli": "^7.16.0",
     "@babel/core": "^7.15.5",
     "@babel/node": "^7.15.4",
     "@babel/preset-env": "^7.15.6"
   },
   "dependencies": {
-    "axios": "^0.22.0",
-    "cheerio": "^1.0.0-rc.10",
-    "html-to-text": "^8.0.0",
-    "image-downloader": "^4.0.3"
+    "commander": "^8.3.0",
+    "dotenv": "^10.0.0",
+    "lowdb": "github:dankreiger/lowdb#chore/esm-cjs-hybrid-WITH-LIB",
+    "puppeteer": "^11.0.0"
   },
   "license": "MIT",
   "main": "index.js",
   "name": "blog-scraper",
   "repository": "https://github.com/mattdanielmurphy/blog-scraper.git",
   "scripts": {
-    "babel-node": "babel-node --presets='@babel/preset-env' --ignore='foo|bar|baz'",
-    "execute": "npm run babel-node -- index.js",
-    "dev": "nodemon --exec npm run babel-node -- index.js"
+    "start": "yarn build && node ./bin/index.js",
+    "dev": "nodemon --exec babel-node ./src/index.js",
+    "clean": "rm -rf bin && mkdir bin",
+    "build-babel": "babel -d ./bin ./src -s",
+    "build": "yarn clean && npm run build-babel"
+  },
+  "bin": {
+    "scrape": "./bin/index.js"
   },
   "version": "1.0.0"
 }
