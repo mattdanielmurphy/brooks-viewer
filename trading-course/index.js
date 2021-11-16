@@ -14,9 +14,12 @@ const fs = require('fs').promises
 async function getBlogPostUrlsForPage(url) {
 	const $ = await fetchHtml(url)
 	const urls = []
+
 	$('a.entry-title-link').each((i, el) => {
-		const url = $(el).attr('href')
-		urls.push(url)
+		if (!$(el).text().includes('SP500')) {
+			const url = $(el).attr('href')
+			urls.push(url)
+		}
 	})
 	return urls
 }
