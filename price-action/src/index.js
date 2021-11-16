@@ -9,6 +9,8 @@ import parseInput from './cli-options'
 import path from 'path'
 import puppeteer from 'puppeteer'
 
+const downloadImage = require('image-downloader').image
+
 const createCsvWriter = require('csv-writer').createArrayCsvWriter
 
 require('dotenv').config()
@@ -34,6 +36,7 @@ async function setUpPuppeteer() {
 }
 
 async function signIn(page) {
+	await page.goto('https://www.brookspriceaction.com/viewforum.php?f=1')
 	await page.waitForSelector('input[name="username"]')
 	await page.type('input[name="username"]', process.env.USER_NAME)
 	await page.type('input[name="password"]', process.env.PASSWORD)
@@ -111,6 +114,10 @@ async function savePostsToCSVs(page, analysisPosts) {
 			)
 		// first quote:
 		//   each bar is after a <br>
+		const imageSrc = await page.evaluate(
+			() => document.querySelectorAll('.postbody img')[0].src,
+		)
+
 		const analysisHTML = await page.evaluate(
 			() => document.querySelectorAll('div.quote')[0].innerHTML,
 		)
@@ -118,16 +125,27 @@ async function savePostsToCSVs(page, analysisPosts) {
 		const analysis = splitAnalysisHTML.map((string) => [htmlToText(string)])
 
 		await makeLocalFolder(yearString, monthString)
-		const filePath = path.join(
+		const dirPath = path.join(
 			__dirname,
 			'/..',
 			'exports',
 			yearString,
 			monthString,
+		)
+		const csvPath = path.join(
+			dirPath,
 			`${yearString}-${monthString}-${dayString}.csv`,
 		)
+		const imagePath = path.join(
+			dirPath,
+			`${yearString}-${monthString}-${dayString}.png`,
+		)
+		await downloadImage({
+			url: imageSrc,
+			dest: imagePath,
+		})
 		const csvWriter = createCsvWriter({
-			path: filePath,
+			path: csvPath,
 			header: [url],
 		})
 		await csvWriter.writeRecords(analysis)
@@ -183,12 +201,7 @@ async function getPostsForMonth(page, year, month) {
 	const monthIsCurrentMonth = currentMonth === month
 	// if CSV not saved already, fetch it
 	if (monthIsCurrentMonth) {
-		// ! duplicated START (1/2)
-		process.stdout.write('Signing in...\r')
-		await page.goto('https://www.brookspriceaction.com/viewforum.php?f=1')
 		await signIn(page)
-		// ! duplicated END
-
 		process.stdout.write(
 			'Scraping page 1 because searching for current month...',
 		)
@@ -201,12 +214,7 @@ async function getPostsForMonth(page, year, month) {
 		// open folder
 		console.log('csv files already exist... opening')
 	} else {
-		// ! duplicated START (2/2)
-		process.stdout.write('Signing in...\r')
-		await page.goto('https://www.brookspriceaction.com/viewforum.php?f=1')
 		await signIn(page)
-		// ! duplicated END
-
 		const posts = db.data.posts[year][month]
 		await savePostsToCSVs(page, posts)
 	}
