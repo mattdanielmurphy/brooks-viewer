@@ -18,20 +18,6 @@ run `npm install -g` in this dir
 ### Set up lowdb, simple database using local json file
 then you can cache results for offline
 
-#### Sign In
-  - load [Trading Updates with Al Brooks](https://www.brookspriceaction.com/viewforum.php?f=1)
-  - wait for selector: input[name="username"]
-  - type username: input[name="username"]
-  - type password: input[name="password"]
-  - click: input[name="login"]
-
-#### Find Analyses
-  - function to search for analysis posts
-    - Replies > 0
-    - Author = AlBrooks
-
-#### Save bar-by-bar to CSV
-
 #### Save image
 
 Broadly:
@@ -42,3 +28,7 @@ Broadly:
 easiest safe implementation:
 basic cli command: `scrape 2021-10`
 opens folder with CSVs and images when done
+
+problem: don't know what pages have which dates
+solution: crawl all pages and record urls of analysis posts, saving them to db
+  update mode: add all new posts to db

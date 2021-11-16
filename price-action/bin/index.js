@@ -1,23 +1,44 @@
 #!/usr/bin/env node
 "use strict";
 
+var _lowdb = require("lowdb");
+
+var _path = _interopRequireWildcard(require("path"));
+
+var _utilities = require("./utilities");
+
+var _child_process = require("child_process");
+
 var _fs = _interopRequireDefault(require("fs"));
 
 var _htmlToText = require("html-to-text");
 
-var _lowdb = _interopRequireDefault(require("lowdb"));
+var _openFileExplorer = _interopRequireDefault(require("open-file-explorer"));
 
 var _cliOptions = _interopRequireDefault(require("./cli-options"));
-
-var _path = _interopRequireDefault(require("path"));
 
 var _puppeteer = _interopRequireDefault(require("puppeteer"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+// lowdb
+// import { fileURLToPath } from 'url'
+const createCsvWriter = require('csv-writer').createArrayCsvWriter;
+
 const fs = _fs.default.promises;
 
-require('dotenv').config();
+require('dotenv').config(); // Use JSON file for storage
+
+
+const file = (0, _path.join)(__dirname, '/..', 'db.json');
+const adapter = new _lowdb.JSONFile(file);
+const db = new _lowdb.Low(adapter); // set default data
+// db.data ||= { posts: {} }
+// db.write()
 
 async function setUpPuppeteer() {
   const browser = await _puppeteer.default.launch({
@@ -51,15 +72,20 @@ async function getListOfPosts(page) {
       const author = el.firstChild.innerText;
       const numReplies = el.parentNode.parentNode.querySelectorAll('span.postdetails a[href^="postings_popup.php"]')[0].innerText;
       const title = el.parentNode.parentNode.querySelectorAll('a.topictitle')[0].innerText;
-      const href = el.parentNode.parentNode.querySelectorAll('a.topictitle')[0].href;
-      results.push([title, author, numReplies, href]);
+      const url = el.parentNode.parentNode.querySelectorAll('a.topictitle')[0].href; // date
+
+      const regex = RegExp(/\d\d-\d\d-\d{4}/);
+      const originalDateString = regex.exec(title)[0];
+      const [monthString, dayString, yearString] = originalDateString.split('-');
+      const dateString = yearString + '-' + monthString + '-' + dayString;
+      results.push([title, author, numReplies, url, dateString]);
     }
 
     return results;
   });
 }
 
-async function getAnalysisPostsForMonth(page, year, month) {
+async function getAnalysisPostsForPage(page) {
   const posts = await getListOfPosts(page);
   return await posts.filter(([title, author, numReplies]) => {
     function titleDoesNotContain() {
@@ -71,27 +97,131 @@ async function getAnalysisPostsForMonth(page, year, month) {
   });
 }
 
-async function processPosts(page, analysisPosts) {
-  for (const post of analysisPosts) {
-    const [postTitle,,, url] = post;
+async function savePostsToCSVs(page, analysisPosts) {
+  for (const [i, post] of analysisPosts.entries()) {
+    const {
+      url,
+      dateString
+    } = post;
+    const [yearString, monthString, dayString] = dateString.split('-');
+
+    if (db.data.daySavedAsCSV.includes(yearString + '-' + monthString + '-' + dayString)) {
+      process.stdout.write(`Post ${i + 1} of ${analysisPosts.length} already exists.\r`);
+      continue;
+    }
+
+    process.stdout.write(`Scraping post ${i + 1} of ${analysisPosts.length}\r`);
     await page.goto(url);
-    await page.waitForSelector('div.quote'); // first quote:
+    await page.waitForSelector('div.quote').catch(err => error.log('Error looking for quote block... is this an old post?', err)); // first quote:
     //   each bar is after a <br>
 
     const analysisHTML = await page.evaluate(() => document.querySelectorAll('div.quote')[0].innerHTML);
-    const analysis = (0, _htmlToText.htmlToText)(analysisHTML);
-    console.log(analysis);
+    const splitAnalysisHTML = analysisHTML.split('<br>');
+    const analysis = splitAnalysisHTML.map(string => [(0, _htmlToText.htmlToText)(string)]);
+    await (0, _utilities.makeLocalFolder)(yearString, monthString);
+
+    const filePath = _path.default.join(__dirname, '/..', 'exports', yearString, monthString, `${yearString}-${monthString}-${dayString}.csv`);
+
+    const csvWriter = createCsvWriter({
+      path: filePath,
+      header: [url]
+    });
+    await csvWriter.writeRecords(analysis);
+    if (!db.data.monthSavedAsCSV.includes(yearString + '-' + monthString)) db.data.monthSavedAsCSV.push(yearString + '-' + monthString); // checked for daySaved at top
+
+    db.data.daySavedAsCSV.push(yearString + '-' + monthString + '-' + dayString);
+    await db.write();
   }
 }
 
-async function scrape() {
-  const [year, month] = await (0, _cliOptions.default)();
-  const [browser, page] = await setUpPuppeteer();
-  await page.goto('https://www.brookspriceaction.com/viewforum.php?f=1');
-  await signIn(page);
-  const analysisPosts = await getAnalysisPostsForMonth(page, year, month);
-  await processPosts(page, analysisPosts.slice(0, 1)); // browser.close()
+async function scrapeAllPages(page, onlyFirstPage) {
+  await db.read();
+  const finalIndex = onlyFirstPage ? 0 : 3150; // for (let i = 0; i < 3150; i += 50) {
+
+  for (let i = 0; i < finalIndex; i += 50) {
+    if (i === 0) {
+      await page.goto('https://www.brookspriceaction.com/viewforum.php?f=1');
+      await signIn(page);
+    } else {
+      await page.goto(`https://www.brookspriceaction.com/viewforum.php?f=1&topicdays=0&start=${i}`);
+    }
+
+    const analysisPosts = await getAnalysisPostsForPage(page);
+
+    for (const post of analysisPosts) {
+      const [,,, url, dateString] = post;
+      console.log(url, dateString);
+      const [yearString, monthString, dayString] = dateString.split('-');
+
+      if (!db.data.posts[yearString]) {
+        db.data.posts[yearString] = {};
+        await db.write();
+      }
+
+      if (!db.data.posts[yearString][monthString]) {
+        db.data.posts[yearString][monthString] = [];
+        await db.write();
+      }
+
+      db.data.posts[yearString][monthString].push({
+        url,
+        dateString
+      });
+      await db.write();
+    } // const [title, author, numReplies, url, dateString] = analysisPosts
+
+  }
 }
 
-scrape();
+async function getPostsForMonth(page, year, month) {
+  // if current month, scrape 1st page, redownload CSVs
+  const currentMonth = new Date().getMonth() + 1;
+  const monthIsCurrentMonth = currentMonth === month; // if CSV not saved already, fetch it
+
+  if (monthIsCurrentMonth) {
+    // ! duplicated START (1/2)
+    process.stdout.write('Signing in...\r');
+    await page.goto('https://www.brookspriceaction.com/viewforum.php?f=1');
+    await signIn(page); // ! duplicated END
+
+    process.stdout.write('Scraping page 1 because searching for current month...');
+    await scrapeAllPages(page, true);
+    console.log('pages scraped');
+    const posts = db.data.posts[year][month];
+    await savePostsToCSVs(page, posts);
+    console.log('posts saved');
+  } else if (db.data.monthSavedAsCSV.includes(year + '-' + month)) {
+    // open folder
+    console.log('csv files already exist... opening');
+  } else {
+    // ! duplicated START (2/2)
+    process.stdout.write('Signing in...\r');
+    await page.goto('https://www.brookspriceaction.com/viewforum.php?f=1');
+    await signIn(page); // ! duplicated END
+
+    const posts = db.data.posts[year][month];
+    await savePostsToCSVs(page, posts);
+  }
+
+  const dirPath = _path.default.join(__dirname, '/..', 'exports', String(year), String(month));
+
+  (0, _child_process.exec)(`start "${dirPath}"`);
+}
+
+async function scrape() {
+  await db.read();
+  const [year, month] = await (0, _cliOptions.default)();
+  const [browser, page] = await setUpPuppeteer();
+  const scraping = false;
+
+  if (scraping) {
+    await scrapeAllPages(page);
+  }
+
+  await getPostsForMonth(page, year, month);
+  browser.close();
+}
+
+scrape(); // todo:
+// automatically remove daySavedAsCSV entires for past months
 //# sourceMappingURL=index.js.map

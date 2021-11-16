@@ -1,0 +1,122 @@
+{
+  "daySavedAsCSV": [
+    "2021-11-01",
+    "2021-11-03",
+    "2021-11-05",
+    "2021-11-08",
+    "2021-11-10",
+    "2021-11-15",
+    "2021-10-28",
+    "2021-10-26",
+    "2021-10-21",
+    "2021-10-19",
+    "2021-10-15",
+    "2021-10-13",
+    "2021-10-11",
+    "2021-10-08",
+    "2021-10-06",
+    "2021-10-04"
+  ],
+  "monthSavedAsCSV": [
+    "2021-11",
+    "2021-10"
+  ],
+  "posts": {
+    "2021": {
+      "10": [
+        {
+          "url": "https://www.brookspriceaction.com/viewtopic.php?t=5795",
+          "dateString": "2021-10-28"
+        },
+        {
+          "url": "https://www.brookspriceaction.com/viewtopic.php?t=5797",
+          "dateString": "2021-10-26"
+        },
+        {
+          "url": "https://www.brookspriceaction.com/viewtopic.php?t=5790",
+          "dateString": "2021-10-21"
+        },
+        {
+          "url": "https://www.brookspriceaction.com/viewtopic.php?t=5792",
+          "dateString": "2021-10-19"
+        },
+        {
+          "url": "https://www.brookspriceaction.com/viewtopic.php?t=5783",
+          "dateString": "2021-10-15"
+        },
+        {
+          "url": "https://www.brookspriceaction.com/viewtopic.php?t=5785",
+          "dateString": "2021-10-13"
+        },
+        {
+          "url": "https://www.brookspriceaction.com/viewtopic.php?t=5787",
+          "dateString": "2021-10-11"
+        },
+        {
+          "url": "https://www.brookspriceaction.com/viewtopic.php?t=5777",
+          "dateString": "2021-10-08"
+        },
+        {
+          "url": "https://www.brookspriceaction.com/viewtopic.php?t=5779",
+          "dateString": "2021-10-06"
+        },
+        {
+          "url": "https://www.brookspriceaction.com/viewtopic.php?t=5781",
+          "dateString": "2021-10-04"
+        }
+      ],
+      "11": [
+        {
+          "url": "https://www.brookspriceaction.com/viewtopic.php?t=5815",
+          "dateString": "2021-11-15"
+        },
+        {
+          "url": "https://www.brookspriceaction.com/viewtopic.php?t=5808",
+          "dateString": "2021-11-10"
+        },
+        {
+          "url": "https://www.brookspriceaction.com/viewtopic.php?t=5810",
+          "dateString": "2021-11-08"
+        },
+        {
+          "url": "https://www.brookspriceaction.com/viewtopic.php?t=5800",
+          "dateString": "2021-11-05"
+        },
+        {
+          "url": "https://www.brookspriceaction.com/viewtopic.php?t=5802",
+          "dateString": "2021-11-03"
+        },
+        {
+          "url": "https://www.brookspriceaction.com/viewtopic.php?t=5804",
+          "dateString": "2021-11-01"
+        }
+      ],
+      "09": [
+        {
+          "url": "https://www.brookspriceaction.com/viewtopic.php?t=5763",
+          "dateString": "2021-09-23"
+        },
+        {
+          "url": "https://www.brookspriceaction.com/viewtopic.php?t=5764",
+          "dateString": "2021-09-22"
+        },
+        {
+          "url": "https://www.brookspriceaction.com/viewtopic.php?t=5749",
+          "dateString": "2021-09-10"
+        },
+        {
+          "url": "https://www.brookspriceaction.com/viewtopic.php?t=5754",
+          "dateString": "2021-09-17"
+        },
+        {
+          "url": "https://www.brookspriceaction.com/viewtopic.php?t=5756",
+          "dateString": "2021-09-15"
+        },
+        {
+          "url": "https://www.brookspriceaction.com/viewtopic.php?t=5758",
+          "dateString": "2021-09-13"
+        }
+      ]
+    }
+  }
+}
