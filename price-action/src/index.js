@@ -26,7 +26,7 @@ const db = new Low(adapter)
 // db.write()
 
 async function setUpPuppeteer() {
-	const browser = await puppeteer.launch({ headless: false })
+	const browser = await puppeteer.launch({ headless: true })
 	const page = await browser.newPage()
 	// Show console logs from within page.evaluate
 	page.on('console', (msg) => {
