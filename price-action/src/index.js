@@ -3,9 +3,7 @@
 import { JSONFile, Low } from 'lowdb'
 
 import { exec } from 'child_process'
-import fsSync from 'fs'
 import { htmlToText } from 'html-to-text'
-// lowdb
 import { makeLocalFolder } from './utilities'
 import parseInput from './cli-options'
 import path from 'path'
@@ -13,7 +11,6 @@ import puppeteer from 'puppeteer'
 
 const createCsvWriter = require('csv-writer').createArrayCsvWriter
 
-const fs = fsSync.promises
 require('dotenv').config()
 
 // Use JSON file for storage
@@ -26,7 +23,7 @@ const db = new Low(adapter)
 // db.write()
 
 async function setUpPuppeteer() {
-	const browser = await puppeteer.launch({ headless: true })
+	const browser = await puppeteer.launch({ headless: false })
 	const page = await browser.newPage()
 	// Show console logs from within page.evaluate
 	page.on('console', (msg) => {
@@ -38,7 +35,7 @@ async function setUpPuppeteer() {
 
 async function signIn(page) {
 	await page.waitForSelector('input[name="username"]')
-	await page.type('input[name="username"]', process.env.USER)
+	await page.type('input[name="username"]', process.env.USER_NAME)
 	await page.type('input[name="password"]', process.env.PASSWORD)
 	await Promise.all([
 		// Wait for click that triggers navigation
@@ -180,6 +177,7 @@ async function scrapeAllPages(page, onlyFirstPage) {
 }
 
 async function getPostsForMonth(page, year, month) {
+	await db.read()
 	// if current month, scrape 1st page, redownload CSVs
 	const currentMonth = new Date().getMonth() + 1
 	const monthIsCurrentMonth = currentMonth === month
@@ -208,6 +206,7 @@ async function getPostsForMonth(page, year, month) {
 		await page.goto('https://www.brookspriceaction.com/viewforum.php?f=1')
 		await signIn(page)
 		// ! duplicated END
+
 		const posts = db.data.posts[year][month]
 		await savePostsToCSVs(page, posts)
 	}
@@ -222,7 +221,6 @@ async function getPostsForMonth(page, year, month) {
 }
 
 async function scrape() {
-	await db.read()
 	const [year, month] = await parseInput()
 	const [browser, page] = await setUpPuppeteer()
 	const scraping = false
@@ -235,6 +233,3 @@ async function scrape() {
 }
 
 scrape()
-
-// todo:
-// automatically remove daySavedAsCSV entires for past months
