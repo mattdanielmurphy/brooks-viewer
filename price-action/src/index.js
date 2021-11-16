@@ -1,15 +1,12 @@
 #!/usr/bin/env node
 
 import { JSONFile, Low } from 'lowdb'
-// lowdb
-import { dirname, join } from 'path'
-import { makeLocalFolder, writeLocalFile } from './utilities'
 
 import { exec } from 'child_process'
-// import { fileURLToPath } from 'url'
 import fsSync from 'fs'
 import { htmlToText } from 'html-to-text'
-import openFileExplorer from 'open-file-explorer'
+// lowdb
+import { makeLocalFolder } from './utilities'
 import parseInput from './cli-options'
 import path from 'path'
 import puppeteer from 'puppeteer'
@@ -20,7 +17,7 @@ const fs = fsSync.promises
 require('dotenv').config()
 
 // Use JSON file for storage
-const file = join(__dirname, '/..', 'db.json')
+const file = path.join(__dirname, '/..', 'db.json')
 const adapter = new JSONFile(file)
 const db = new Low(adapter)
 
@@ -41,7 +38,7 @@ async function setUpPuppeteer() {
 
 async function signIn(page) {
 	await page.waitForSelector('input[name="username"]')
-	await page.type('input[name="username"]', process.env.USERNAME)
+	await page.type('input[name="username"]', process.env.USER)
 	await page.type('input[name="password"]', process.env.PASSWORD)
 	await Promise.all([
 		// Wait for click that triggers navigation
@@ -221,7 +218,7 @@ async function getPostsForMonth(page, year, month) {
 		String(year),
 		String(month),
 	)
-	exec(`start "${dirPath}"`)
+	exec(`explorer.exe "${dirPath}"`)
 }
 
 async function scrape() {
