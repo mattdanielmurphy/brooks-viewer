@@ -33,7 +33,7 @@ function wrapHtml(htmlContent, title = 'Document') {
 		<style rel="stylesheet" type="text/css">
 			body {
 				font-family: 'Calibri', sans-serif;
-				max-width: 50rem;
+				max-width: 40rem;
 				margin: 4vw auto;
 				padding: 2rem;
 			}

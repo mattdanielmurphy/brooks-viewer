@@ -8,155 +8,152 @@ const {
 const downloadImage = require('image-downloader').image
 const path = require('path')
 const fs = require('fs').promises
+const log = require('single-line-log').stdout
+// console.log = log
 
-// Get URLs
+// * CONFIGURATION
+const subStringsToFilter = ['forex', 'I will update']
 
-async function getBlogPostUrlsForPage(url) {
-	const $ = await fetchHtml(url)
-	const urls = []
-
-	$('a.entry-title-link').each((i, el) => {
-		if (!$(el).text().includes('SP500')) {
-			const url = $(el).attr('href')
-			urls.push(url)
-		}
-	})
-	return urls
-}
-
-/**
- * Gets post urls from list of blog posts
- * @param {string} url
- * @param {number} [pages = 1] number of pages to process (pages value of 2 = get latest page and 1 previous page)
- */
-async function getBlogPostUrlsForNumberOfPages(url, pages = 1) {
-	const urls = { pages: [] }
-	console.log(`1/2 | Getting blog post URLs for page 1 of ${pages}...`)
-	urls.pages.push(await getBlogPostUrlsForPage(url))
-	if (pages > 1) {
-		for (let pageNumber = 2; pageNumber <= pages; pageNumber++) {
-			console.log(
-				`1/2 | Getting blog post URLs for page ${pageNumber} of ${pages}...`,
-			)
-			urls.pages.push(await getBlogPostUrlsForPage(`${url}/page/${pageNumber}`))
-		}
-	}
-	return urls
-}
-
-// Get Page Content
-
-async function getHtmlFromPage(url) {
-	const $ = await fetchHtml(url)
-	const date = $('time')
-		.first()
-		.text()
-		.replace(/ at.*/, '')
-		.replace(/(,?\s)/g, '-')
-
-	const html = []
-	$('h2').each((i, cheerioEl) => {
-		let el = $(cheerioEl)
-		const elString = el.toString()
-		if (elString === '<h2>Trading Room</h2>') return
-
-		const h2AndItsContent = { heading: el.text(), sectionHtml: elString }
-		while ((el = el.next())) {
-			if (
-				el.length === 0 ||
-				el.get(0).tagName === 'h2' ||
-				el.get(0).tagName === 'hr'
-			) {
-				break
-			} else
-				h2AndItsContent.sectionHtml =
-					h2AndItsContent.sectionHtml + el.toString()
-		}
-		html.push(h2AndItsContent)
-	})
-	return [html, date]
-}
-
-async function downloadImages(html, folderPath, i) {
-	const re =
+async function downloadImages(htmlString, folderPath) {
+	const regEx =
 		/<img.*(https:\/\/[\w.]*\/wp-content\/uploads\/\d{4}\/\d{2}\/[\w-_]*\.\w{3,4}) \d{4}w"[^<]*>/g
-	const matches = re.exec(html)
+	const matches = regEx.exec(htmlString)
 	let text
 	if (matches) {
 		const imageUrl = matches[1]
 		if (imageUrl) {
 			const fileName = /\/([^/]*\.\w{3,4})$/.exec(imageUrl)[1]
 			if (fileName) {
-				makeLocalFolder(folderPath)
-				const filePath = path.join(
-					__dirname,
-					'exports',
-					folderPath,
-					`${i}-${fileName}`,
-				)
+				const fullPath = path.join(__dirname, 'image-exports', folderPath)
+				await fs.mkdir(fullPath, { recursive: true }).catch(() => {}) // make folder
+				const filePath = path.join(fullPath, fileName)
 				await downloadImage({
 					url: imageUrl,
 					dest: filePath,
 				})
 
-				html = html.replace(re, `<img src="${filePath}"/>`)
-				// ! NEED TO FIX: (not removing image tag)
-				// ! NEED TO FIX: (not removing image tag)
-				// ! NEED TO FIX: (not removing image tag)
-				text = htmlToText(html.replace(re, ''))
+				const pathFromHtmlFile = path.join(
+					'../../../',
+					'image-exports',
+					folderPath,
+					fileName,
+				)
+
+				htmlString = htmlString.replace(
+					regEx,
+					`<img src="${pathFromHtmlFile}"/>`,
+				)
 			}
 		}
-	} else {
-		text = htmlToText(html)
 	}
-	return [html, text]
+	return [htmlString]
 }
 
-async function getContentFromPage(url) {
-	const [html, date] = await getHtmlFromPage(url)
-	if (typeof date !== 'string' || typeof html !== 'object') return // unnecessary really, put here so typescript would shut up
-	const [month, day, year] = date.split('-')
-	const dayDir = path.join(year, month, day)
-	await makeLocalFolder(dayDir)
+function shorten(string, length) {
+	if (string.length > length) {
+		return string.substring(0, length - 3) + '...'
+	} else return string
+}
 
-	const text = await Promise.all(
-		html.map(async ({ heading, sectionHtml }, i) => {
-			const j = i + 1 // non-zero index for normies
-			const dir = path.join(dayDir, `${j}-${heading}`)
-			// images are downloaded and refs are replaced with local downloaded ones
-			const [sectionHtmlImagesDownloaded, sectionText] = await downloadImages(
-				sectionHtml,
-				path.join(dir),
-				j,
+// GET CONTENT FROM PAGES
+const monthToNumber = (month) =>
+	new Date(Date.parse(month + ' 1, 2012')).getMonth() + 1
+
+async function getDateFromTime(time) {
+	const [monthString, day, year] = await time
+		.first()
+		.text()
+		.split(/\s|,\s?/)
+
+	return [year, monthToNumber(monthString), day, monthString]
+}
+
+async function getContentFromPages(urls) {
+	for (const [i, url] of Object.entries(urls)) {
+		const shortUrl = url.split('market-update/')[1].slice(0, -1)
+		log(
+			`2. Getting blog post '${shorten(shortUrl, 40)}' [${Number(i) + 1}/${
+				urls.length
+			}]\n`,
+		)
+		const $ = await fetchHtml(url)
+
+		const [year, month, day, monthString] = await getDateFromTime($('time'))
+		let main = $('main').toString()
+		main = main
+			.replace(
+				/(<p.*>Here are several reasonable.*\s*<p.*\s*<p.*\s*.*<p\/>)/,
+				'',
+			) // strip away unnecessary end of post
+			.replace(/<hr.*/s, '') // strip away unnecessary end of post
+			.replace(/<p><em>See the <a rel="noreferrer.*\/em>/, '') // strip away unnecessary end of post
+			.replace(/\n\s*</g, '<') // strip whitespace
+
+		let splitByH2s = main.split(/(?=<h2>.*<\/h2>)/).slice(1)
+		const html = splitByH2s.filter((string) => {
+			const freeOfUnwantedSubStrings = subStringsToFilter.every(
+				(subStringToFilter) =>
+					!string.toLowerCase().includes(subStringToFilter),
 			)
-			await makeLocalFolder(dir)
+			if (freeOfUnwantedSubStrings) return true
+			// return true
+		})
+		const monthDir = path.join(year, `${month} - ${monthString}`)
+		await makeLocalFolder(monthDir)
+
+		for (const [i, string] of html.entries()) {
+			const headingInHtml = string.match(/<h2>(.*)<\/h2>/)[1]
+			let heading = htmlToText(headingInHtml)
+			if (heading.length > 80) heading = heading.slice(0, 80 - 3) + '...'
+			if (headingInHtml.includes('Summary')) heading = 'EOD Summary'
+			if (headingInHtml.includes('Emini pre')) heading = 'Pre'
+			const [htmlWithImagesDownloaded] = await downloadImages(string, monthDir)
+			const html = wrapHtml(htmlWithImagesDownloaded)
 			await writeLocalFile(
-				path.join(year, month, `${day}-${j}-${heading}.html`),
-				wrapHtml(sectionHtmlImagesDownloaded, heading),
+				path.join(monthDir, `${year}-${month}-${day} | ${heading}.html`),
+				html,
 			)
-			await writeLocalFile(path.join(dir, `${heading}.txt`), sectionText)
-			return sectionText
-		}),
-	)
+		}
+	}
+	console.log('')
 }
 
-async function getContentFromPages({ pages }) {
-	return await pages.forEach(async (page, i) => {
-		console.log(`2/2 | Getting content for page ${i + 1} of ${pages.length}...`)
-		return await page.forEach(async (url) => await getContentFromPage(url))
-	})
+// GET CONTENT FROM PAGES
+
+/**
+ * Gets post urls from list of blog posts
+ * @param {string} url
+ * @param {number} pageEnd last page of postURLs to get
+ * @param {number} pageStart first page of postURLs to get
+ */
+async function getPostUrls(url, pageEnd = 0, pageStart = 0) {
+	const urls = []
+	const numPages = pageEnd - pageStart + 1
+	for (let pageNumber = pageStart; pageNumber <= pageEnd; pageNumber++) {
+		log(
+			`1. Getting blog post URLs for page ${pageNumber + 1}... [${
+				pageNumber - pageStart + 1
+			}/${numPages}]\n`,
+		)
+		if (pageNumber > 1) url = `${url}/page/${pageNumber}`
+		const $ = await fetchHtml(url)
+		$('a.entry-title-link').each((i, el) => {
+			if (!$(el).text().includes('SP500')) {
+				const url = $(el).attr('href')
+				urls.push(url)
+			}
+		})
+	}
+	console.log('')
+	return urls
 }
 
-async function getContentFromBlog() {
-	const urls = await getBlogPostUrlsForNumberOfPages(
+async function scrape() {
+	const urls = await getPostUrls(
 		'https://www.brookstradingcourse.com/blog/market-update',
-		1,
 	)
 	await getContentFromPages(urls)
-	//! FIX promises; this appears before it should
-	//! FIX promises; this appears before it should
-	//! FIX promises; this appears before it should
-	// console.log('Done!')
+	log('Done!\n')
 }
 
-getContentFromBlog()
+scrape()

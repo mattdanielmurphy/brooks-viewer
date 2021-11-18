@@ -9,7 +9,8 @@
     "axios": "^0.22.0",
     "cheerio": "^1.0.0-rc.10",
     "html-to-text": "^8.0.0",
-    "image-downloader": "^4.0.3"
+    "image-downloader": "^4.0.3",
+    "single-line-log": "^1.1.2"
   },
   "license": "MIT",
   "main": "index.js",

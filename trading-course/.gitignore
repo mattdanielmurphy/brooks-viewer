@@ -123,3 +123,5 @@ dist
 
 .node_modules.nosync
 node_modules
+image-exports
+old exports
