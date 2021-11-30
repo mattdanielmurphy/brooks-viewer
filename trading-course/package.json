@@ -8,8 +8,10 @@
   "dependencies": {
     "axios": "^0.22.0",
     "cheerio": "^1.0.0-rc.10",
+    "html-minifier": "^4.0.0",
     "html-to-text": "^8.0.0",
     "image-downloader": "^4.0.3",
+    "lowdb": "github:dankreiger/lowdb#chore/esm-cjs-hybrid-WITH-LIB",
     "single-line-log": "^1.1.2"
   },
   "license": "MIT",
@@ -18,8 +20,8 @@
   "repository": "https://github.com/mattdanielmurphy/blog-scraper.git",
   "scripts": {
     "babel-node": "babel-node --presets='@babel/preset-env' --ignore='foo|bar|baz'",
-    "execute": "npm run babel-node -- index.js",
-    "dev": "nodemon --exec npm run babel-node -- index.js"
+    "execute": "npm run babel-node -- ./src/index.js",
+    "dev": "nodemon --exec npm run babel-node -- ./src/index.js"
   },
   "version": "1.0.0"
 }

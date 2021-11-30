@@ -1,15 +1,18 @@
-const { htmlToText } = require('html-to-text')
-const {
+import {
 	fetchHtml,
-	writeLocalFile,
-	wrapHtml,
+	getDateFromTime,
 	makeLocalFolder,
-} = require('./utilities')
-const downloadImage = require('image-downloader').image
-const path = require('path')
-const fs = require('fs').promises
-const log = require('single-line-log').stdout
-// console.log = log
+	shortenString,
+	wrapHtml,
+	writeLocalFile,
+} from './utilities'
+
+import { image as downloadImage } from 'image-downloader'
+import { exec } from 'child_process'
+import { promises as fs } from 'fs'
+import { htmlToText } from 'html-to-text'
+import { stdout as log } from 'single-line-log'
+import path from 'path'
 
 // * CONFIGURATION
 const subStringsToFilter = ['forex', 'I will update']
@@ -49,38 +52,9 @@ async function downloadImages(htmlString, folderPath) {
 	return [htmlString]
 }
 
-function shorten(string, length) {
-	if (string.length > length) {
-		return string.substring(0, length - 3) + '...'
-	} else return string
-}
-
-// GET CONTENT FROM PAGES
-const monthToNumber = (month) =>
-	new Date(Date.parse(month + ' 1, 2012')).getMonth() + 1
-
-async function getDateFromTime(time) {
-	const [monthString, day, year] = await time
-		.first()
-		.text()
-		.split(/\s|,\s?/)
-
-	return [year, monthToNumber(monthString), day, monthString]
-}
-
 async function getContentFromPages(urls) {
-	for (const [i, url] of Object.entries(urls)) {
-		const shortUrl = url.split('market-update/')[1].slice(0, -1)
-		log(
-			`2. Getting blog post '${shorten(shortUrl, 40)}' [${Number(i) + 1}/${
-				urls.length
-			}]\n`,
-		)
-		const $ = await fetchHtml(url)
-
-		const [year, month, day, monthString] = await getDateFromTime($('time'))
-		let main = $('main').toString()
-		main = main
+	function removeGarbageText(text) {
+		return text
 			.replace(
 				/(<p.*>Here are several reasonable.*\s*<p.*\s*<p.*\s*.*<p\/>)/,
 				'',
@@ -88,6 +62,20 @@ async function getContentFromPages(urls) {
 			.replace(/<hr.*/s, '') // strip away unnecessary end of post
 			.replace(/<p><em>See the <a rel="noreferrer.*\/em>/, '') // strip away unnecessary end of post
 			.replace(/\n\s*</g, '<') // strip whitespace
+	}
+
+	for (const [i, url] of Object.entries(urls)) {
+		const shortUrl = url.split('market-update/')[1].slice(0, -1)
+		log(
+			`2. Getting blog post '${shortenString(shortUrl, 40)}' [${
+				Number(i) + 1
+			}/${urls.length}]\n`,
+		)
+		const $ = await fetchHtml(url)
+
+		const [year, month, day, monthString] = await getDateFromTime($('time'))
+		let main = $('main').toString()
+		main = removeGarbageText(main)
 
 		let splitByH2s = main.split(/(?=<h2>.*<\/h2>)/).slice(1)
 		const html = splitByH2s.filter((string) => {
@@ -118,25 +106,19 @@ async function getContentFromPages(urls) {
 	console.log('')
 }
 
-// GET CONTENT FROM PAGES
-
-/**
- * Gets post urls from list of blog posts
- * @param {string} url
- * @param {number} pageEnd last page of postURLs to get
- * @param {number} pageStart first page of postURLs to get
- */
-async function getPostUrls(url, pageEnd = 0, pageStart = 0) {
+async function getPostUrls(url, pageEnd = 1, pageStart = 1) {
 	const urls = []
 	const numPages = pageEnd - pageStart + 1
+
 	for (let pageNumber = pageStart; pageNumber <= pageEnd; pageNumber++) {
 		log(
-			`1. Getting blog post URLs for page ${pageNumber + 1}... [${
+			`1. Getting blog post URLs for page ${pageNumber}... [${
 				pageNumber - pageStart + 1
 			}/${numPages}]\n`,
 		)
-		if (pageNumber > 1) url = `${url}/page/${pageNumber}`
-		const $ = await fetchHtml(url)
+		if (pageNumber > 1) pageUrl = `${url}/page/${pageNumber + 1}`
+		const $ = await fetchHtml(pageUrl)
+		// get URLs from each post link unless is SP500 post
 		$('a.entry-title-link').each((i, el) => {
 			if (!$(el).text().includes('SP500')) {
 				const url = $(el).attr('href')
@@ -148,9 +130,14 @@ async function getPostUrls(url, pageEnd = 0, pageStart = 0) {
 	return urls
 }
 
+// * PROGRAM START
+
 async function scrape() {
+	// ! TESTING: REMOVE
+	exec('rm -r exports')
 	const urls = await getPostUrls(
 		'https://www.brookstradingcourse.com/blog/market-update',
+		3,
 	)
 	await getContentFromPages(urls)
 	log('Done!\n')

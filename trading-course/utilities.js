@@ -1,31 +1,30 @@
-const cheerio = require('cheerio')
-const axios = require('axios').default
-const fs = require('fs').promises
-const path = require('path')
+import { JSONFile, Low } from 'lowdb'
 
-async function fetchHtml(url) {
-	const { data } = await axios.get(url)
+import { default as axios } from 'axios'
+import cheerio from 'cheerio'
+import { promises as fs } from 'fs'
+import path from 'path'
+import { title } from 'process'
+
+// * HTML
+
+export async function fetchHtml(url) {
+	// console.log('\nfetching url: ' + url + '\n')
+	const { data } = await axios.get(url).catch((err) => {})
 	return cheerio.load(data)
 }
 
-async function writeLocalFile(pathName, content) {
-	const saveDir = 'exports'
-	await fs.rm(path.join(__dirname, saveDir, pathName)).catch(() => {})
-	return await fs.writeFile(path.join(__dirname, saveDir, pathName), content)
-}
-
-async function makeLocalFolder() {
-	const dirNames = [].slice.call(arguments)
-	const dirPath = path.join(__dirname, 'exports', ...dirNames)
-	return await fs.mkdir(dirPath, { recursive: true }).catch(() => {})
-}
-
-function removeInlineColorInitial(htmlContent) {
+export function removeInlineColorInitial(htmlContent) {
 	return htmlContent.replace('color: initial;', '')
 }
 
-function wrapHtml(htmlContent, title = 'Document') {
+export function wrapHtml(
+	htmlContent,
+	options = { title: 'Document', wrapWithBodyTag: true },
+) {
+	const { title, wrapWithBodyTag } = options
 	htmlContent = removeInlineColorInitial(htmlContent)
+	const body = wrapWithBodyTag ? `<body>${htmlContent}</body>` : htmlContent
 	return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,7 +48,69 @@ function wrapHtml(htmlContent, title = 'Document') {
 				max-width: 100%;
 			}
 		</style></head>
-		<body>${htmlContent}</body></html>`
+		${body}</html>`
 }
 
-module.exports = { fetchHtml, writeLocalFile, wrapHtml, makeLocalFolder }
+// * FILESYSTEM (WRITING FILES & CREATING FOLDERS)
+
+export async function writeLocalFile(pathName, content) {
+	await fs.rm(path.join(__dirname, pathName)).catch(() => {})
+	return await fs.writeFile(path.join(__dirname, pathName), content)
+}
+
+export async function makeLocalFolder() {
+	const pathToFolder = [].slice.call(arguments)
+	const completePath = path.join(__dirname, ...pathToFolder)
+	return await fs.mkdir(completePath, { recursive: true }).catch(() => {})
+}
+
+// * TEXT MANIPULATION
+
+export function shortenString(string, length) {
+	if (string.length > length) {
+		return string.substring(0, length - 3) + '...'
+	} else return string
+}
+
+export function monthToNumber(month) {
+	return new Date(Date.parse(month + ' 1, 2012')).getMonth() + 1
+}
+
+export async function getDateFromTime(time) {
+	const [monthString, day, year] = await time
+		.first()
+		.text()
+		.split(/\s|,\s?/)
+
+	return [year, monthToNumber(monthString), day, monthString]
+}
+
+export async function cooldown(maxTime = 3000) {
+	return new Promise(function (resolve) {
+		setTimeout(() => resolve(), 400 + Math.random() * maxTime)
+	})
+}
+
+export const getDatabase = async (pathToDatabaseFile, defaultData = {}) => {
+	const filePath = path.join(__dirname, 'data', `${pathToDatabaseFile}.json`)
+	const adapter = new JSONFile(filePath)
+	const db = new Low(adapter)
+	await db.read()
+	if (!db.data) {
+		console.log('creating new db', pathToDatabaseFile)
+		db.data = defaultData
+		db.write()
+	}
+	return db
+}
+
+export async function logToDatabase(data) {
+	const logDb = await getDatabase('log', {})
+	logDb.data[Date.now()] = [data]
+	await logDb.write()
+}
+export async function clearLog() {
+	const logDb = await getDatabase('log', {})
+	logDb.data = {}
+	await logDb.write()
+}

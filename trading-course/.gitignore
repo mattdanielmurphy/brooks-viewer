@@ -125,3 +125,6 @@ dist
 node_modules
 image-exports
 old exports
+data/images/
+data/html/
+data/*.json
