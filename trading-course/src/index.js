@@ -4,19 +4,23 @@ import {
 	fetchHtml,
 	getDatabase,
 	getDateFromTime,
+	length,
 	logToDatabase,
 	makeLocalFolder,
 	shortenString,
 	wrapHtml,
 	writeLocalFile,
 } from '../utilities'
+import { isNumber, promisify } from 'util'
 
+import child_process from 'child_process'
 import { image as downloadImage } from 'image-downloader'
-import { exec } from 'child_process'
 import { htmlToText } from 'html-to-text'
 import { stdout as log } from 'single-line-log'
 import { minify } from 'html-minifier'
 import path from 'path'
+
+const exec = promisify(child_process.exec)
 
 // * CONFIGURATION
 const subStringsToFilter = ['forex', 'I will update']
@@ -36,28 +40,34 @@ async function saveRawHtml($) {
 			.each(function (i) {
 				let imageLink = ''
 				const srcSet = $(this).attr('srcset')
+				const src = $(this).attr('src')
 				if (srcSet) {
 					const splitSrcSet = srcSet.split(' ') // [... https://link-to-image.png 1920w]
 					const largestImage = splitSrcSet[splitSrcSet.length - 2]
 					imageLink = largestImage
 					$(this).removeAttr('srcset')
-				} else {
-					const src = $(this).attr('src')
+				} else if (src) {
 					imageLink = src
 				}
-				$(this).removeAttr('class')
-				$(this).removeAttr('sizes')
-				$(this).removeAttr('width')
-				$(this).removeAttr('height')
 
-				// * images
-				const fileExtension = /\.[a-z]{3,4}$/.exec(imageLink)[0]
-				const fileName = `${year}-${month}-${day}${
-					i > 0 ? `-${i}` : ''
-				}${fileExtension}`
+				if (imageLink) {
+					$(this).removeAttr('class')
+					$(this).removeAttr('sizes')
+					$(this).removeAttr('width')
+					$(this).removeAttr('height')
 
-				$(this).attr('src', fileName)
-				images.push({ src: imageLink, fileName })
+					// * images
+					const regexMatches = /\.[a-z]{3,4}$/.exec(imageLink)
+					if (!regexMatches) throw new Error('Invalid regex... ' + imageLink)
+					const fileExtension = regexMatches[0]
+					const i = images.length
+					const fileName = `${year}-${month}-${day}${
+						i > 0 ? `-${i}` : ''
+					}${fileExtension}`
+
+					$(this).attr('src', fileName)
+					images.push({ src: imageLink, fileName })
+				}
 			})
 	})
 	$('article.comment-body').each(function () {
@@ -84,8 +94,6 @@ async function saveRawHtml($) {
 		removeOptionalTags: true,
 		removeRedundantAttributes: true,
 	})
-
-	await makeLocalFolder('html')
 	const dbPath = path.join('html', `${year}-${month}`)
 	const db = await getDatabase(dbPath)
 
@@ -115,36 +123,52 @@ async function downloadHtmlAndImagesFromPost(url) {
 async function downloadHtmlAndImagesFromPosts() {
 	const db = await getDatabase('postUrls')
 	// const urls = db.data
-	const pagesOfUrls = db.data['not-downloaded']
-	for (const [i, page] of Object.entries(pagesOfUrls)) {
-		for (const [j, url] of Object.entries(page)) {
+	const pagesOfUrlsObject = db.data['not-downloaded']
+	const pagesOfUrlsArray = Object.entries(pagesOfUrlsObject)
+	const totalUrls = pagesOfUrlsArray.reduce((previous, [i, current]) => {
+		const urlsArray = Object.values(current)
+		return previous + urlsArray.length
+	}, 0)
+
+	let urlsDownloaded = -1 // because using 'urlsDownloaded++ to return prev val)
+	for (const [i, pageOfUrls] of pagesOfUrlsArray) {
+		// for each page of URls
+		for (const [j, url] of Object.entries(pageOfUrls)) {
+			// for each url of pageOfUrls
 			const shortUrl = url.split('market-update/')[1].slice(0, -1)
 			log(
-				`2. Downloading blog post '${shortenString(shortUrl, 40)}' [${
-					Number(i) + 1
-				}/${pagesOfUrls.length}]\n`,
+				`Downloading blog post '${shortenString(shortUrl, 40)} `,
+				`[${urlsDownloaded++ + 2}/${totalUrls}]`,
+				`[page ${Number(i) + 1}/${pagesOfUrlsArray.length}]\n`,
 			)
+			// await cooldown()
 			await downloadHtmlAndImagesFromPost(url)
-			// * Move from not-downloaded to download in db
-			db.data['not-downloaded'][i].splice(j, 1)
-			if (!db.data['downloaded'][i]) db.data['downloaded'][i] = [url]
+
+			// * Move from not-downloaded to downloaded in db
+			delete db.data['not-downloaded'][i][j]
+			// if no page at downloaded create it
+			if (!db.data['downloaded'][i]) db.data['downloaded'][i] = { 0: url }
+			// if there is, add url
 			else db.data['downloaded'][i][j] = url
 			await db.write()
 		}
-		break
+		delete db.data['not-downloaded'][i]
+		await db.write()
+		// break
 	}
 }
 
-async function getPostUrls(url, pageEnd = 1, pageStart = 1, rewrite = false) {
+async function getPostUrls(pageEnd = 1, pageStart = 1, rewrite = false) {
+	const url = 'https://www.brookstradingcourse.com/blog/market-update'
 	const numPages = pageEnd - pageStart + 1
 	const db = await getDatabase('postUrls', {
-		downloaded: [],
-		'not-downloaded': [],
+		downloaded: {},
+		'not-downloaded': {},
 	})
 
 	for (let pageNumber = pageStart; pageNumber <= pageEnd; pageNumber++) {
 		log(
-			`1. Getting blog post URLs for page ${pageNumber}... [${
+			`Getting blog post URLs for page ${pageNumber}... [${
 				pageNumber - pageStart + 1
 			}/${numPages}]\n`,
 		)
@@ -161,15 +185,17 @@ async function getPostUrls(url, pageEnd = 1, pageStart = 1, rewrite = false) {
 
 		console.log('')
 		if (downloading) {
-			const urls = []
-			// get URLs from each post link unless is SP500 post
+			const urlsForPage = {}
+
+			// * get URLs from each post link unless is SP500 post
 			$('a.entry-title-link').each((i, el) => {
 				if (!$(el).text().includes('SP500')) {
 					const url = $(el).attr('href')
-					urls.push(url)
+					urlsForPage[length(urlsForPage)] = url
 				}
 			})
-			db.data['not-downloaded'][p] = urls
+
+			db.data['not-downloaded'][p] = urlsForPage
 			db.write()
 			if (rewrite) {
 				console.log(`REWRITING: page ${pageNumber} already exists in database`)
@@ -181,37 +207,54 @@ async function getPostUrls(url, pageEnd = 1, pageStart = 1, rewrite = false) {
 			)
 			console.log('')
 		}
-		await cooldown()
+		if (pageNumber < pageEnd) await cooldown()
 	}
 }
 
 async function createHtmlPage() {
 	const dbPath = path.join('html', '2021-11')
 	const db = await getDatabase(dbPath)
-	const content = db.data[23][0].data
+	const content = db.data[23][0].data[0]
 	await writeLocalFile('2021-11-23.html', wrapHtml(String(content)))
 }
 
-// * PROGRAM START
-
-async function downloadPosts() {
-	// await getPostUrls(
-	// 	'https://www.brookstradingcourse.com/blog/market-update',
-	// 	5,
-	// 	// 178,
-	// )
-	// ! Save URLS to JSON and then retrieve them in other fn
-	// for each in not-downloaded
-	// download, move to downloaded
-	await downloadHtmlAndImagesFromPosts()
-	log('Done! Raw HTML and images have been saved to `./data`\n')
-	// await createHtmlPage()
-}
-async function prepare() {
+async function interpretCommandLineInput() {
+	function displayHelp() {
+		console.log(`HELP:
+		\tCOMMANDS:
+		\t\tget-urls <endPage> [startPage]
+		\t\tdownload-posts`)
+	}
+	function areNumbers() {
+		const args = Array.prototype.slice.call(arguments)
+		return args.every((v) => typeof Number(v) === 'number' || !v)
+	}
 	await clearLog()
+	const args = process.argv.slice(2)
+	if (args.length === 0) throw new Error('No command given')
+	switch (args[0]) {
+		// case 'create-html-page':
+		// 	await createHtmlPage()
+		// 	await exec('open ./2021-11-23.html')
+		// 	break
+		case 'get-urls':
+			console.log(args[1], args[2])
+			if (!areNumbers(args[1], args[2]))
+				throw new Error('Invalid arguments provided for GET-URLs command')
+			await getPostUrls(args[1], args[2])
+			log('Done! URLs saved to ./data/postUrls.json')
+			break
+		case 'download-posts':
+			await downloadHtmlAndImagesFromPosts()
+			log('Done! HTML and images saved to ./data/html/ and ./data/images/')
+			break
+
+		default:
+			break
+	}
 }
 
-prepare().then(() => downloadPosts())
+interpretCommandLineInput()
 
 // async function saveToDatabase() {
 // 	const db = await getDatabase('db')

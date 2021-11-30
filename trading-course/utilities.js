@@ -114,3 +114,9 @@ export async function clearLog() {
 	logDb.data = {}
 	await logDb.write()
 }
+
+export function length(obj) {
+	// return length of object
+	if (obj.length) return obj.length
+	else return Object.keys(obj).length
+}
