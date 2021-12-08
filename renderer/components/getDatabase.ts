@@ -1,11 +1,11 @@
 import { JSONFile, Low } from 'lowdb'
 
-import { PATH_TO_DATABASE_FILES } from './constants'
+import { PATH_TO_TRADING_COURSE_DATABASE_FILES } from './constants'
 import path from 'path'
 
 export async function getDatabase(pathToDatabaseFile, defaultData = {}) {
 	const filePath = path.join(
-		PATH_TO_DATABASE_FILES,
+		PATH_TO_TRADING_COURSE_DATABASE_FILES,
 		`${pathToDatabaseFile}.json`,
 	)
 	const adapter = new JSONFile(filePath)

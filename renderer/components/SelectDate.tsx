@@ -1,4 +1,4 @@
-import { PATH_TO_DATABASE_FILES, getDatabase } from './'
+import { PATH_TO_TRADING_COURSE_DATABASE_FILES, getDatabase } from './'
 import { useEffect, useState } from 'react'
 
 import fs from 'fs'
@@ -121,7 +121,10 @@ export function SelectDate({
 	async function getDaysForSelectedMonth() {
 		const { month, year } = selectedValue
 		const pathToDb = path.join('html', `${year}-${month}`)
-		const fullPathToDb = path.join(PATH_TO_DATABASE_FILES, pathToDb)
+		const fullPathToDb = path.join(
+			PATH_TO_TRADING_COURSE_DATABASE_FILES,
+			pathToDb,
+		)
 		const fileExists = fs.existsSync(fullPathToDb + '.json')
 
 		let days = []

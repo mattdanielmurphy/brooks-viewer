@@ -1,6 +1,6 @@
 import {
 	BarByBarButton,
-	PATH_TO_DATABASE_FILES,
+	PATH_TO_TRADING_COURSE_DATABASE_FILES,
 	getDatabase,
 } from '../../../../components'
 import React, { useEffect, useState } from 'react'
@@ -14,7 +14,10 @@ import { useRouter } from 'next/dist/client/router'
 
 async function getPostText(year, month, day) {
 	const pathToDb = path.join('html', `${year}-${month}`)
-	const fullPathToDb = path.join(PATH_TO_DATABASE_FILES, pathToDb + '.json')
+	const fullPathToDb = path.join(
+		PATH_TO_TRADING_COURSE_DATABASE_FILES,
+		pathToDb + '.json',
+	)
 	const fileExists = fs.existsSync(fullPathToDb)
 	if (fileExists) {
 		const db = await getDatabase(pathToDb)

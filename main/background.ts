@@ -39,8 +39,8 @@ if (isProd) {
 ipcMain.on('create-window', async (event, { url = 'home' }) => {
 	console.log('create window')
 	const window = createWindow('main2', {
-		height: 600,
-		width: 800,
+		height: 400,
+		width: 600,
 		backgroundColor: '#00FFFFFF',
 		transparent: true,
 		frame: false,
