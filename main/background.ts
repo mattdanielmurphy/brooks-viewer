@@ -61,11 +61,10 @@ async function createBarByBarWindow(url) {
 	const barByBarWindow = createWindow('main2', {
 		height: 115,
 		width: 860,
-		backgroundColor: '#00FFFFFF',
-		transparent: true,
-		frame: false,
-		alwaysOnTop: true,
-		// parent: mainWindow,
+		// backgroundColor: '#00FFFFFF',
+		// transparent: true,
+		// frame: false,
+		// alwaysOnTop: true,
 
 		webPreferences: {
 			plugins: true,
@@ -78,7 +77,7 @@ async function createBarByBarWindow(url) {
 	})
 	// barByBarWindow.loadURL('https://google.com')
 	if (isProd) {
-		await barByBarWindow.loadURL(`app://./${url}.html`)
+		await barByBarWindow.loadURL(`app://./home.html`)
 	} else {
 		const port = process.argv[2]
 		await barByBarWindow.loadURL(`http://localhost:${port}/${url}`)
@@ -86,7 +85,6 @@ async function createBarByBarWindow(url) {
 	}
 	return barByBarWindow
 }
-
 let barByBarWindow
 
 function closeBarByBarWindow() {
