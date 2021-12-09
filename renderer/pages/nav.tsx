@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 
-import { PATH_TO_TRADING_COURSE_DATABASE_FILES } from '../components/constants'
 import { SelectDate } from '../components/SelectDate'
 import fs from 'fs'
 import path from 'path'
@@ -21,7 +20,11 @@ function Nav({ year, month, day, setPostNotFound }) {
 	useEffect(() => {
 		// read files to find out what years and months to display
 		const pathToMonthsFiles = path.join(
-			PATH_TO_TRADING_COURSE_DATABASE_FILES,
+			process.cwd(),
+			'renderer',
+			'public',
+			'data',
+			'trading-course',
 			'html',
 		)
 		fs.readdir(pathToMonthsFiles, (err, files) => {
@@ -50,12 +53,14 @@ function Nav({ year, month, day, setPostNotFound }) {
 	}, [selectedValue])
 	return (
 		<nav>
-			<SelectDate
-				monthsAvailable={monthsAvailable}
-				setSelectedValue={setSelectedValue}
-				selectedValue={selectedValue}
-				setPostNotFound={setPostNotFound}
-			></SelectDate>
+			{Object.keys(monthsAvailable).length > 0 && (
+				<SelectDate
+					monthsAvailable={monthsAvailable}
+					setSelectedValue={setSelectedValue}
+					selectedValue={selectedValue}
+					setPostNotFound={setPostNotFound}
+				></SelectDate>
+			)}
 		</nav>
 	)
 }

@@ -1,14 +1,30 @@
-import * as remote from '@electron/remote'
+import { closeBarByBarWindow, createBarByBarWindow } from '../components'
 
-function createBrowserWindow(options) {
-	const { ipcRenderer } = require('electron')
-	ipcRenderer.send('create-window', options)
-}
+import { useState } from 'react'
 
-export function BarByBarButton({ year, month, day }) {
+export function BarByBarButton({
+	year,
+	month,
+	day,
+	setShowingBarByBarImage,
+	showingBarByBarImage,
+}) {
 	const url = `posts/${year}/${month}/${day}/bar`
-	function handleClick() {
-		createBrowserWindow({ url })
+	// ! REMOVE
+	async function handleClick() {
+		if (showingBarByBarImage) closeBarByBarWindow()
+		else createBarByBarWindow({ url })
+
+		setShowingBarByBarImage(!showingBarByBarImage)
 	}
-	return <button onClick={handleClick}>Open bar-by-bar analysis</button>
+	// * TESTING:
+	// useEffect(() => {
+	// 	createBarByBarWindow({ url })
+	// 	setShowingBarByBarImage(true)
+	// }, [])
+	return (
+		<button onClick={handleClick}>
+			{showingBarByBarImage ? 'Close' : 'Open'} bar-by-bar analysis
+		</button>
+	)
 }

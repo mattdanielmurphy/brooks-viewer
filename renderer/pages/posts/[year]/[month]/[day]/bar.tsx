@@ -1,8 +1,5 @@
-import {
-	PATH_TO_PRICE_ACTION_DATABASE_FILES,
-	getDatabase,
-} from '../../../../../components'
 import React, { useEffect, useRef, useState } from 'react'
+import { addLeadingZeroes, getDatabase } from '../../../../../components'
 
 import Head from 'next/head'
 import Nav from '../../../../nav'
@@ -45,28 +42,50 @@ function BarNavigator({ bars }) {
 
 	return (
 		<div>
-			<button onClick={selectPrevIndex}>prev</button>
+			<button onClick={selectPrevIndex} id='prev'>
+				&#10140;
+			</button>
 			<div id='number-and-description'>
 				<div id='number'>{bar.barNumber}</div>
 				<div id='description'>{bar.description}</div>
 			</div>
-			<button onClick={selectNextIndex}>next</button>
+			<button onClick={selectNextIndex}>&#10140;</button>
 			<style jsx>{`
+				width: 100%;
 				display: flex;
 				justify-content: space-between;
+				align-items: center;
 				font-size: 1em;
-				gap: 1em;
+				gap: 2em;
 				#number-and-description {
 					flex-grow: 1;
-					user-select: all;
+					gap: 1em;
 				}
 				#number {
-					color: #999;
+					color: #ffff80;
 					margin-right: 1em;
+					width: 0.5em;
 				}
 				#description {
 					flex-grow: 1;
 					line-height: 1.2;
+				}
+				button {
+					width: 2.4em;
+					background: none;
+					height: 2em;
+					color: #ccc;
+					padding: 0.4em 0.7em 0.4em 0.7em;
+				}
+				button:hover {
+					color: #0069ed;
+				}
+				button:focus {
+					outline-offset: -2px;
+					background: #555;
+				}
+				#prev {
+					transform: scale(-1, 1);
 				}
 			`}</style>
 		</div>
@@ -75,42 +94,33 @@ function BarNavigator({ bars }) {
 
 function BarByBar() {
 	const router = useRouter()
-	const { year, month, day } = router.query
-	const [imageForDay, setImageForDay] = useState(undefined)
-	const [barsForDay, setBarsForDay] = useState(undefined)
+	let { year, month, day } = router.query
+	const [imageForDay, setImageForDay] = useState()
+	const [barsForDay, setBarsForDay] = useState([])
 
 	// TODO [] load file for date
 	async function getBarData() {
 		const pathToDatabaseFile = path.join(
-			'..',
-			PATH_TO_PRICE_ACTION_DATABASE_FILES,
+			process.cwd(),
+			'renderer',
+			'public',
+			'data',
+			'price-action',
 			'html',
 			`${year}-${month}`,
 		)
-		const pathToImageFile = path.join(
-			'..',
-			PATH_TO_PRICE_ACTION_DATABASE_FILES,
-			'images',
-			`${year}-${month}-${day}.png`,
-		)
-		const db = await getDatabase(pathToDatabaseFile)
-		const bars = db.data[day]
-		const imagePath = db.data[day]
-		setBarsForDay(bars)
-		// setImageForDay(imagePath)
+		console.log(pathToDatabaseFile)
+		const db = await getDatabase(pathToDatabaseFile, {}, true)
+		console.log(day, db.data)
+		if (typeof day === 'string') {
+			const bars = db.data[day]
+			setBarsForDay(bars)
+		}
 	}
 	useEffect(() => {
-		// getFileForDate().then(db => )
-		getBarData()
+		if (year && month && day) getBarData()
 	}, [year, month, day])
-	useEffect(() => {
-		// getFileForDate().then(db => )
-		console.log(barsForDay)
-	}, [barsForDay])
-	// TODO [] get image, show in main window
-	// TODO [] bar-by-bar window:
-	// TODO [] 	show line and arrows
-	// TODO [] 	arrow-key navigation
+	useEffect(() => {}, [barsForDay])
 
 	return (
 		<React.Fragment>
@@ -119,17 +129,15 @@ function BarByBar() {
 					{year}/{month}/{day}
 				</title>
 			</Head>
-			<main>
-				{barsForDay && barsForDay.length > 0 && (
-					<BarNavigator bars={barsForDay} />
-				)}
-			</main>
+			<main>{barsForDay.length > 0 && <BarNavigator bars={barsForDay} />}</main>
 			<style jsx global>{`
 				html {
 					-webkit-app-region: drag;
 					user-select: none;
 					height: 100%;
 					position: absolute;
+					display: flex;
+					align-items: center;
 					top: 0;
 					left: 0;
 					right: 0;
@@ -137,12 +145,18 @@ function BarByBar() {
 				}
 				body {
 					background: rgba(0, 0, 0, 0.6);
+					flex-grow: 1;
 				}
 				main {
+					width: 100%;
 					color: white;
 					font-family: sans-serif;
-					margin: 4em auto;
-					max-width: 60em;
+					margin: auto;
+					display: flex;
+					width: 100%;
+					padding: 2em;
+					box-sizing: border-box;
+					align-items: center;
 				}
 			`}</style>
 		</React.Fragment>

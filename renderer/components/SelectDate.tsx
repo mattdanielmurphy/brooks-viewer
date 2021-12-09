@@ -1,7 +1,7 @@
-import { PATH_TO_TRADING_COURSE_DATABASE_FILES, getDatabase } from './'
 import { useEffect, useState } from 'react'
 
 import fs from 'fs'
+import { getDatabase } from './'
 import path from 'path'
 
 function Select({
@@ -120,40 +120,44 @@ export function SelectDate({
 	const [loading, setLoading] = useState(true)
 	async function getDaysForSelectedMonth() {
 		const { month, year } = selectedValue
-		const pathToDb = path.join('html', `${year}-${month}`)
-		const fullPathToDb = path.join(
-			PATH_TO_TRADING_COURSE_DATABASE_FILES,
-			pathToDb,
+		const pathToDb = path.join(
+			process.cwd(),
+			'renderer',
+			'public',
+			'data',
+			'trading-course',
+			'html',
+			`${year}-${month}`,
 		)
-		const fileExists = fs.existsSync(fullPathToDb + '.json')
+		const fileExists = fs.existsSync(pathToDb + '.json')
 
 		let days = []
 		if (fileExists) {
-			const db = await getDatabase(pathToDb)
+			const db = await getDatabase(pathToDb, {}, true)
 			days = Object.keys(db.data)
 			setDaysForMonth(days)
 		}
 		return days
 	}
+	const [monthsAvailableForYear, setMonthsAvailableForYear] = useState()
 	useEffect(() => {
-		if (selectedValue.year && selectedValue.month) {
-			getDaysForSelectedMonth().then((days) => {
-				if (selectedValue.day && !days.includes(selectedValue.day)) {
-					console.log(selectedValue.day, 'doesnt exist in', days)
-					setPostNotFound(true)
-				} else setPostNotFound(false)
-			})
+		if (selectedValue.year) {
+			setMonthsAvailableForYear(monthsAvailable[selectedValue.year])
+			setLoading(false)
+			if (selectedValue.month) {
+				getDaysForSelectedMonth().then((days) => {
+					if (selectedValue.day && !days.includes(selectedValue.day)) {
+						console.log(selectedValue.day, 'doesnt exist in', days)
+						setPostNotFound(true)
+					} else setPostNotFound(false)
+				})
+			}
 		} else setPostNotFound(false)
 	}, [selectedValue])
 
 	const yearsAvailable = Object.keys(monthsAvailable).sort(
 		(a, b) => Number(b) - Number(a),
 	)
-	const [monthsAvailableForYear, setMonthsAvailableForYear] = useState()
-	useEffect(() => {
-		setMonthsAvailableForYear(monthsAvailable[selectedValue.year])
-		setLoading(false)
-	}, [selectedValue])
 
 	return loading ? (
 		<div>loading...</div>

@@ -31,19 +31,18 @@ if (isProd) {
 	} else {
 		const port = process.argv[2]
 		await mainWindow.loadURL(`http://localhost:${port}/home`)
-		// mainWindow.webContents.openDevTools()
+		mainWindow.webContents.openDevTools()
 	}
 })()
 
-// Attach listener in the main process with the given ID
-ipcMain.on('create-window', async (event, { url = 'home' }) => {
-	console.log('create window')
-	const window = createWindow('main2', {
-		height: 400,
-		width: 600,
+async function createBarByBarWindow(url) {
+	const barByBarWindow = createWindow('main2', {
+		height: 115,
+		width: 860,
 		backgroundColor: '#00FFFFFF',
 		transparent: true,
 		frame: false,
+		alwaysOnTop: true,
 		// parent: mainWindow,
 
 		webPreferences: {
@@ -55,14 +54,37 @@ ipcMain.on('create-window', async (event, { url = 'home' }) => {
 			webSecurity: false,
 		},
 	})
-	// window.loadURL('https://google.com')
+	// barByBarWindow.loadURL('https://google.com')
 	if (isProd) {
-		await window.loadURL(`app://./${url}.html`)
+		await barByBarWindow.loadURL(`app://./${url}.html`)
 	} else {
 		const port = process.argv[2]
-		await window.loadURL(`http://localhost:${port}/${url}`)
-		// mainWindow.webContents.openDevTools()
+		await barByBarWindow.loadURL(`http://localhost:${port}/${url}`)
+		// barByBarWindow.webContents.openDevTools()
 	}
+	return barByBarWindow
+}
+
+let barByBarWindow
+
+function closeBarByBarWindow() {
+	if (barByBarWindow) {
+		try {
+			barByBarWindow.close()
+		} catch (error) {
+			if (/^TypeError: Object has been destroyed/.test(error)) {
+				// window already closed
+			} else console.log(error)
+		}
+	}
+}
+// Attach listener in the main process with the given ID
+ipcMain.on('create-bar-by-bar-window', async (event, { url = 'home' }) => {
+	closeBarByBarWindow()
+	barByBarWindow = await createBarByBarWindow(url)
+})
+ipcMain.on('close-bar-by-bar-window', () => {
+	closeBarByBarWindow()
 })
 
 app.on('window-all-closed', () => {

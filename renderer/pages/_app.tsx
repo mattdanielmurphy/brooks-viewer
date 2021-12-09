@@ -1,15 +1,25 @@
-import './day.css'
+// import './day.css'
 
 import App from 'next/app'
 
-export default (props) => (
+const CustomApp = (props) => (
 	<>
 		<App {...props} />
 		<style jsx global>{`
+			figure.wp-block-image.size-large {
+				margin: 0;
+			}
+
+			img {
+				width: 100%;
+			}
+
 			button {
+				text-transform: lowercase;
 				display: inline-block;
 				border: none;
-				padding: 1rem 2rem;
+				padding: 0.45rem 0.8rem 0.5rem 0.8rem;
+				border-radius: 0.3em;
 				margin: 0;
 				text-decoration: none;
 				background: #0069ed;
@@ -39,3 +49,5 @@ export default (props) => (
 		`}</style>
 	</>
 )
+
+export default CustomApp
