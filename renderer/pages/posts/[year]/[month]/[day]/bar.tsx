@@ -3,6 +3,7 @@ import { addLeadingZeroes, getDatabase } from '../../../../../components'
 
 import Head from 'next/head'
 import Nav from '../../../../nav'
+import { ipcRenderer } from 'electron'
 import path from 'path'
 import { useRouter } from 'next/dist/client/router'
 
@@ -100,18 +101,8 @@ function BarByBar() {
 
 	// TODO [] load file for date
 	async function getBarData() {
-		const pathToDatabaseFile = path.join(
-			process.cwd(),
-			'renderer',
-			'public',
-			'data',
-			'price-action',
-			'html',
-			`${year}-${month}`,
-		)
-		console.log(pathToDatabaseFile)
-		const db = await getDatabase(pathToDatabaseFile, {}, true)
-		console.log(day, db.data)
+		const pathToDatabase = path.join('price-action', 'html', `${year}-${month}`)
+		const db = await ipcRenderer.invoke('get-database', { pathToDatabase })
 		if (typeof day === 'string') {
 			const bars = db.data[day]
 			setBarsForDay(bars)

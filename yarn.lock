@@ -3749,12 +3749,11 @@ loose-envify@^1.1.0:
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
 
-lowdb@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.npmjs.org/lowdb/-/lowdb-3.0.0.tgz"
-  integrity sha512-9KZRulmIcU8fZuWiaM0d5e2/nPnrFyXkeXVpqT+MJS+vgbgOf1EbtvgQmba8HwUFgDl1oeZR6XqEJnkJmQdKmg==
+"lowdb@github:dankreiger/lowdb#chore/esm-cjs-hybrid-WITH-LIB":
+  version "2.1.0"
+  resolved "https://codeload.github.com/dankreiger/lowdb/tar.gz/55501007f52ca06ef682aa34f4809d320f1a4e48"
   dependencies:
-    steno "^2.1.0"
+    steno "^1.0.0"
 
 lowercase-keys@^1.0.0, lowercase-keys@^1.0.1:
   version "1.0.1"
@@ -4840,10 +4839,10 @@ stat-mode@^1.0.0:
   resolved "https://registry.npmjs.org/statuses/-/statuses-1.5.0.tgz"
   integrity sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=
 
-steno@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/steno/-/steno-2.1.0.tgz"
-  integrity sha512-mauOsiaqTNGFkWqIfwcm3y/fq+qKKaIWf1vf3ocOuTdco9XoHCO2AGF1gFYXuZFSWuP38Q8LBHBGJv2KnJSXyA==
+steno@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/steno/-/steno-1.0.0.tgz#475e32c6066ec9760229eaaf1550601764fbecba"
+  integrity sha512-C/KgCvEa1yWnpHmaPjAXrz1yWxh6hs+HvhqqPa71euaQmNi1wr4+WFo57VQxjKKuFl2KqS7gtlrN0oxj2noQLw==
 
 stream-browserify@3.0.0:
   version "3.0.0"

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import fs from 'fs'
-import { getDatabase } from './'
+import { ipcRenderer } from 'electron'
 import path from 'path'
 
 function Select({
@@ -120,32 +120,23 @@ export function SelectDate({
 	const [loading, setLoading] = useState(true)
 	async function getDaysForSelectedMonth() {
 		const { month, year } = selectedValue
-		const pathToDb = path.join(
-			process.cwd(),
-			'renderer',
-			'public',
-			'data',
-			'trading-course',
-			'html',
-			`${year}-${month}`,
-		)
-		const fileExists = fs.existsSync(pathToDb + '.json')
-
-		let days = []
-		if (fileExists) {
-			const db = await getDatabase(pathToDb, {}, true)
-			days = Object.keys(db.data)
+		if (year && month) {
+			const days = await ipcRenderer.invoke('get-days-for-month', {
+				month,
+				year,
+			})
 			setDaysForMonth(days)
+			return days
 		}
-		return days
 	}
 	const [monthsAvailableForYear, setMonthsAvailableForYear] = useState()
 	useEffect(() => {
 		if (selectedValue.year) {
 			setMonthsAvailableForYear(monthsAvailable[selectedValue.year])
-			setLoading(false)
 			if (selectedValue.month) {
 				getDaysForSelectedMonth().then((days) => {
+					if (!days) return
+					setLoading(false)
 					if (selectedValue.day && !days.includes(selectedValue.day)) {
 						console.log(selectedValue.day, 'doesnt exist in', days)
 						setPostNotFound(true)
