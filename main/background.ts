@@ -44,8 +44,8 @@ if (isProd) {
 	await app.whenReady()
 
 	mainWindow = createWindow('main', {
-		width: 1000,
-		height: 600,
+		width: 1400,
+		height: 1000
 	})
 
 	if (isProd) {
@@ -53,7 +53,7 @@ if (isProd) {
 	} else {
 		const port = process.argv[2]
 		await mainWindow.loadURL(`http://localhost:${port}/home`)
-		mainWindow.webContents.openDevTools()
+		// mainWindow.webContents.openDevTools()
 	}
 })()
 
@@ -61,10 +61,10 @@ async function createBarByBarWindow(url) {
 	const barByBarWindow = createWindow('main2', {
 		height: 115,
 		width: 860,
-		// backgroundColor: '#00FFFFFF',
-		// transparent: true,
-		// frame: false,
-		// alwaysOnTop: true,
+		backgroundColor: '#00FFFFFF',
+		transparent: true,
+		frame: false,
+		alwaysOnTop: true,
 
 		webPreferences: {
 			plugins: true,
