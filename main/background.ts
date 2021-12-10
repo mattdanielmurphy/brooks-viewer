@@ -18,7 +18,7 @@ const isProd = process.env.NODE_ENV === 'production'
 
 async function getDatabase(pathToDatabaseFile, defaultData = {}) {
 	let filePath = path.join(pathToDataFolder, `${pathToDatabaseFile}.json`)
-	console.log('getting database', filePath)
+
 	const fileExists = fs.existsSync(filePath)
 	if (!fileExists) return
 
@@ -45,7 +45,7 @@ if (isProd) {
 
 	mainWindow = createWindow('main', {
 		width: 1400,
-		height: 1000
+		height: 1000,
 	})
 
 	if (isProd) {
@@ -94,7 +94,7 @@ function closeBarByBarWindow() {
 		} catch (error) {
 			if (/^TypeError: Object has been destroyed/.test(error)) {
 				// window already closed
-			} else console.log(error)
+			}
 		}
 	}
 }
@@ -114,12 +114,11 @@ ipcMain.handle('get-database', async (event, { pathToDatabase }) => {
 })
 
 ipcMain.handle('get-days-for-month', async (event, { year, month }) => {
-	console.log('getting days for month')
 	const pathToDb = path.join('trading-course', 'html', `${year}-${month}`)
 	const db = await getDatabase(pathToDb)
 	if (db) {
 		const days = Object.keys(db.data)
-		console.log(days)
+
 		return days
 	} else return []
 })
@@ -130,16 +129,15 @@ ipcMain.on('working-path', async (event) => {
 
 ipcMain.handle('get-path-to-file', async (event, { pathFromDataFolder }) => {
 	const filePath = path.join(pathToDataFolder, pathFromDataFolder)
-	console.log('getting path to file: ', filePath)
+
 	if (fs.existsSync(filePath)) {
-		console.log('file exists')
 		return filePath
 	} else return null
 })
 
 ipcMain.handle('check-file-exists', async (event, { filePath }) => {
 	const fullPath = path.join(pathToDataFolder, filePath)
-	console.log('getting path to file: ', fullPath)
+
 	return fs.existsSync(fullPath)
 })
 
@@ -165,15 +163,14 @@ ipcMain.handle('get-months-available-for-trading-course', async (event) => {
 		const monthsSorted = months.sort((a, b) => a - b)
 		sortedMonthsAvailable[year] = monthsSorted
 	})
-	console.log('monthsAvailable', monthsAvailable)
+
 	return monthsAvailable
 })
 
 ipcMain.handle('get-path-to-image', async (event, { pathFromDataFolder }) => {
 	const filePath = path.join(pathToDataFolder, pathFromDataFolder)
-	console.log('getting path to file: ', filePath)
+
 	if (fs.existsSync(filePath)) {
-		console.log('image exists')
 		return path.join('/', pathFromDataFolder)
 	} else return null
 })

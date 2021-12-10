@@ -41,6 +41,8 @@ function PostContent({ year, month, day, postText }) {
 	useEffect(() => {
 		if (year && month && day) {
 			_closeBarByBarWindow()
+
+			// add leading zeroes for image path
 			month = addLeadingZeroes(month)
 			day = addLeadingZeroes(day)
 
@@ -50,6 +52,7 @@ function PostContent({ year, month, day, postText }) {
 				'images',
 				`${year}-${month}-${day}.png`,
 			)
+
 			ipcRenderer
 				.invoke('get-path-to-image', {
 					pathFromDataFolder: pathToImage,
@@ -90,7 +93,7 @@ function Post() {
 	useEffect(() => {
 		if (!year || !month || !day) return
 		getPostText(year, month, day).then((text) => {
-			const pathToImages = '/images'
+			const pathToImages = path.join('/', 'trading-course', 'images')
 			let $ = cheerio.load(text)
 			const filteredContent = []
 			$('h2').each((i, el) => {

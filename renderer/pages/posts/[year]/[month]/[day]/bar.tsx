@@ -77,6 +77,7 @@ function BarNavigator({ bars }) {
 					height: 2em;
 					color: #ccc;
 					padding: 0.4em 0.7em 0.4em 0.7em;
+					user-select: default;
 				}
 				button:hover {
 					color: #0069ed;
