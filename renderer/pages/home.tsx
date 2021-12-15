@@ -7,7 +7,16 @@ import { useRouter } from 'next/router'
 function Home() {
 	const router = useRouter()
 	useEffect(() => {
-		router.push('/posts/2021/1/4')
+		const matches = router.asPath.match(
+			/\?bar-by-bar&year=(\d{4})&month=(\d{1,2})&day=(\d{1,2})/,
+		)
+		console.log(matches)
+		if (matches) {
+			const [, year, month, day] = matches
+			router.push(`/posts/${year}/${month}/${day}/bar`)
+		} else {
+			router.push('/posts/2021/1/4')
+		}
 	}, [])
 	return (
 		<React.Fragment>

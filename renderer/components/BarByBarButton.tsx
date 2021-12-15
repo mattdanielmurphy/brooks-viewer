@@ -13,7 +13,7 @@ export function BarByBarButton({
 	// ! REMOVE
 	async function handleClick() {
 		if (showingBarByBarImage) closeBarByBarWindow()
-		else createBarByBarWindow({ url })
+		else createBarByBarWindow({ year, month, day })
 
 		setShowingBarByBarImage(!showingBarByBarImage)
 	}

@@ -1,5 +1,3 @@
-import * as remoteMain from '@electron/remote/main'
-
 import { JSONFile, Low } from 'lowdb'
 
 import { app } from 'electron'
@@ -52,12 +50,14 @@ if (isProd) {
 		await mainWindow.loadURL('app://./home.html')
 	} else {
 		const port = process.argv[2]
-		await mainWindow.loadURL(`http://localhost:${port}/home`)
+		await mainWindow.loadURL(
+			`http://localhost:${port}/home?bar-by-bar&year=2021`,
+		)
 		// mainWindow.webContents.openDevTools()
 	}
 })()
 
-async function createBarByBarWindow(url) {
+async function createBarByBarWindow(year, month, day) {
 	const barByBarWindow = createWindow('main2', {
 		height: 115,
 		width: 860,
@@ -76,18 +76,22 @@ async function createBarByBarWindow(url) {
 		},
 	})
 	// barByBarWindow.loadURL('https://google.com')
+	const barByBarUrlParams = `?bar-by-bar&year=${year}&month=${month}&day=${day}`
 	if (isProd) {
-		await barByBarWindow.loadURL(`app://./home.html`)
+		await barByBarWindow.loadURL(`app://./home.html${barByBarUrlParams}`)
 	} else {
 		const port = process.argv[2]
-		await barByBarWindow.loadURL(`http://localhost:${port}/${url}`)
-		// barByBarWindow.webContents.openDevTools()
+		await barByBarWindow.loadURL(
+			`http://localhost:${port}/home${barByBarUrlParams}`,
+		)
+		barByBarWindow.webContents.openDevTools()
 	}
 	return barByBarWindow
 }
 let barByBarWindow
 
 function closeBarByBarWindow() {
+	console.log('close-bar-by-bar-window')
 	if (barByBarWindow) {
 		try {
 			barByBarWindow.close()
@@ -99,9 +103,9 @@ function closeBarByBarWindow() {
 	}
 }
 // Attach listener in the main process with the given ID
-ipcMain.on('create-bar-by-bar-window', async (event, { url = 'home' }) => {
+ipcMain.on('create-bar-by-bar-window', async (event, { year, month, day }) => {
 	closeBarByBarWindow()
-	barByBarWindow = await createBarByBarWindow(url)
+	barByBarWindow = await createBarByBarWindow(year, month, day)
 })
 
 ipcMain.on('close-bar-by-bar-window', () => {
@@ -121,10 +125,6 @@ ipcMain.handle('get-days-for-month', async (event, { year, month }) => {
 
 		return days
 	} else return []
-})
-
-ipcMain.on('working-path', async (event) => {
-	event.reply('hello')
 })
 
 ipcMain.handle('get-path-to-file', async (event, { pathFromDataFolder }) => {
