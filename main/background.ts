@@ -53,7 +53,9 @@ if (isProd) {
 		await mainWindow.loadURL(
 			`http://localhost:${port}/home?bar-by-bar&year=2021`,
 		)
-		// mainWindow.webContents.openDevTools()
+		if (process.argv[2] === '--production') {
+			mainWindow.webContents.openDevTools()
+		}
 	}
 })()
 
@@ -84,7 +86,9 @@ async function createBarByBarWindow(year, month, day) {
 		await barByBarWindow.loadURL(
 			`http://localhost:${port}/home${barByBarUrlParams}`,
 		)
-		barByBarWindow.webContents.openDevTools()
+		if (process.argv[2] === '--production') {
+			barByBarWindow.webContents.openDevTools()
+		}
 	}
 	return barByBarWindow
 }
