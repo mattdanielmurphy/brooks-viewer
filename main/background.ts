@@ -11,6 +11,7 @@ import util from 'util'
 const readdir = util.promisify(fs.readdir)
 
 const pathToDataFolder = path.join(app.getPath('userData'), 'data')
+console.log('path to data folder', pathToDataFolder)
 
 const isProd = process.env.NODE_ENV === 'production'
 

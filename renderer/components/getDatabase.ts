@@ -1,7 +1,5 @@
 import { JSONFile, Low } from 'lowdb'
 
-import path from 'path'
-
 export async function getDatabase(
 	pathToDatabaseFile,
 	defaultData = {},
