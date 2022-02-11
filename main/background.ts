@@ -8,6 +8,8 @@ import path from 'path'
 import serve from 'electron-serve'
 import util from 'util'
 
+const electronLocalshortcut = require('electron-localshortcut')
+
 const readdir = util.promisify(fs.readdir)
 
 const pathToDataFolder = path.join(app.getPath('userData'), 'data')
@@ -58,6 +60,16 @@ if (isProd) {
 			mainWindow.webContents.openDevTools()
 		}
 	}
+
+	// console.log(mainWindow.webContents)
+	// ? Add listener
+	electronLocalshortcut.register(mainWindow, 'left', () => {
+		mainWindow.webContents.goBack()
+	})
+
+	electronLocalshortcut.register(mainWindow, 'right', () => {
+		mainWindow.webContents.goForward()
+	})
 })()
 
 async function createBarByBarWindow(year, month, day) {
@@ -96,7 +108,6 @@ async function createBarByBarWindow(year, month, day) {
 let barByBarWindow
 
 function closeBarByBarWindow() {
-	console.log('close-bar-by-bar-window')
 	if (barByBarWindow) {
 		try {
 			barByBarWindow.close()

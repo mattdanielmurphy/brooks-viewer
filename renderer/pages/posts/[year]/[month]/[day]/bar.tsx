@@ -30,6 +30,7 @@ function BarNavigator({ bars }) {
 	}, [selectedIndex])
 
 	const onKeyPress = (e) => {
+		console.log('keypress bar-by-bar viewer')
 		if (e.key === 'ArrowLeft') selectPrevIndex()
 		if (e.key === 'ArrowRight') selectNextIndex()
 	}
@@ -103,6 +104,7 @@ function BarByBar() {
 	// TODO [] load file for date
 	async function getBarData() {
 		const pathToDatabase = path.join('price-action', 'html', `${year}-${month}`)
+		console.log('path to db', pathToDatabase)
 		const db = await ipcRenderer.invoke('get-database', { pathToDatabase })
 		if (typeof day === 'string') {
 			const bars = db.data[day]

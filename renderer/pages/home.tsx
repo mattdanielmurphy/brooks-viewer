@@ -15,9 +15,10 @@ function Home() {
 			const [, year, month, day] = matches
 			router.push(`/posts/${year}/${month}/${day}/bar`)
 		} else {
-			router.push('/posts/2021/1/4')
+			router.replace('/posts/2021/1/4')
 		}
 	}, [])
+
 	return (
 		<React.Fragment>
 			<Head>

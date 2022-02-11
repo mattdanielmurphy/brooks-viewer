@@ -26,7 +26,7 @@ async function getPostText(year, month, day) {
 
 const styles = {
 	fontFamily: 'sans-serif',
-	padding: '2rem',
+	padding: '0.5rem 2rem 2rem 2rem',
 }
 
 function PostContent({ year, month, day, postText }) {
@@ -65,8 +65,12 @@ function PostContent({ year, month, day, postText }) {
 
 	return (
 		<div style={styles}>
-			{barByBarImageSource && (
-				<p>
+			<div
+				style={{
+					height: '2em',
+				}}
+			>
+				{barByBarImageSource && (
 					<BarByBarButton
 						year={year}
 						month={month}
@@ -74,8 +78,8 @@ function PostContent({ year, month, day, postText }) {
 						setShowingBarByBarImage={setShowingBarByBarImage}
 						showingBarByBarImage={showingBarByBarImage}
 					/>
-				</p>
-			)}
+				)}
+			</div>
 			{showingBarByBarImage && <img src={barByBarImageSource} alt='' />}
 			<h1>
 				Emini &amp; Forex Trading Update {year}/{month}/{day}

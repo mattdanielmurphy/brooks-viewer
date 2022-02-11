@@ -18,14 +18,11 @@ function Nav({ year, month, day, setPostNotFound }) {
 	// get list of years and months available
 	useEffect(() => {
 		setSelectedValue({ year, month, day })
-	}, [year, month, day])
-	useEffect(() => {
 		ipcRenderer
 			.invoke('get-months-available-for-trading-course')
-			.then((monthsAvailable) => {
-				console.log(monthsAvailable)
-				setMonthsAvailable(monthsAvailable)
-			})
+			.then((monthsAvailable) => setMonthsAvailable(monthsAvailable))
+	}, [year, month, day])
+	useEffect(() => {
 		const { day, month, year } = selectedValue
 		const url = `/posts/${year}/${month}/${day}`
 		if (year && month && day) router.push(url)

@@ -64,6 +64,11 @@ function Select({
 							}}
 						>
 							<input
+								onKeyDown={(e) => {
+									if (e.key === 'ArrowLeft' || e.key === 'ArrowRight')
+										//? Don't interfere with nav forwward/back shortcuts
+										e.preventDefault()
+								}}
 								checked={isChecked(option)}
 								type='radio'
 								name={name}

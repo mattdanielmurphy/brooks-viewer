@@ -17,6 +17,7 @@
     "@electron/remote": "^2.0.1",
     "cheerio": "^1.0.0-rc.10",
     "electron-drag": "^2.0.0",
+    "electron-localshortcut": "^3.2.1",
     "electron-serve": "^1.1.0",
     "electron-store": "^8.0.1",
     "lowdb": "github:dankreiger/lowdb#chore/esm-cjs-hybrid-WITH-LIB",
