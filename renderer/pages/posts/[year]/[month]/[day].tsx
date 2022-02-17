@@ -39,6 +39,13 @@ function PostContent({ year, month, day, postText }) {
 	}
 
 	useEffect(() => {
+		ipcRenderer.on('close-bar-by-bar-window', (e) => {
+			console.log('received close bar-by-bar window', e)
+			_closeBarByBarWindow()
+		})
+	}, [])
+
+	useEffect(() => {
 		if (year && month && day) {
 			_closeBarByBarWindow()
 
@@ -140,15 +147,29 @@ function Post() {
 			})
 			text = filteredContent.map((el) => cheerio.html(el)).join('')
 			// text = $(filteredContent).html()
-			const fixedImagePathsText = text.replace(
-				/src="([^"]*)"/g,
-				`src="${pathToImages}/$1"`,
+			const imageSrc = /src="([^"]*)"/g.exec(text)![1]
+			const imagePath = path.join(
+				process.cwd(),
+				'renderer',
+				'public',
+				pathToImages,
+				imageSrc,
 			)
-			// .replace(
-			// 	/src="([^"]*)"/g,
-			// 	`src="${pathToImages}/$1"`,
-			// )
-			setPostText(fixedImagePathsText)
+
+			if (fs.existsSync(imagePath)) {
+				const fixedImagePathsText = text.replace(
+					/src="([^"]*)"/g,
+					`src="${pathToImages}/$1"`,
+				)
+				setPostText(fixedImagePathsText)
+			} else {
+				const fixedImagePathsText = text.replace(
+					/<a href="([^"]*)"><img (?:loading="lazy")? src="([^"]*)"/g,
+					`<a href="$1"><img src="$1"`,
+				)
+
+				setPostText(fixedImagePathsText)
+			}
 		})
 	}, [router.query])
 	return (

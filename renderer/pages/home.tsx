@@ -25,12 +25,16 @@ function Home() {
 				<title>Home - Nextron (with-typescript)</title>
 			</Head>
 			<div>
-				<p>
-					<Link href='/posts/2021/10/4'>
-						<a>Go to post</a>
-					</Link>
-				</p>
+				<h1>Loading...</h1>
 			</div>
+			<style jsx>{`
+				div {
+					display: flex;
+					align-items: center;
+					justify-items: center;
+					text-align: center;
+				}
+			`}</style>
 		</React.Fragment>
 	)
 }
