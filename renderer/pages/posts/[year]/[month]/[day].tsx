@@ -12,7 +12,7 @@ import cheerio from 'cheerio'
 import fs from 'fs'
 import { ipcRenderer } from 'electron'
 import path from 'path'
-import { useRouter } from 'next/dist/client/router'
+import router, { useRouter } from 'next/dist/client/router'
 
 async function getPostText(year, month, day) {
 	const pathToDatabase = path.join('trading-course', 'html', `${year}-${month}`)
@@ -77,21 +77,31 @@ function PostContent({ year, month, day, postText }) {
 					height: '2em',
 				}}
 			>
-				{barByBarImageSource && (
-					<BarByBarButton
-						year={year}
-						month={month}
-						day={day}
-						setShowingBarByBarImage={setShowingBarByBarImage}
-						showingBarByBarImage={showingBarByBarImage}
-					/>
-				)}
+				<BarByBarButton
+					year={year}
+					month={month}
+					day={day}
+					setShowingBarByBarImage={setShowingBarByBarImage}
+					showingBarByBarImage={showingBarByBarImage}
+				/>
+				<button onClick={() => router.replace('#bar-by-bar-chart')}>
+					Go to bar-by-bar image
+				</button>
 			</div>
-			{showingBarByBarImage && <img src={barByBarImageSource} alt='' />}
 			<h1>
 				Emini &amp; Forex Trading Update {year}/{month}/{day}
 			</h1>
 			<div id='post-text' dangerouslySetInnerHTML={{ __html: postText }}></div>
+
+			<h1>Bar by bar chart</h1>
+			<img src={barByBarImageSource} alt='' id='bar-by-bar-chart' />
+			<BarByBarButton
+				year={year}
+				month={month}
+				day={day}
+				setShowingBarByBarImage={setShowingBarByBarImage}
+				showingBarByBarImage={showingBarByBarImage}
+			/>
 		</div>
 	)
 }
