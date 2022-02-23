@@ -37,6 +37,13 @@ function Nav({ year, month, day, setPostNotFound }) {
 					setPostNotFound={setPostNotFound}
 				></SelectDate>
 			)}
+			<style jsx>{`
+				nav {
+					position: fixed;
+					height: 90vh;
+					overflow-y: scroll;
+				}
+			`}</style>
 		</nav>
 	)
 }
