@@ -1,0 +1,34 @@
+{
+  "author": "Matthew Murphy <matt@mattmurphy.ca>",
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.15.5",
+    "@babel/node": "^7.15.4",
+    "@babel/preset-env": "^7.15.6"
+  },
+  "dependencies": {
+    "commander": "^8.3.0",
+    "csv-writer": "^1.6.0",
+    "dotenv": "^10.0.0",
+    "html-to-text": "^8.1.0",
+    "image-downloader": "^4.0.3",
+    "lowdb": "github:dankreiger/lowdb#chore/esm-cjs-hybrid-WITH-LIB",
+    "open-file-explorer": "^1.0.2",
+    "puppeteer": "^11.0.0"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "name": "blog-scraper",
+  "repository": "https://github.com/mattdanielmurphy/blog-scraper.git",
+  "scripts": {
+    "start": "yarn build && node ./bin/index.js",
+    "dev": "nodemon --exec babel-node ./src/index.js",
+    "clean": "rm -rf bin && mkdir bin",
+    "build-babel": "babel -d ./bin ./src -s",
+    "build": "yarn clean && npm run build-babel"
+  },
+  "bin": {
+    "scrape": "./bin/index.js"
+  },
+  "version": "1.0.0"
+}

@@ -1,0 +1,1218 @@
+{
+  "7": [
+    {
+      "barNumber": "0",
+      "description": "For today’s real-time update, see <a\nhref=\"https://brookstradingcourse.com/blog/market-update/\">Intraday market\nupdate</a>. For more on the current S&P500 and Emini weekly charts, see <a\nhref=\"https://brookstradingcourse.com/blog/market-analysis/\">Weekly market\nupdate</a>"
+    },
+    {
+      "barNumber": "1",
+      "description": "ST LH HOY, but 2t body, 3 hour TR, BB at COY and MA. Test of HOY and Y was DD\nso might test LOY"
+    },
+    {
+      "barNumber": "2",
+      "description": "ORV but doji, SA"
+    },
+    {
+      "barNumber": "4",
+      "description": "big OD, might test LOY, prob AIS, but TTR"
+    },
+    {
+      "barNumber": "7",
+      "description": "big bear BO, prob will test LOY, but BL BTC for scalp since TR and test LOY"
+    },
+    {
+      "barNumber": "8",
+      "description": "f BO 4 hour TR and 60MA, but prob SA for test LOY"
+    },
+    {
+      "barNumber": "11",
+      "description": "L2 but doji, TTR, BB and below 9"
+    },
+    {
+      "barNumber": "13",
+      "description": "f L2, but big OU in TTR, LOM. Ok swing B since PL, but LOM, hpw"
+    },
+    {
+      "barNumber": "14",
+      "description": "3 cc BLB, PL, AIL for test 6 H or 7 H. poss RD"
+    },
+    {
+      "barNumber": "17",
+      "description": "LH MTR, but doji, strong BL BO, BB, SS2"
+    },
+    {
+      "barNumber": "19",
+      "description": "H2 bull ioi but tail, top of TRD, LOM, B Lr"
+    },
+    {
+      "barNumber": "25",
+      "description": "HL, bad FT, but cc BRB, so BB2"
+    },
+    {
+      "barNumber": "32",
+      "description": "DB 24, but far above LOD and LOY so only B if WSS"
+    },
+    {
+      "barNumber": "35",
+      "description": "Tri 28 33, LOD tgtb, but BB 24 and LOD"
+    },
+    {
+      "barNumber": "38",
+      "description": "f BO lod, 24 31 DB, PL"
+    },
+    {
+      "barNumber": "41",
+      "description": "BP but doji, prob AIL, BB"
+    },
+    {
+      "barNumber": "46",
+      "description": "W 40 43, DT 28, but TC, should test 20 L where LBL startd Bg"
+    },
+    {
+      "barNumber": "48",
+      "description": "F W, but prob SW. still AIL, stop below 27"
+    },
+    {
+      "barNumber": "54",
+      "description": "DB 47, should test 20 L, but LOM, SA 52"
+    },
+    {
+      "barNumber": "60",
+      "description": "SCT 45 51, bear ii, but LOM"
+    },
+    {
+      "barNumber": "64",
+      "description": "DB 54, AIL, but poss SA for 2 LSD. LOM"
+    },
+    {
+      "barNumber": "70",
+      "description": "Tri, bear ii, ok S for test LOD, but LOM, prob BB 64 and LOD"
+    }
+  ],
+  "8": [
+    {
+      "barNumber": "0",
+      "description": "For today’s real-time update, see <a\nhref=\"https://brookstradingcourse.com/blog/market-update/\">Intraday market\nupdate</a>. For more on the current S&P500 and Emini weekly charts, see <a\nhref=\"https://brookstradingcourse.com/blog/market-analysis/\">Weekly market\nupdate</a>"
+    },
+    {
+      "barNumber": "1",
+      "description": "BO LOY but 2 day TTR, LOM"
+    },
+    {
+      "barNumber": "2",
+      "description": "f BO LOY, ok B for LOD, poss OD"
+    },
+    {
+      "barNumber": "5",
+      "description": "ORV down from ma but 5 BBLMC, AIL, BB. 2eb but 2 BR dojis"
+    },
+    {
+      "barNumber": "8",
+      "description": "ORV 60ma, W 1 4, strong BRB, but 8 BBLMC, LPS, BB around 4 H. LBR will B back\nS at 4 H. AIL, but prob BLTR so prob deep PB, maybe to 6 L or LOD"
+    },
+    {
+      "barNumber": "9",
+      "description": "cc BRB, SA, but AIL, BB around 6 L"
+    },
+    {
+      "barNumber": "10",
+      "description": "H2 but TC, 4 BRB, prob SA and SW, but AIL, better to start to B. Prob LIM"
+    },
+    {
+      "barNumber": "13",
+      "description": "W HL, AIL, ok B"
+    },
+    {
+      "barNumber": "17",
+      "description": "DT 7, but AIL, prob BB"
+    },
+    {
+      "barNumber": "21",
+      "description": "2LT, should test OOW, but AIBLE, poss deep PB to 18 L or 13 L."
+    },
+    {
+      "barNumber": "22",
+      "description": "3 BRB, SA, more down, but 80% chance 1 will remain LOD. Prob deep PB and TRd"
+    },
+    {
+      "barNumber": "28",
+      "description": "H2 but TC, room to 18 L, prob MRV"
+    },
+    {
+      "barNumber": "34",
+      "description": "CC bottoms, DB 12, ok B but LOM, TC, better to B below bars"
+    },
+    {
+      "barNumber": "53",
+      "description": "HL, Tri, AIL, should test 19 c, ok B, but most will scalp"
+    },
+    {
+      "barNumber": "62",
+      "description": "L2 42, but 10 BBLMC, AIL"
+    },
+    {
+      "barNumber": "65",
+      "description": "DB 53 but strong 64, SA"
+    },
+    {
+      "barNumber": "71",
+      "description": "STC but starting too early so prob will reverse up soon. Btw to B"
+    },
+    {
+      "barNumber": "75",
+      "description": "F BO 13, PW 65 70 AIBRE, ok B scalp"
+    }
+  ],
+  "11": [
+    {
+      "barNumber": "0",
+      "description": "For today’s real-time update, see <a\nhref=\"https://brookstradingcourse.com/blog/market-update/\">Intraday market\nupdate</a>. For more on the current S&P500 and Emini weekly charts, see <a\nhref=\"https://brookstradingcourse.com/blog/market-analysis/\">Weekly market\nupdate</a>"
+    },
+    {
+      "barNumber": "1",
+      "description": "Big GU, COH, big BLB, BTC, AIL, PL"
+    },
+    {
+      "barNumber": "2",
+      "description": "good FT, BTC"
+    },
+    {
+      "barNumber": "6",
+      "description": "DT 1 but 6 BBLMC, BB. BR want PW soon, but BL will B around MA with DB with 1"
+    },
+    {
+      "barNumber": "9",
+      "description": "PW 3 5, but 9 BBLMC, BB"
+    },
+    {
+      "barNumber": "10",
+      "description": "H1, AIL, but 2 dojis, just below MMT, poss PW, TR likely soon so btw to B PB\nor below bars"
+    },
+    {
+      "barNumber": "12",
+      "description": "H1, AIL, but prob PW, LBR made money above 10, SD to MA so SA"
+    },
+    {
+      "barNumber": "14",
+      "description": "H2, AIL, but BR BO and BR FT, far above MA, prob SD to ma, LP B. BUDC"
+    },
+    {
+      "barNumber": "16",
+      "description": "H2 12, AIL, but BUDC, SA, maybe at 14 SX H. BB around MA"
+    },
+    {
+      "barNumber": "24",
+      "description": "bull ii, F LH, AIL, ok B, but prob limited up since did not get PB to MA yet"
+    },
+    {
+      "barNumber": "30",
+      "description": "HH MTR, but SPBL, BB"
+    },
+    {
+      "barNumber": "41",
+      "description": "f BO ATH, BX 39, but SPBL, better to B PB to MA"
+    },
+    {
+      "barNumber": "57",
+      "description": "DT 46 LH MTR, but 20 GB B. Tri, SPBL so 75% chance of 50 – 100% PB before\nEOD, and that means 12 – 16t"
+    },
+    {
+      "barNumber": "60",
+      "description": "20GB B, AIL, 5t F, but doji, 3 cc BRB, room to 50% bigger PB, LP B"
+    },
+    {
+      "barNumber": "63",
+      "description": "20GB B, 2eb, good BLB, 5t F, ok B for TRES up, but middle of TTR so SW most\nlikely"
+    },
+    {
+      "barNumber": "64",
+      "description": "DT 61 but AIL, 20GB B and 2eb 63 so prob BB"
+    },
+    {
+      "barNumber": "67",
+      "description": "f BO DB 60 63, AIL, ok swing B for TRES, but NS since past 6 B stop entries\nwere losers"
+    },
+    {
+      "barNumber": "70",
+      "description": "f BO, BRB, but AIL, big enough 69 so prob BB"
+    }
+  ],
+  "12": [
+    {
+      "barNumber": "0",
+      "description": "For today’s real-time update, see <a\nhref=\"https://brookstradingcourse.com/blog/market-update/\">Intraday market\nupdate</a>. For more on the current S&P500 and Emini weekly charts, see <a\nhref=\"https://brookstradingcourse.com/blog/market-analysis/\">Weekly market\nupdate</a>"
+    },
+    {
+      "barNumber": "1",
+      "description": "GU, BLB, but both small. AIL, but Y TTR is MGB. Prob TRO"
+    },
+    {
+      "barNumber": "2",
+      "description": "cc BLB, BB, but prob SW"
+    },
+    {
+      "barNumber": "4",
+      "description": "F BO, HOY 2es but big tail, BUDC, BB, SS2"
+    },
+    {
+      "barNumber": "6",
+      "description": "DB HL 1, good BLB, but 3 BRB so poss AIS, prob SW, BB2"
+    },
+    {
+      "barNumber": "8",
+      "description": "H2 but BUDC, TTR, btw"
+    },
+    {
+      "barNumber": "10",
+      "description": "DB HL 1 at MA, H3, but doji, TTR, btw"
+    },
+    {
+      "barNumber": "13",
+      "description": "BOM, F BO above 1 and now F BO below 1. PL, but TC so prob MRV"
+    },
+    {
+      "barNumber": "21",
+      "description": "DTBF 14, but 4 bar PB in BRLTR, LBL made money below every L, BB and SA, then\nTR"
+    },
+    {
+      "barNumber": "23",
+      "description": "HL, should test above at least 1 LH, ok B, but BLTR"
+    },
+    {
+      "barNumber": "30",
+      "description": "LH MTR, L2, but SPBL, BB"
+    },
+    {
+      "barNumber": "32",
+      "description": "H1, f L2, SPBL, should test 2 C"
+    },
+    {
+      "barNumber": "44",
+      "description": "f BO 2 C, but SPBL, BB. Might reach 17t above 23"
+    },
+    {
+      "barNumber": "46",
+      "description": "H1 but prob SA at 2494 since 18t above 23 so 4 pt BL will take profits. Also,\nnew HOD in TRD"
+    },
+    {
+      "barNumber": "51",
+      "description": "Big BRB, poss test OOD"
+    },
+    {
+      "barNumber": "57",
+      "description": "W 52 54 but 7 BRBMC and OOD MGB since TRD so mrv. Prob will C around OOD for\nDD"
+    },
+    {
+      "barNumber": "61",
+      "description": "BP S in BRCH, but BB and around OOD for prob DD"
+    },
+    {
+      "barNumber": "63",
+      "description": "SCB 54 60, test OOD, but big doji, TC, LOM, better to BB bars"
+    },
+    {
+      "barNumber": "66",
+      "description": "L2, room to OOD, but BLB and weak BRCH, BB"
+    },
+    {
+      "barNumber": "69",
+      "description": "H4 at OOD, but TC, LOM, prob will C around OOD, but might test 58 H"
+    }
+  ],
+  "13": [
+    {
+      "barNumber": "0",
+      "description": "For today’s real-time update, see <a\nhref=\"https://brookstradingcourse.com/blog/market-update/\">Intraday market\nupdate</a>. For more on the current S&P500 and Emini weekly charts, see <a\nhref=\"https://brookstradingcourse.com/blog/market-analysis/\">Weekly market\nupdate</a>"
+    },
+    {
+      "barNumber": "1",
+      "description": "big BLB but tail, just below MA, middle of Y TR. AIL, but SA"
+    },
+    {
+      "barNumber": "2",
+      "description": "cc BLB, BB"
+    },
+    {
+      "barNumber": "4",
+      "description": "DB 1, PL"
+    },
+    {
+      "barNumber": "9",
+      "description": "W 2 6 LH MTR, F BO HOY, but BLB, TC, AIL, MRV"
+    },
+    {
+      "barNumber": "14",
+      "description": "W, DT, 2nd Fd attempt to BO HOY, PH, but only 1t BRB"
+    },
+    {
+      "barNumber": "17",
+      "description": "3 cc BRB, prob AIS, but middle of TRD and LOM, ok to wait. H2 11, 50% PB"
+    },
+    {
+      "barNumber": "21",
+      "description": "F BO 14 W, F BO HOY, but 5 BLB, AIL, LOM, LPS. LOM so poss SA 14. Most should\nwait"
+    },
+    {
+      "barNumber": "27",
+      "description": "DB 5, f BO 16, ET 10 16, LBL made money below 16, BRLTR, but strong enough so\nAIS and SA. LP B. Since TRD, might get deep PB to near 22 H"
+    },
+    {
+      "barNumber": "31",
+      "description": "PB from 19 BL reversal, but prob LH and more TRD"
+    },
+    {
+      "barNumber": "37",
+      "description": "4 cc BLB, might get BO to new HOD. Since TRD, prob SA HOD, but 40% chance of\nstrong BO and BL trend"
+    },
+    {
+      "barNumber": "41",
+      "description": "ET, DT HOY, top of TRD, AIL, but 7 BLB, LPS"
+    },
+    {
+      "barNumber": "55",
+      "description": "WBLF 45 48, AIL, but TTR, btw"
+    }
+  ],
+  "14": [
+    {
+      "barNumber": "0",
+      "description": "For today’s real-time update, see <a\nhref=\"https://brookstradingcourse.com/blog/market-update/\">Intraday market\nupdate</a>. For more on the current S&P500 and Emini weekly charts, see <a\nhref=\"https://brookstradingcourse.com/blog/market-analysis/\">Weekly market\nupdate</a>"
+    },
+    {
+      "barNumber": "1",
+      "description": "big BRB, COL, just above LOY so MGB"
+    },
+    {
+      "barNumber": "2",
+      "description": "CC BRB, AIS, but at SP at LOY and 3 day TR, so poss ORV up"
+    },
+    {
+      "barNumber": "3",
+      "description": "ORV LOY, Y was small so poss OU day, PL, but tail, prob SA 1 around MA"
+    },
+    {
+      "barNumber": "7",
+      "description": "ORV down from MA, DT 1, but strong enough 4 5 so AIL, BB. Might test 3 H for\nLBR to make money. Btw"
+    },
+    {
+      "barNumber": "10",
+      "description": "W LH MTR 1 7, but AIL, HOY MGA, strong enough 4 5 so might continue up to\nHOY, BB"
+    },
+    {
+      "barNumber": "14",
+      "description": "W 7 10 but SPBL, BB"
+    },
+    {
+      "barNumber": "20",
+      "description": "F W, MGA HOY, SPBL, but SA HOY. Might get RD and then OD"
+    },
+    {
+      "barNumber": "24",
+      "description": "BP B, but prob 2LT 22, SA, AIS, even tho SPBL. TRD still likely so prob will\ntest OOD before EOD"
+    },
+    {
+      "barNumber": "28",
+      "description": "H2 25, DB 20, but prob AIS and SA. Might test HOY for LH. LOM"
+    },
+    {
+      "barNumber": "33",
+      "description": "W 24 29 but LOM, better to BB and S Hr"
+    },
+    {
+      "barNumber": "36",
+      "description": "WBLF 29 33, ok BSB, but LOM so WSS. Prob SA around 31 H. Should test OOD\nbefore EOD since TRD"
+    },
+    {
+      "barNumber": "42",
+      "description": "LH but 3 CC BLB, SS2. AIL, but top of TRD so B PB, not BO. Since TRD, BR will\nSTC of strong bull BO"
+    },
+    {
+      "barNumber": "46",
+      "description": "BP B, BLB, but 4 BRB, SA, LOM"
+    },
+    {
+      "barNumber": "50",
+      "description": "H2 36, but doji and odds favor test OOD"
+    },
+    {
+      "barNumber": "55",
+      "description": "H2 36, W 45 50, good BLB, but LOM and OOD is mgb so not strong B"
+    },
+    {
+      "barNumber": "65",
+      "description": "DT LH in TRSV, odds slightly favor test of OOD instead of HOD"
+    },
+    {
+      "barNumber": "70",
+      "description": "DB 55, H2 67, TRS, but odds slightly Hr for test OOD"
+    }
+  ],
+  "15": [
+    {
+      "barNumber": "0",
+      "description": "For today’s real-time update, see <a\nhref=\"https://brookstradingcourse.com/blog/market-update/\">Intraday market\nupdate</a>. For more on the current S&P500 and Emini weekly charts, see <a\nhref=\"https://brookstradingcourse.com/blog/market-analysis/\">Weekly market\nupdate</a>"
+    },
+    {
+      "barNumber": "1",
+      "description": "BLB with big tail in middle of 4 day TTR. LOM, btw"
+    },
+    {
+      "barNumber": "3",
+      "description": "ORV up from 60ma and LOY, but BRL, LOM, btw"
+    },
+    {
+      "barNumber": "4",
+      "description": "ORV up from 60 MA, MDB 1, but TTR, just below MA, btw"
+    },
+    {
+      "barNumber": "5",
+      "description": "MDT 1 ORV down from MA, but BLB, LOM, btw"
+    },
+    {
+      "barNumber": "9",
+      "description": "W 1 3 7 ORV up from 60ma, but BRB"
+    },
+    {
+      "barNumber": "10",
+      "description": "Big BLB, prob AIL, but need BO above MA and HOD"
+    },
+    {
+      "barNumber": "15",
+      "description": "OD but BLB, AIL, BTC. BOM since rv up from below 1 and now rv down from above\n1. BR Fd to get W 7 10"
+    },
+    {
+      "barNumber": "18",
+      "description": "f BO HOY, 2LT, big BRB, BB2. Ok swing S, but SS2. Prob TTRD"
+    },
+    {
+      "barNumber": "20",
+      "description": "bad FT for BR, AIL, BB, prob TTRD"
+    },
+    {
+      "barNumber": "23",
+      "description": "BP B, but BUDC, SA"
+    },
+    {
+      "barNumber": "24",
+      "description": "F BO HOY 2es, PH, ok swing S, but more likely BB around 1 H, and UTR"
+    },
+    {
+      "barNumber": "27",
+      "description": "DB 22, AIL, MA, but still on S 25 so need stop below 13 or LOD. TTRD more\nlikely than SCBL"
+    },
+    {
+      "barNumber": "34",
+      "description": "F BO 25, 2es, bear ioi, BL scalpers will exit, but still AIL, ok swing S, but\nNHEP for scalp S"
+    },
+    {
+      "barNumber": "43",
+      "description": "DB HL 27, bottom of UTR, W 33 38, but only 2 pt TR, 60% chance of PB below 1\nor 15 H at top of LTR, btw to B"
+    },
+    {
+      "barNumber": "54",
+      "description": "H2 27, W 38 41, but still 60% chance of falling below 15 H so prob SA"
+    },
+    {
+      "barNumber": "62",
+      "description": "f L2, AIL, trying for TRS up, but TTR and small day so odds are only small\nleg up, if rally"
+    }
+  ],
+  "18": [
+    {
+      "barNumber": "0",
+      "description": "For today’s real-time update, see <a\nhref=\"https://brookstradingcourse.com/blog/market-update/\">Intraday market\nupdate</a>. For more on the current S&P500 and Emini weekly charts, see <a\nhref=\"https://brookstradingcourse.com/blog/market-analysis/\">Weekly market\nupdate</a>"
+    },
+    {
+      "barNumber": "1",
+      "description": "bear doji, but GU on weekly chart, still PL or PH. AIL, but BLs need FT"
+    },
+    {
+      "barNumber": "2",
+      "description": "big BLB, AIL, PL, ok swing B"
+    },
+    {
+      "barNumber": "5",
+      "description": "PW 1 3, PH, but not good shape. 5 BBLMC, prob BB"
+    },
+    {
+      "barNumber": "7",
+      "description": "H1, AIL, but cbx, 3 dojis, prob SU. PH, but more likely SW for 10 bars"
+    },
+    {
+      "barNumber": "11",
+      "description": "H2, but 6 BBR TC, prob SW"
+    },
+    {
+      "barNumber": "15",
+      "description": "BP B but TTRNS, BR see as DT13 for PB to MA. AIL, btw"
+    },
+    {
+      "barNumber": "27",
+      "description": "3 CC BRB, room to MA below, SA, but TTR, AIL, bears need strong BR BO and FT"
+    },
+    {
+      "barNumber": "31",
+      "description": "20GB B, H2 27, AIL, but TCH, TTR, LOM"
+    },
+    {
+      "barNumber": "41",
+      "description": "f BO, tail, BLB, H2 11, still AIL, but odds favor test OOD before EOD so prob\nnot much more up"
+    },
+    {
+      "barNumber": "53",
+      "description": "LH MTR, MGB at OD, but 4 BLB, TTR"
+    },
+    {
+      "barNumber": "56",
+      "description": "4 CC BRB, AIS, OOD mgb, and 2500 and 60ma and HOY G"
+    },
+    {
+      "barNumber": "59",
+      "description": "F BO, but tail, room to 60m1, AIS, SA. TRD, OOD MGA, prob will C around OOD,\nprob just below aftr 6 cc BL days"
+    },
+    {
+      "barNumber": "61",
+      "description": "L1, room to 60ma, prob 2LD after strong BO, but prob BB at 60ma, HOY"
+    },
+    {
+      "barNumber": "64",
+      "description": "DB 56, test HOY and 60ma, MGA OOD and 58 SX H. should bounce, but prob will C\naround OOD"
+    },
+    {
+      "barNumber": "69",
+      "description": "BP B but prob SA around 58 H and 40 L at bottom of UTR, then C around OOD. BL\nwant C near HOD, like past 5 days, but today had new LOD so less likely to C\nnear H"
+    }
+  ],
+  "19": [
+    {
+      "barNumber": "0",
+      "description": "For today’s real-time update, see <a\nhref=\"https://brookstradingcourse.com/blog/market-update/\">Intraday market\nupdate</a>. For more on the current S&P500 and Emini weekly charts, see <a\nhref=\"https://brookstradingcourse.com/blog/market-analysis/\">Weekly market\nupdate</a>"
+    },
+    {
+      "barNumber": "1",
+      "description": "bear dojif BO HOY, PH, but prob BB around MA"
+    },
+    {
+      "barNumber": "3",
+      "description": "cc BRB, AIS, 50% chance 1 will remain HOD. After Y DD, today will prob have BR\nbody on daily chart so prob SD day"
+    },
+    {
+      "barNumber": "4",
+      "description": "ORV up from MA, BLB, BB for test 1 L where LBL will take profits. But, AIS, SA\nand around 1 L"
+    },
+    {
+      "barNumber": "7",
+      "description": "good BLB but middle of range and AIS, SA"
+    },
+    {
+      "barNumber": "9",
+      "description": "L2 but 2 dojis, LOM"
+    },
+    {
+      "barNumber": "15",
+      "description": "LH, bear ioi, poss HOD, ok swing S"
+    },
+    {
+      "barNumber": "21",
+      "description": "f BO, PL, ok swing, but prob SA"
+    },
+    {
+      "barNumber": "25",
+      "description": "cc BLB, AIL, BOM, still will prob C below OOD, even if MMU"
+    },
+    {
+      "barNumber": "33",
+      "description": "f BO HOD, but TC, AIL, prob will go SU for 2 – 3 hours. Might get MMU from\nLOD to OOD, then test back to OOD at eod"
+    },
+    {
+      "barNumber": "48",
+      "description": "DB 27, W 38 43, but TTR, LOM"
+    },
+    {
+      "barNumber": "70",
+      "description": "DB, and a measured move up\">DBBF after 61 BO, AIL, but top of TTR and still\nID, just below HOY, LP"
+    }
+  ],
+  "20": [
+    {
+      "barNumber": "0",
+      "description": "For today’s real-time update, see <a\nhref=\"https://brookstradingcourse.com/blog/market-update/\">Intraday market\nupdate</a>. For more on the current S&P500 and Emini weekly charts, see <a\nhref=\"https://brookstradingcourse.com/blog/market-analysis/\">Weekly market\nupdate</a>"
+    },
+    {
+      "barNumber": "1",
+      "description": "FOMC report at 11 am so probably TR until then, then big BO or reversal. F BO\nHOY but doji. PH. Y was small so today might be OD. 50 bar TTR, doji, BB, btw"
+    },
+    {
+      "barNumber": "2",
+      "description": "ORV, PL, but top of Y TTR"
+    },
+    {
+      "barNumber": "4",
+      "description": "F BO HOY 2es, PH, ok swing S, but in Y TTR so Lr P"
+    },
+    {
+      "barNumber": "5",
+      "description": "CC big BRB, AIS, but bottom of Y TTR"
+    },
+    {
+      "barNumber": "10",
+      "description": "W 5 7 but 7 BBRMC, BRB, SA"
+    },
+    {
+      "barNumber": "19",
+      "description": "W 2 9, PL, HPW"
+    },
+    {
+      "barNumber": "21",
+      "description": "W 2eb in TRD, ok B"
+    },
+    {
+      "barNumber": "29",
+      "description": "f BO 14 and HOY, but 10 BRBLMC, MM"
+    },
+    {
+      "barNumber": "30",
+      "description": "H1, but better to BB since small legs"
+    },
+    {
+      "barNumber": "34",
+      "description": "NW 25 31 and 14 25, but 24 25 strong enough for another leg up so LPS"
+    },
+    {
+      "barNumber": "37",
+      "description": "BP B but W, weak rally, prob SA. Might enter TTR until 11 am report"
+    },
+    {
+      "barNumber": "40",
+      "description": "NW, another F BO HOY, but prob TTR, btw for report"
+    },
+    {
+      "barNumber": "49",
+      "description": "BP S, ii, but just above 60ma and LOD, 2 BLB, BB. Too close to report, btw"
+    },
+    {
+      "barNumber": "55",
+      "description": "FOMC big bear BO but big tail. Btw"
+    },
+    {
+      "barNumber": "56",
+      "description": "big bear IB, AIS, ok swing S"
+    },
+    {
+      "barNumber": "58",
+      "description": "BP S"
+    },
+    {
+      "barNumber": "60",
+      "description": "BP B, but bad FT 55 tail. 57, 59 tail, 60, PW 47 55, prob SW soon, maybe back\nabove LOY"
+    },
+    {
+      "barNumber": "61",
+      "description": "BP S but doji, good BLB, PW, BB for test 2500 and LOY"
+    },
+    {
+      "barNumber": "63",
+      "description": "f BO LOY 2ed, PW, ok B"
+    },
+    {
+      "barNumber": "65",
+      "description": "BP B, strong rev, AIL, but prob will C around LOY and 2500"
+    },
+    {
+      "barNumber": "66",
+      "description": "MDT, DT 57, but BDUC and prob SW around LOY for rest of day so BB"
+    },
+    {
+      "barNumber": "69",
+      "description": "BP B, AIL, BL want to get back above HOY, but more likely TTR around LOY\nuntil eod"
+    }
+  ],
+  "21": [
+    {
+      "barNumber": "0",
+      "description": "For today’s real-time update, see <a\nhref=\"https://brookstradingcourse.com/blog/market-update/\">Intraday market\nupdate</a>. For more on the current S&P500 and Emini weekly charts, see <a\nhref=\"https://brookstradingcourse.com/blog/market-analysis/\">Weekly market\nupdate</a>"
+    },
+    {
+      "barNumber": "1",
+      "description": "Y ended with SCT so 68 L is MGB. Bull doji so SA, BB"
+    },
+    {
+      "barNumber": "2",
+      "description": "big BRB, prob AIS"
+    },
+    {
+      "barNumber": "3",
+      "description": "BR body, AIS, but doji, weak"
+    },
+    {
+      "barNumber": "4",
+      "description": "another BRB, STC, but tail. Weak selloff so prob will be BRTR"
+    },
+    {
+      "barNumber": "6",
+      "description": "ORV up from above LOY, COH, LBL 1 L will B above since BLB, but 6 BBRMC so\nprob SA and bulls will prob need MDB. AIBRE"
+    },
+    {
+      "barNumber": "7",
+      "description": "BP S, but CC BLB, around LOY so SP, DBR will prob B back shorts around 5 C, BB"
+    },
+    {
+      "barNumber": "10",
+      "description": "AIBR S again, but prob BB around LOY"
+    },
+    {
+      "barNumber": "12",
+      "description": "W 68 6, PL, ok swing B for test 1 L"
+    },
+    {
+      "barNumber": "14",
+      "description": "DTBF 7 but AIL, prob BB"
+    },
+    {
+      "barNumber": "19",
+      "description": "W 7 14, but MG 14 H, 1 L MGA, BB"
+    },
+    {
+      "barNumber": "25",
+      "description": "went above 1 L so BL take profits. CC top since W 27 21 after DT 7 14, prob\nSD for 5 – 10 bars. Since SPBL, MRV"
+    },
+    {
+      "barNumber": "26",
+      "description": "f W, AIL, but prob SA and TR"
+    },
+    {
+      "barNumber": "30",
+      "description": "H2 but doji, TTR"
+    },
+    {
+      "barNumber": "36",
+      "description": "DT 24 but AIL, TTR, LOM"
+    },
+    {
+      "barNumber": "40",
+      "description": "f BO 31, H2 30, AIL, HOD MGA, but TTR"
+    },
+    {
+      "barNumber": "46",
+      "description": "Tri 24 33, top of TTR, but too tight to S. AIL but TRSV"
+    },
+    {
+      "barNumber": "53",
+      "description": "F BO, H2, but TTR, btw"
+    },
+    {
+      "barNumber": "57",
+      "description": "LH, MDT, last 3 profitable stop entries were S, but TTR"
+    },
+    {
+      "barNumber": "65",
+      "description": "F BO 61 and 14 H, H2 39, PW 52 59, ok swing B but TC so MRV"
+    },
+    {
+      "barNumber": "74",
+      "description": "W 60 67 LH, BR S SB, but TTr"
+    }
+  ],
+  "22": [
+    {
+      "barNumber": "0",
+      "description": "For today’s real-time update, see <a\nhref=\"https://brookstradingcourse.com/blog/market-update/\">Intraday market\nupdate</a>. For more on the current S&P500 and Emini weekly charts, see <a\nhref=\"https://brookstradingcourse.com/blog/market-analysis/\">Weekly market\nupdate</a>"
+    },
+    {
+      "barNumber": "1",
+      "description": "F BO LOY, COH, PL, but big bar so big risk, in 5 day TTR so LR P. Ok B but BB2"
+    },
+    {
+      "barNumber": "3",
+      "description": "BP S but doji, AIL"
+    },
+    {
+      "barNumber": "7",
+      "description": "f BO LOY 2eb, good BSB, PL"
+    },
+    {
+      "barNumber": "11",
+      "description": "ORV W BRF at ma, but doji, AIL, TC, MGA, LPS"
+    },
+    {
+      "barNumber": "15",
+      "description": "F BO above W and MA, ORV, PH, AIBLE, but OD and 8 bar TTR, LP S"
+    },
+    {
+      "barNumber": "18",
+      "description": "DB 7, DB 1, but 4 cc BRB, AIS, SA. Bottom of TR, but 4 BRB so BB2. BOM for BO\nof 18 bar range. 90% chance either 1 will remain LOD or 15 will be HOD"
+    },
+    {
+      "barNumber": "24",
+      "description": "DB 4, W 19 22, but BRB, just below MA, AIS. BOM, 18 bar range. AIS but bottom\nof TR"
+    },
+    {
+      "barNumber": "33",
+      "description": "W 20 27, but TC, AIL, BB. Ok swing S, BOM, range is only 4.25 so 95% chance\neither new H or L of day"
+    },
+    {
+      "barNumber": "37",
+      "description": "HL but might get 2LD from W so BL stop below 25"
+    },
+    {
+      "barNumber": "47",
+      "description": "Triple bottom, W 34 42, but TBRCH, BB2. Odds favor BO UD, but BO will prob\nreverse. 30% chance of trend"
+    },
+    {
+      "barNumber": "62",
+      "description": "LH but TBLC, BB, and OOW MGA so BB"
+    }
+  ],
+  "25": [
+    {
+      "barNumber": "0",
+      "description": "For today’s real-time update, see <a\nhref=\"https://brookstradingcourse.com/blog/market-update/\">Intraday market\nupdate</a>. For more on the current S&P500 and Emini weekly charts, see <a\nhref=\"https://brookstradingcourse.com/blog/market-analysis/\">Weekly market\nupdate</a>"
+    },
+    {
+      "barNumber": "1",
+      "description": "BLB at bottom of 5 day TR, but tail, SA. Y was B SB, last week was S SB"
+    },
+    {
+      "barNumber": "2",
+      "description": "OU but BRB, LOM"
+    },
+    {
+      "barNumber": "3",
+      "description": "ORV down from ma, L2 but BLB, TTR, LPS"
+    },
+    {
+      "barNumber": "7",
+      "description": "f L3 just above LOY, 5 is good B SB, ok B for PL, but top of TTR so Lr P"
+    },
+    {
+      "barNumber": "9",
+      "description": "BO and FT, AIL, prob either bull trend or TR. Since poss TR< can get deep PB.\nAt RS of 2500, 60ma, COY, HOY. BR want to C G and dip below 3 H to make TR more\nlikely than bull trend"
+    },
+    {
+      "barNumber": "11",
+      "description": "f BO at 60ma, 2500, COY, 2LT, PH, but prob BB and either BLF or TR. If falls\nbelow 6 H, then prob TR"
+    },
+    {
+      "barNumber": "13",
+      "description": "3 cc strong BRB, poss AIS"
+    },
+    {
+      "barNumber": "14",
+      "description": "big BRB, AIS, prob will fall for MMD, maybe from HOD to OOD. Should trigger\nweekly S signal"
+    },
+    {
+      "barNumber": "20",
+      "description": "PW 14 17 19, dip below Aug H BOP on daily chart, better to exit shorts since\nPL. ok swing B, but BB2. Might be in BLCH for rest of day and get back above LLW"
+    },
+    {
+      "barNumber": "21",
+      "description": "CC BLB, AIL even tho MRV since PW. More likely BLCH. L1 but CC BLB, PW, LPS"
+    },
+    {
+      "barNumber": "22",
+      "description": "L1 but 3 CC BLB, PW, at daily ma, BB, AIL, prob SU for at least 1 hour and\nmaybe LOD. Might get back above LLW, and might even test HOD. 90% chance 11 will\nremain HOD, 70% chance 19 will remain LOD"
+    },
+    {
+      "barNumber": "25",
+      "description": "L2, 2LT at MA, BRB, might get 50% PB, STC BR 19 will add here, but AIL, BB\naround 23 L. H1 B but BRB at MA, prob SA. Prob TR soon, BDUC"
+    },
+    {
+      "barNumber": "29",
+      "description": "SB 23, HL MTR, 50% PB, but 5 cc BRB, SA. Prob TR soon"
+    },
+    {
+      "barNumber": "35",
+      "description": "OU, COH, HL MTR, 2nd test AUG H, ok swing B but prob TR so SA around 24 H"
+    },
+    {
+      "barNumber": "37",
+      "description": "BP S, but CC BLB COH, AIL, BB"
+    },
+    {
+      "barNumber": "40",
+      "description": "BP B, AIL, LLW MGA, but just below 24 H, LP B, TR likely. Should get back\nabove LLW today or tm"
+    },
+    {
+      "barNumber": "42",
+      "description": "BP B, AIL, but 2 dojis just below 24 H and prob top of TR. Prob SA, but AIL,\nmight get back to OOD by EOD to create DD"
+    },
+    {
+      "barNumber": "45",
+      "description": "bull ioi, H2 above ma, AIL, but TTR, LOM"
+    },
+    {
+      "barNumber": "51",
+      "description": "W 30 41, big L2 25, but TC, AIL, BB. might test 49 L or 37 L"
+    },
+    {
+      "barNumber": "52",
+      "description": "H1 but W, 2 BRB, SA"
+    },
+    {
+      "barNumber": "54",
+      "description": "H2, AIL, but 4 BRB, room to 49 L, LPB, but BB 57 and 49"
+    },
+    {
+      "barNumber": "62",
+      "description": "H2 49, AIL, but only 1 BLB in 12 bars. Prob LOM"
+    },
+    {
+      "barNumber": "66",
+      "description": "LH but AIL, 3 BLB, BB"
+    },
+    {
+      "barNumber": "70",
+      "description": "L2, LH, but middle of Tri, AIL, 2 dojis, btw"
+    }
+  ],
+  "26": [
+    {
+      "barNumber": "0",
+      "description": "For today’s real-time update, see <a\nhref=\"https://brookstradingcourse.com/blog/market-update/\">Intraday market\nupdate</a>. For more on the current S&P500 and Emini weekly charts, see <a\nhref=\"https://brookstradingcourse.com/blog/market-analysis/\">Weekly market\nupdate</a>"
+    },
+    {
+      "barNumber": "1",
+      "description": "2 F BO HOY but 10 BBLMC, BB. 2 dojis so poss early TR"
+    },
+    {
+      "barNumber": "4",
+      "description": "H1 but 4 dojis at HOY, TTR at RS, poss LOM"
+    },
+    {
+      "barNumber": "5",
+      "description": "f BO HOY 2es, but 5 dojis so no BX, prob LOM, SW more likely"
+    },
+    {
+      "barNumber": "6",
+      "description": "H2, but 6 dojis in TTR, at RS of HOY, LOM, still on S below 5, AIS"
+    },
+    {
+      "barNumber": "11",
+      "description": "COL so ok swing S, but prob BB around ma and 60ma, then more TR"
+    },
+    {
+      "barNumber": "14",
+      "description": "f BO, test MA, PL, but 3cc BRB, tail, prob SA and more SD"
+    },
+    {
+      "barNumber": "16",
+      "description": "bad FT again so prob BRTR, but only 1t OL of 8 L and 14 L so poss SPBR"
+    },
+    {
+      "barNumber": "20",
+      "description": "BP S but BRCH and better to S PB than BO. Also, near LLR SP, weak BR. Poss\nSPBR, but BRTR more likely"
+    },
+    {
+      "barNumber": "21",
+      "description": "W 13 16 18 20, but LLW MGB so SA"
+    },
+    {
+      "barNumber": "23",
+      "description": "BP S but weak BR CH. Might get strong BO below LLW, like 17 Y. LP chance of\nOD day so prob bottom soon"
+    },
+    {
+      "barNumber": "25",
+      "description": "F BO below TBRC, F BO LLW, F BO below 51 H BOB, good BLB, but TC so MRV.\nBetter if can use wide stop, like below LOY since TC and might get one more new\nL before TR"
+    },
+    {
+      "barNumber": "32",
+      "description": "W 22 27, L2 27, but good BLB, prob LOM"
+    },
+    {
+      "barNumber": "36",
+      "description": "big OU but top of BLCH, prob SA 32"
+    },
+    {
+      "barNumber": "37",
+      "description": "W 23 28 32, but lots of reversals and LOM, prob AIL"
+    },
+    {
+      "barNumber": "39",
+      "description": "DB 30, AIL, should try to test OOD since TRD"
+    },
+    {
+      "barNumber": "52",
+      "description": "BP B but SA at OOD and HOD, despite TBLC"
+    },
+    {
+      "barNumber": "54",
+      "description": "DT 15, f BO OOD, but TC, MRV, better to SA bars. Prob will stay within 2 pts\nof OOD for rest of day and become another DD"
+    },
+    {
+      "barNumber": "58",
+      "description": "MA but 5 cc BRB, SA. Deciding between Cg above OOD and LLW. LOM, more likely\nto C near OOD, but 2LD after 5 BRB"
+    },
+    {
+      "barNumber": "59",
+      "description": "BP S, TBRC, but BB, BLB, 50% PB, midway between 2 magnest. Prob TTR, then BO\nto either OOD or LLW"
+    },
+    {
+      "barNumber": "63",
+      "description": "H2 but TC, TTR for 20 bars, prob SA around 59 LH, but prob will stay around\nOOD in TTR. LOM."
+    },
+    {
+      "barNumber": "74",
+      "description": "DT LH 54 at OOD, 2es, but doji, TTR, wft"
+    }
+  ],
+  "27": [
+    {
+      "barNumber": "0",
+      "description": "For today’s real-time update, see <a\nhref=\"https://brookstradingcourse.com/blog/market-update/\">Intraday market\nupdate</a>. For more on the current S&P500 and Emini weekly charts, see <a\nhref=\"https://brookstradingcourse.com/blog/market-analysis/\">Weekly market\nupdate</a>"
+    },
+    {
+      "barNumber": "1",
+      "description": "GU BLB, AIL, but top of 10 day TR"
+    },
+    {
+      "barNumber": "2",
+      "description": "FT but small. PL, but poss f BO. Prob BB"
+    },
+    {
+      "barNumber": "4",
+      "description": "4 cc BRB, AIS, SA"
+    },
+    {
+      "barNumber": "10",
+      "description": "ORV PW at MA but strong enough 8 9 so prob SA and at least small 2LD. AIBRE"
+    },
+    {
+      "barNumber": "12",
+      "description": "COL, AIBR SB BP S but prob only 1 – 3 more bars down before TR or TRV"
+    },
+    {
+      "barNumber": "18",
+      "description": "PW 9 14, 2LD 14, strong BLB, AIBRE, ok B for test 16 H and maybe 12 SX H"
+    },
+    {
+      "barNumber": "19",
+      "description": "BP S, but AIL, BB. Either TR or TRV up"
+    },
+    {
+      "barNumber": "23",
+      "description": "BP B but 2 dojis at MA and 16 SX H, SA. DT 16, 40% chance of new LOD and MMD"
+    },
+    {
+      "barNumber": "32",
+      "description": "HL MTR, H2 26, AIL, ok B but TTR and just below MA so LP, poss endless PB"
+    },
+    {
+      "barNumber": "34",
+      "description": "2eb but doji, just below MA, AIL, but many will wait to B strong bull BO"
+    },
+    {
+      "barNumber": "37",
+      "description": "DB 32, COH, ok B for L1=2 test of 12 SX H"
+    },
+    {
+      "barNumber": "40",
+      "description": "DT 24, but strong enough 38 – 40 so prob BB"
+    },
+    {
+      "barNumber": "44",
+      "description": "BP B but LBL 11 L will S so prob SA. B PB"
+    },
+    {
+      "barNumber": "46",
+      "description": "L2 24 but 8 BLB, BA"
+    },
+    {
+      "barNumber": "50",
+      "description": "H2, AIL, but prob SA around 11 H or OOD"
+    },
+    {
+      "barNumber": "53",
+      "description": "strong BO, more up, maybe to OOD"
+    },
+    {
+      "barNumber": "55",
+      "description": "strong BO, more up, but BX so need wide stop, increased risk of sharp\nreversal. Do not S"
+    },
+    {
+      "barNumber": "59",
+      "description": "f BO ATH, OU on weekly, big BX, PW 52 55, BRB COL, AIBLE, prob will test OOD\nand 57 BX L. might get one more new H 1st"
+    },
+    {
+      "barNumber": "62",
+      "description": "H2 B, AIL, but CBX, prob more SD to OOD and 57 L. If get rally, rpob SA HOD\nof CBX"
+    },
+    {
+      "barNumber": "67",
+      "description": "BTC, but too early so prob will get RV before EOD. Still strongly AIL"
+    },
+    {
+      "barNumber": "69",
+      "description": "HH MTR, AIBLE below BRB, not strong S after 4 BL B, SS2"
+    }
+  ],
+  "28": [
+    {
+      "barNumber": "0",
+      "description": "For today’s real-time update, see <a\nhref=\"https://brookstradingcourse.com/blog/market-update/\">Intraday market\nupdate</a>. For more on the current S&P500 and Emini weekly charts, see <a\nhref=\"https://brookstradingcourse.com/blog/market-analysis/\">Weekly market\nupdate</a>"
+    },
+    {
+      "barNumber": "1",
+      "description": "Y was big doji and today opened in middle. Prob ID, or only small BO beyond Y.\nBUDC, in between 5 and 60ma so prob TRO. 50% PB, odds favor a test up before a\ntest of LOY, but TC so BLB prob need DB. Tail, SA. BLB, BB, prob LOM"
+    },
+    {
+      "barNumber": "5",
+      "description": "L2 below MA, but TTR, LOM, btw"
+    },
+    {
+      "barNumber": "10",
+      "description": "LL DB at 60ma, H2, but 3 BRB, HPW. New L after new H, BOM"
+    },
+    {
+      "barNumber": "13",
+      "description": "BP B, AIL but BRB, weak BO. BR want DT 4, but strong enough 11 12 to prob BB.\nStill in TTR, ok to wait"
+    },
+    {
+      "barNumber": "14",
+      "description": "BP B, bull ii, AIL, but top of TTR so might get F BO"
+    },
+    {
+      "barNumber": "17",
+      "description": "LH MTR, bear ii, f BO DT 4 12, but dojis, TC 10, so prob SW. TRD so BLSHS"
+    },
+    {
+      "barNumber": "21",
+      "description": "BP S but middle of TRD, LOM, BB 19"
+    },
+    {
+      "barNumber": "23",
+      "description": "H2, HL, AIL, but 2 dojis in LOM, prob SA HOD and maybe above 21. LOM, BLSHS"
+    },
+    {
+      "barNumber": "24",
+      "description": "W but 3 BLB, MRV, still AIL, prob BB at MA and below 22"
+    },
+    {
+      "barNumber": "31",
+      "description": "HL in BL CH, but weak rally so prob SA 27, only 40% chance of f W and MMU"
+    },
+    {
+      "barNumber": "35",
+      "description": "W 4 15 27, but 4 BLB, LOM, SS2. BLTR, but might get closer to HOY"
+    },
+    {
+      "barNumber": "40",
+      "description": "BP B at MA but 4 BRB, 6 BBRMC, 2 dojis so prob TTR, LOM"
+    },
+    {
+      "barNumber": "51",
+      "description": "SPBL so can only S with lim orders and wide stop above HOY, but late to buy.\nBL CH is bear flag, and entire rally is prob BLTR after Y strong rally. Prob\nwill test 10 L in 1 – 2 days for bottom of TR. Tgt today is 41 major HL"
+    },
+    {
+      "barNumber": "59",
+      "description": "bulls giving up. 2 legs down to 40 L or 22 L likely"
+    },
+    {
+      "barNumber": "64",
+      "description": "WBLF, but 1st of 2LSD so SA for test 40 L"
+    },
+    {
+      "barNumber": "74",
+      "description": "f BO 40 HL, H2, but BRB"
+    }
+  ]
+}

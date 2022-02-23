@@ -1,0 +1,2246 @@
+{
+  "2": [
+    {
+      "barNumber": "1",
+      "description": "F BO HOY, PH, MDT, but SBU 78, PP MRV"
+    },
+    {
+      "barNumber": "2",
+      "description": "H1 but CC BRB, AIS, still on 1 S, BB2"
+    },
+    {
+      "barNumber": "4",
+      "description": "DT PB, LH, 2ES, but CC BLB, PP TRO. Since Y was TR, might have to test"
+    },
+    {
+      "barNumber": "8",
+      "description": "H2 at MA but BRB, still on 1 S, BB2"
+    },
+    {
+      "barNumber": "9",
+      "description": "BBLBC, but bad B SB 8, PS BR CH, should test 64 H, PS SA, BB2"
+    },
+    {
+      "barNumber": "10",
+      "description": "L1 but tail, just above MA, TRO, LOM"
+    },
+    {
+      "barNumber": "12",
+      "description": "HL at MA but BRB11, room to 50P and 64 H, still on 1 S, PS TW 2 8 at MA, PS"
+    },
+    {
+      "barNumber": "14",
+      "description": "BO above TL and BLF, 60ma MGA"
+    },
+    {
+      "barNumber": "15",
+      "description": "FT, BTC, should go above 60ma and GX H"
+    },
+    {
+      "barNumber": "17",
+      "description": "BTC but tail, just below 60ma, PS W 64 1, BB2 or need WSS. Should get above"
+    },
+    {
+      "barNumber": "20",
+      "description": "MDB 18, MGA, but BRB. Should go HR"
+    },
+    {
+      "barNumber": "24",
+      "description": "NW but BLB, SPBL, BB"
+    },
+    {
+      "barNumber": "28",
+      "description": "ii late in BLT so PS FF. LBRA"
+    },
+    {
+      "barNumber": "32",
+      "description": "NW 21 26, 9 17, Y 64 1, OD, FF 28 ii, F BO 60ma, AIBLE, PH, PP at least 2LSD,"
+    },
+    {
+      "barNumber": "36",
+      "description": "H1, PS TR so PP 10 pt scalp, but 4 BRB and room to MA, PS SA and 2LSD"
+    },
+    {
+      "barNumber": "38",
+      "description": "LH MTR, but 3 BLB, PP BB and around MA. BSLO"
+    },
+    {
+      "barNumber": "40",
+      "description": "ioi, AIL, but top of TR so BL need WSS"
+    },
+    {
+      "barNumber": "42",
+      "description": "H1, but BRB, still on 32 S for 2LSD, PP SA"
+    },
+    {
+      "barNumber": "44",
+      "description": "SBD"
+    },
+    {
+      "barNumber": "47",
+      "description": "BO and FT, PP AIS, but bottom of TR 22 at 60ma, PP BB 36"
+    },
+    {
+      "barNumber": "49",
+      "description": "H2 36 at 60ma, but 7 BBRMC, BB2"
+    },
+    {
+      "barNumber": "54",
+      "description": "DB, DB 22, but 2 BRB, middle of TTR, LOM, BTW"
+    },
+    {
+      "barNumber": "57",
+      "description": "another LH, might test OOD since lots of TR PA, but doji"
+    },
+    {
+      "barNumber": "58",
+      "description": "COL, ok swing S, but L"
+    },
+    {
+      "barNumber": "61",
+      "description": "4 cc BRB, might test OOD, which is bottom of BL CH"
+    },
+    {
+      "barNumber": "62",
+      "description": "BO, 5 cc BRB, AIS, STC, PS MG"
+    },
+    {
+      "barNumber": "63",
+      "description": "test HOY and near OOD, F BO 48, PP LBLM below 48, but 6 BRB, BB2, PS SA"
+    },
+    {
+      "barNumber": "65",
+      "description": "L1 but 2 BLB, bottom of TR, PP BB"
+    },
+    {
+      "barNumber": "67",
+      "description": "HL DB 64 at MA, but TR, better to wait for breakout or 2nd signal. Low"
+    },
+    {
+      "barNumber": "70",
+      "description": "LH, W 65 68, but 8 BBRMC, middle of TTR 22, SS2"
+    }
+  ],
+  "3": [
+    {
+      "barNumber": "1",
+      "description": "YBX. F BO HOY, MDT, PB, but Y was strong rally so PP MRV"
+    },
+    {
+      "barNumber": "2",
+      "description": "H1, but BRB. CC BRB, one closing bear its L with good size body so AIS. PS"
+    },
+    {
+      "barNumber": "6",
+      "description": "H2 at MA, 50% PB, but tail, 8 BWBLB"
+    },
+    {
+      "barNumber": "7",
+      "description": "SBUM, but PS BLTP"
+    },
+    {
+      "barNumber": "8",
+      "description": "W 56 79, PH, AIBLE"
+    },
+    {
+      "barNumber": "10",
+      "description": "H1 at MA, but 3 BRB so LRP, PS BUDC. PS TRO"
+    },
+    {
+      "barNumber": "12",
+      "description": "LH, BR want 2LD from W top, but BBLB 11, holding above MA, SS2. Still might"
+    },
+    {
+      "barNumber": "15",
+      "description": "DT LH MTR but BLB. TRO. HPWS2. BOM."
+    },
+    {
+      "barNumber": "20",
+      "description": "CC BBRBC, AIS, STC"
+    },
+    {
+      "barNumber": "22",
+      "description": "L1, but BLB. Should test 60ma"
+    },
+    {
+      "barNumber": "25",
+      "description": "f 18BO, 60ma, PW 17 22, H2 10, should test above 6 L BOP, AIBRE. PP MRVU,"
+    },
+    {
+      "barNumber": "27",
+      "description": "L1 but CC BLB at MA, BB, MGA are OOD, HOY, apex of Tri 19"
+    },
+    {
+      "barNumber": "31",
+      "description": "H1, but 3LU, PP SA"
+    },
+    {
+      "barNumber": "32",
+      "description": "PW 27 30, 28 HL MGB, but 4 BLB, SS2 or need WSS"
+    },
+    {
+      "barNumber": "34",
+      "description": "H1 but PP SA for 2LSD from 32 W"
+    },
+    {
+      "barNumber": "37",
+      "description": "DB HL but BRB, did not quite reach 28 L, 60ma MGB, PS SA, BB2"
+    },
+    {
+      "barNumber": "41",
+      "description": "DTBF 36 at MA, 60ma and LOD MGV, but PP BRTR"
+    },
+    {
+      "barNumber": "48",
+      "description": "NW 6 24, 43 46, 60ma, but 8 BWBLB, PP MRV"
+    },
+    {
+      "barNumber": "50",
+      "description": "L1, AIS, but SX at 60ma, PS BB and below 48"
+    },
+    {
+      "barNumber": "51",
+      "description": "SBD after W B, PS MMD to below 63, and PS ODD, but unlikely since Y was huge"
+    },
+    {
+      "barNumber": "56",
+      "description": "BBRBL. MM from 7 SBU, PL, AIBRE5"
+    },
+    {
+      "barNumber": "57",
+      "description": "SX, F BO Y 63, W 6 24, OU, PL, but TC, MRV, still might go below LOY and form"
+    },
+    {
+      "barNumber": "58",
+      "description": "L1, but SX, still on B above 57, SS2"
+    },
+    {
+      "barNumber": "59",
+      "description": "MDB, still on B above 57, AIBRE"
+    },
+    {
+      "barNumber": "60",
+      "description": "COH but near MA, need stop below 59 or LOD"
+    },
+    {
+      "barNumber": "61",
+      "description": "L2 at MA, but CC BLB, still on 57 B"
+    },
+    {
+      "barNumber": "62",
+      "description": "COH, but bottom of TTR and still on 57 B, SS2"
+    },
+    {
+      "barNumber": "63",
+      "description": "DBPB, but BRB so LRP"
+    },
+    {
+      "barNumber": "64",
+      "description": "CC BLB, AIL, should test 60ma and 48 H, but weak rally"
+    },
+    {
+      "barNumber": "68",
+      "description": "H1 but BRB at 60ma and 48 H, PP SA70 W 65 67 but BLB, TC, SS2"
+    },
+    {
+      "barNumber": "71",
+      "description": "H1 but BBRB, PP SA"
+    }
+  ],
+  "4": [
+    {
+      "barNumber": "1",
+      "description": "GU, BLB, but tails. PPS TRO. 60ma MGA, 32 H and Y 7 C MGA."
+    },
+    {
+      "barNumber": "2",
+      "description": "BBRB, but tail, PP TRO"
+    },
+    {
+      "barNumber": "3",
+      "description": "L1 but BLB, LOM, PP BB"
+    },
+    {
+      "barNumber": "6",
+      "description": "MW 1 2, COH, near 60ma and ma, PL but 6 BBRMC, BB2"
+    },
+    {
+      "barNumber": "7",
+      "description": "L1 but 2 BLB, still on 6 B, PP BB"
+    },
+    {
+      "barNumber": "8",
+      "description": "OU, MDB, but C below 7 H"
+    },
+    {
+      "barNumber": "9",
+      "description": "BO, C above 8, BTC, but need FT"
+    },
+    {
+      "barNumber": "10",
+      "description": "cc BBLBC."
+    },
+    {
+      "barNumber": "12",
+      "description": "1t F BO 1, HH DT, PH, but 6 CC BLB, MRV, SS2"
+    },
+    {
+      "barNumber": "15",
+      "description": "H1 at MA, but 2 BBBRB, BB2"
+    },
+    {
+      "barNumber": "18",
+      "description": "H2, AIL, holding above MA, but doji, BTW"
+    },
+    {
+      "barNumber": "20",
+      "description": "HL DB 6 at MA, W, PL, but big doji, TRO. Btw"
+    },
+    {
+      "barNumber": "25",
+      "description": "DT PB but doji, just above MA, BTW. Still BOM, bad S SB"
+    },
+    {
+      "barNumber": "27",
+      "description": "Tri 6 20, holding above MA, AIL, but small BLB, BB2. 60ma MGB"
+    },
+    {
+      "barNumber": "29",
+      "description": "Tri 2EB at MA, PL, but doji at apex of Tri, BTW"
+    },
+    {
+      "barNumber": "32",
+      "description": "BO above Tri, AIL, PS BTC"
+    },
+    {
+      "barNumber": "34",
+      "description": "f BO Tri, PH, AIBLE, but PS SPBL and BB. Still in BOM"
+    },
+    {
+      "barNumber": "35",
+      "description": "H1 but still on 34 S so HRP to B above 34 where BR will exit. BOM."
+    },
+    {
+      "barNumber": "36",
+      "description": "BO but small, need FT"
+    },
+    {
+      "barNumber": "38",
+      "description": "OD, W 31 33, L2 25, F BO Tri, PH, AIBLE below or below 33 or 27, but SPBL 30,"
+    },
+    {
+      "barNumber": "39",
+      "description": "H1, GX H and HOD MGA, SPBL"
+    },
+    {
+      "barNumber": "40",
+      "description": "BO, PS MG, BTC"
+    },
+    {
+      "barNumber": "41",
+      "description": "FT"
+    },
+    {
+      "barNumber": "44",
+      "description": "Test Y start of BR CH, 2LU 40, but room to MMT 40 G and MMU from LOD to OOD,"
+    },
+    {
+      "barNumber": "45",
+      "description": "H1 but 3LU and MGA so PP only 1 – 2 more bars up before PTG"
+    },
+    {
+      "barNumber": "47",
+      "description": "PW 40 43, MMT, AIBLE 2 – 5 pts below BL bar, but BLB, SS2, MRV"
+    },
+    {
+      "barNumber": "51",
+      "description": "H2 49 but TTR after PW, PP LBR S above 50"
+    },
+    {
+      "barNumber": "52",
+      "description": "OU but TTR and far above EMA, PP LOBR above 50 BRB"
+    },
+    {
+      "barNumber": "54",
+      "description": "HH DT but bottom of TTR and just above EMA, PP BB around EMA, SS2"
+    },
+    {
+      "barNumber": "56",
+      "description": "20GB B, H1, but might get 2LSD after BX so need WSS, stop maybe below 39"
+    },
+    {
+      "barNumber": "61",
+      "description": "HH MTR, W 12 48 and 56 58, but BLD and TC, PP MRV"
+    },
+    {
+      "barNumber": "65",
+      "description": "PB to MA in BL CH but TTR 47, 2 BRB, LOM, BTW"
+    },
+    {
+      "barNumber": "70",
+      "description": "H1 but BRD in weak BL CH"
+    }
+  ],
+  "5": [
+    {
+      "barNumber": "1",
+      "description": "BGD. BBLBC, at 60MA, PL"
+    },
+    {
+      "barNumber": "2",
+      "description": "L1 but doji, BB"
+    },
+    {
+      "barNumber": "3",
+      "description": "another small bar so DBL. L1 but PP BB and below LOY"
+    },
+    {
+      "barNumber": "5",
+      "description": "CC BRBC, AIS, but PP TRO"
+    },
+    {
+      "barNumber": "6",
+      "description": "H2, F BO LOD and 60ma, but 3 BRB, GX L MGB, BB2"
+    },
+    {
+      "barNumber": "7",
+      "description": "L1, AIS, but 2 dojis just above LOY, LPS"
+    },
+    {
+      "barNumber": "8",
+      "description": "H2, F BO LOY, COH, PL"
+    },
+    {
+      "barNumber": "9",
+      "description": "SBU"
+    },
+    {
+      "barNumber": "11",
+      "description": "HH DT at MA, PH, but 4 BLB, SS2, BB"
+    },
+    {
+      "barNumber": "15",
+      "description": "HL MTR, but tail"
+    },
+    {
+      "barNumber": "16",
+      "description": "HL MTR, OU, MDB, PL"
+    },
+    {
+      "barNumber": "19",
+      "description": "UO, H1, AIL, might get 18BO and MMU, but PS W 2 11"
+    },
+    {
+      "barNumber": "20",
+      "description": "SBU, 18BO, PP MG, BTC, but HRP if get FT"
+    },
+    {
+      "barNumber": "21",
+      "description": "FT"
+    },
+    {
+      "barNumber": "22",
+      "description": "W 2 11 but BLB, 2LU likely, BB"
+    },
+    {
+      "barNumber": "23",
+      "description": "H1 but BBRB, PS SA for W"
+    },
+    {
+      "barNumber": "25",
+      "description": "MDT, COL, AIBLE, PH, W 2 11, 2LU 21, PW 17 21"
+    },
+    {
+      "barNumber": "26",
+      "description": "SBD, PS AIS, still might get to GX L, which is below LOD"
+    },
+    {
+      "barNumber": "28",
+      "description": "DB 18, but tail 2LD likely, PP SA"
+    },
+    {
+      "barNumber": "29",
+      "description": "L1, 16 L and GX L MGB, but doji and BLB at 60ma, middle of PP TRD"
+    },
+    {
+      "barNumber": "31",
+      "description": "L1, PS MG 30"
+    },
+    {
+      "barNumber": "33",
+      "description": "L1, GX L and LOD MGB, but BLB, PS PW 28 30, might bounce before new LOD"
+    },
+    {
+      "barNumber": "36",
+      "description": "PW 30 32, HL, MRV, AIBRE"
+    },
+    {
+      "barNumber": "37",
+      "description": "L1, DTBF 33, GX L MGB, but BLB, PP BB GX L"
+    },
+    {
+      "barNumber": "39",
+      "description": "BBRBL."
+    },
+    {
+      "barNumber": "40",
+      "description": "F BO LOD and GX L, ET 1 6, COH, PL, but 60% chance of 1 more leg SD, TC MRV,"
+    },
+    {
+      "barNumber": "42",
+      "description": "COL, AIBRS. PP not much more down before bounce"
+    },
+    {
+      "barNumber": "46",
+      "description": "H2 40, 40 H MGA, LOD is MMD from HOD to OOD so OOD MGA, but BRB, LRP"
+    },
+    {
+      "barNumber": "47",
+      "description": "BLB but tail. PL, ok K, esp if WSS"
+    },
+    {
+      "barNumber": "48",
+      "description": "COH, PP AIL, might get back to OOD and 60ma by EOD"
+    },
+    {
+      "barNumber": "50",
+      "description": "20GB S, 46 H MGB since bad BSB, but 2LSU likely, AIL, BB"
+    },
+    {
+      "barNumber": "51",
+      "description": "BR BO, but 2LU likely so PS BTC. BRB so bad H1, SA"
+    },
+    {
+      "barNumber": "53",
+      "description": "W 41 50, 46 H MGB, but TR, better to wait for breakout or 2nd signal. Low"
+    },
+    {
+      "barNumber": "56",
+      "description": "HL MTR, OOD MGA, but TTR, MP MRV"
+    },
+    {
+      "barNumber": "60",
+      "description": "ET 40 46 so LL MTR, but doji after 2 BBRBC, PP MRV"
+    },
+    {
+      "barNumber": "62",
+      "description": "BBLBC but at MA so STC. 2LU likely after ET and W so PP MRV down"
+    },
+    {
+      "barNumber": "63",
+      "description": "L1 at MA, DTBF 57, COL, but BB 60 and maybe HL so PP MRV"
+    },
+    {
+      "barNumber": "64",
+      "description": "H1 but doji just below MA, and still on 63 S. OOD MGA, but HPWB2"
+    },
+    {
+      "barNumber": "66",
+      "description": "HL MTR, ioi, LOY and OOD MGA, but tail, TTR, just below MA, BB2. Stil on 63"
+    },
+    {
+      "barNumber": "68",
+      "description": "W 64 66 but tail, just below MA, 3000 BRN MGB, still on 63 S, BB2"
+    },
+    {
+      "barNumber": "69",
+      "description": "SBD but PS W 46 60"
+    }
+  ],
+  "6": [
+    {
+      "barNumber": "1",
+      "description": "BGD. BLD, PP SA"
+    },
+    {
+      "barNumber": "3",
+      "description": "L1, GX L below LOD but 2 BLB, PP TRO"
+    },
+    {
+      "barNumber": "4",
+      "description": "CC BBRB, more down, but BB 1 since TRO likely"
+    },
+    {
+      "barNumber": "5",
+      "description": "H2, PL, but 3 BRB, GC L below"
+    },
+    {
+      "barNumber": "7",
+      "description": "DT LH, GX L MGB, 5 H MGB since bad BSB, but 2 BLB, far below EMA, still on 5"
+    },
+    {
+      "barNumber": "9",
+      "description": "H1, HL MTR, HSB, PL, but tail, LRP, LOM, HPWB2"
+    },
+    {
+      "barNumber": "10",
+      "description": "DT but doji, SPBL, OOW MGA, SS2"
+    },
+    {
+      "barNumber": "11",
+      "description": "H1, COH, BOM"
+    },
+    {
+      "barNumber": "12",
+      "description": "SBU, OOW MGA"
+    },
+    {
+      "barNumber": "13",
+      "description": "BLTP at MA, F BO, but PP 2LSU so PP BB, SS2"
+    },
+    {
+      "barNumber": "14",
+      "description": "H1, AIL, but TR, better to wait for breakout or 2nd signal. Low probability,"
+    },
+    {
+      "barNumber": "16",
+      "description": "H1, but 3LU so W 13 15, PS SA"
+    },
+    {
+      "barNumber": "17",
+      "description": "PW 13 15, PH, AIBLE, but tail, MRV likely. PS TTRD"
+    },
+    {
+      "barNumber": "18",
+      "description": "H1 but cc BRB after W, PP SA"
+    },
+    {
+      "barNumber": "19",
+      "description": "OD, might test 13 L or 14 L"
+    },
+    {
+      "barNumber": "20",
+      "description": "FT, AIS, but PP TTRD, PP BB 14"
+    },
+    {
+      "barNumber": "22",
+      "description": "L1 but BLB, PS bottom of UTR, PP BB"
+    },
+    {
+      "barNumber": "24",
+      "description": "OU, LL DB 14, W 18 21 but doji, TTR, LRP B"
+    },
+    {
+      "barNumber": "26",
+      "description": "L1, AIS 20, but BLD, LRP"
+    },
+    {
+      "barNumber": "28",
+      "description": "SBD, SA"
+    },
+    {
+      "barNumber": "30",
+      "description": "L1, but doji, weak BRT, PS BB 28"
+    },
+    {
+      "barNumber": "33",
+      "description": "W 24 28, DB 11, AIBRE, but doji, TC, GX L MGB, HPWB2"
+    },
+    {
+      "barNumber": "36",
+      "description": "H2 33, HL MTR, W 24 28, but BRB so LRP"
+    },
+    {
+      "barNumber": "37",
+      "description": "SBU"
+    },
+    {
+      "barNumber": "38",
+      "description": "FT, but tail. 2LSU likely"
+    },
+    {
+      "barNumber": "40",
+      "description": "DT 25 but TRD and not BRT so more likely MRV. Might test 36 H since weak BSB"
+    },
+    {
+      "barNumber": "46",
+      "description": "H2 above MA, OOW MGA, 2LU likely, but tail TRD, PP MBO"
+    },
+    {
+      "barNumber": "48",
+      "description": "W 29 40, AIBLE, but TR, better to wait for breakout or 2nd signal. Low"
+    },
+    {
+      "barNumber": "50",
+      "description": "H1, BBLB, but 2 BBRB, top of TTR, BB2, PS SA"
+    },
+    {
+      "barNumber": "52",
+      "description": "SBD"
+    },
+    {
+      "barNumber": "53",
+      "description": "3 cc BBR, AIS"
+    },
+    {
+      "barNumber": "59",
+      "description": "H2 36, MDB, but tail, TC. Still might test GX L, but unlikely"
+    },
+    {
+      "barNumber": "60",
+      "description": "DT 54 at MA, AIS, but BLB"
+    },
+    {
+      "barNumber": "62",
+      "description": "SBD, might test GX L and 2900"
+    },
+    {
+      "barNumber": "64",
+      "description": "Big OD, SBD, but PP rally back to OOD by EOD"
+    },
+    {
+      "barNumber": "65",
+      "description": "H2 63, but doji, SBD 64, GX L MGB"
+    },
+    {
+      "barNumber": "66",
+      "description": "L1 but 3LD, GC L MGX, PP PTG soon"
+    },
+    {
+      "barNumber": "68",
+      "description": "W 63 65, f BO GX L and 2900, might test OOD, AIBRE, but BRB so LRP"
+    },
+    {
+      "barNumber": "70",
+      "description": "BBLBC, near OOD TGT"
+    }
+  ],
+  "9": [
+    {
+      "barNumber": "1",
+      "description": "BGD. GX was limit down and day session is opening limit down. Expect big gap"
+    },
+    {
+      "barNumber": "3",
+      "description": "BBRBC, but almost 20% correction so PS BB soon"
+    },
+    {
+      "barNumber": "4",
+      "description": "SBUM. PL, reversed up at 20% correction. Bar count is off by one bar because"
+    },
+    {
+      "barNumber": "6",
+      "description": "H1, 2LU likely, but BRB so PP TR soon, PS W up to around MA and GX limit down"
+    },
+    {
+      "barNumber": "8",
+      "description": "H1 but BRB, W 1 5, PP SA"
+    },
+    {
+      "barNumber": "9",
+      "description": "W 5 7 at GX limit down L, PP 2LSD, but BLB, PS LOM"
+    },
+    {
+      "barNumber": "13",
+      "description": "H2 but doji, TTR, LOM"
+    },
+    {
+      "barNumber": "14",
+      "description": "COL, MDT 12, might test 7 BX L or limit down L from OOD"
+    },
+    {
+      "barNumber": "15",
+      "description": "PP AIS, might test 7 BX L or OOD LD"
+    },
+    {
+      "barNumber": "19",
+      "description": "H2 11, DB 6, PL, but need WSS since PS SA and a little more down. TRO."
+    },
+    {
+      "barNumber": "21",
+      "description": "SBU, but BLT, SA around MA and 14 SX H. TRO."
+    },
+    {
+      "barNumber": "23",
+      "description": "20GB S, DT 14 SX H, but 4 BBLB, PS BB, SS2"
+    },
+    {
+      "barNumber": "24",
+      "description": "H1, room to GX L, 4 BBLB, AIL, but need stop below 18"
+    },
+    {
+      "barNumber": "28",
+      "description": "F 18BL, AIBLE, but tail, 4 BLB, MRV, SS2"
+    },
+    {
+      "barNumber": "30",
+      "description": "H1 but 3 BRB, PP SA. PS W 9 28. GX L might be MGN all day"
+    },
+    {
+      "barNumber": "32",
+      "description": "W 9 28, might test 24 L or 18 L, but strong rally so more likely MRV"
+    },
+    {
+      "barNumber": "35",
+      "description": "BO, 4 BRB, AIS, might test 24 L or 18 L, but TR PA, PP BB 24 and 18"
+    },
+    {
+      "barNumber": "38",
+      "description": "big OD, SBD, PS MG for test 1 L, the limit down L"
+    },
+    {
+      "barNumber": "42",
+      "description": "L2, AIS, btu TTR"
+    },
+    {
+      "barNumber": "43",
+      "description": "H2 but BRD after BBRBC, BB2, PP SA"
+    },
+    {
+      "barNumber": "48",
+      "description": "BO and FT, PS MG, STC"
+    },
+    {
+      "barNumber": "50",
+      "description": "still STC but tail, 6th BRB, PP bounce soon. W 30 38 but 6 BRB, SA, BB2"
+    },
+    {
+      "barNumber": "51",
+      "description": "L1, but BLB, SX, PP BB"
+    },
+    {
+      "barNumber": "53",
+      "description": "L2, but BLB, PP BB for test of M"
+    },
+    {
+      "barNumber": "55",
+      "description": "W 50 52, should test MA, but BRD, TCH, MRV"
+    },
+    {
+      "barNumber": "58",
+      "description": "DTBF 51 at MA, 40% chance of MMD below 55"
+    },
+    {
+      "barNumber": "60",
+      "description": "DB, but 3 BRB, still on 58 S, PP SA"
+    },
+    {
+      "barNumber": "63",
+      "description": "H2 60, WBLF 18 55, HL MTR, PP not SPBR so BR will give up on goal of MMD."
+    },
+    {
+      "barNumber": "64",
+      "description": "SBU. DBR who wanted MMD from DT are giving up"
+    },
+    {
+      "barNumber": "65",
+      "description": "DT 58, but PP BB for 2LU"
+    },
+    {
+      "barNumber": "66",
+      "description": "OU but tail so DBL, might stay SW around OO for DD"
+    },
+    {
+      "barNumber": "67",
+      "description": "L2, W 51 57, but still on 63 B, tail, PP BB"
+    },
+    {
+      "barNumber": "68",
+      "description": "H1, AIL 64, but BRB, might stay around OOD for rest of day"
+    }
+  ],
+  "11": [
+    {
+      "barNumber": "1",
+      "description": "HL, MA and 60ma MGA, but middle of Y TR, tail above and below, PP SA and SA."
+    },
+    {
+      "barNumber": "2",
+      "description": "BR IB, L1 after GD, GX L and OOW MGB, but middle of 3 day TR, PP LOM, TRO"
+    },
+    {
+      "barNumber": "4",
+      "description": "L1 but big bounce 3 so LRP S, PS LOM, HPWS2"
+    },
+    {
+      "barNumber": "5",
+      "description": "HL, BLB, PL, but TTR, tail, LOM, BTW"
+    },
+    {
+      "barNumber": "9",
+      "description": "LH DT, still on 2 S, PH, but TTR, tail, LOM, PS SPBL and PB, BTW"
+    },
+    {
+      "barNumber": "11",
+      "description": "SBU, AIS, might test OOW and GX L"
+    },
+    {
+      "barNumber": "15",
+      "description": "H2 5, W 3 13, but BRB, 7 BBRMC, BRB, room to MGB OOW, LOY, GX L, BB2, PS SA"
+    },
+    {
+      "barNumber": "18",
+      "description": "HL, test OOW and GX L, W 12 16, PL, BLB so AIBRE, 18B, but TR, better to wait"
+    },
+    {
+      "barNumber": "19",
+      "description": "L1, AIS, but PL, SS2"
+    },
+    {
+      "barNumber": "20",
+      "description": "MDB, 2EB, PL, but still AIS, HPW for SBU and C above MA. BOM"
+    },
+    {
+      "barNumber": "21",
+      "description": "L2, MDT, still AIS, room to MGB, but TTR 12, doji, LRP"
+    },
+    {
+      "barNumber": "22",
+      "description": "18BO, COL, SBD"
+    },
+    {
+      "barNumber": "24",
+      "description": "F 18BO, W 3 18, f BO GX L, test OOW, PL, AIBRE, but tail, PP MRV"
+    },
+    {
+      "barNumber": "26",
+      "description": "BBLBC near MA, PP STC"
+    },
+    {
+      "barNumber": "27",
+      "description": "L1 but BDUC, LPS"
+    },
+    {
+      "barNumber": "28",
+      "description": "2EB"
+    },
+    {
+      "barNumber": "29",
+      "description": "L2 but tail, still on 24 and 28 B, PP BB and below 24, should test 20 H since"
+    },
+    {
+      "barNumber": "30",
+      "description": "F L2, still on 28 B, might get swing up after test of SP"
+    },
+    {
+      "barNumber": "31",
+      "description": "C above MA, becoming AIL"
+    },
+    {
+      "barNumber": "32",
+      "description": "CC BBLBC, C far above MA, AIL, BTC"
+    },
+    {
+      "barNumber": "33",
+      "description": "BTC but tail, PS TRD and deep PB"
+    },
+    {
+      "barNumber": "34",
+      "description": "5 BBLBC, PP BB, but PS 2LT in TRD"
+    },
+    {
+      "barNumber": "35",
+      "description": "BBRBC, AIBLE"
+    },
+    {
+      "barNumber": "36",
+      "description": "SBD, 34 2LT and PP TRD, test apex of Tri 30 and OOW, AIS but PP TRD"
+    },
+    {
+      "barNumber": "40",
+      "description": "ET 18 24, PL, but BRD and 6 BRB, SA"
+    },
+    {
+      "barNumber": "41",
+      "description": "L1 but doji, TTR 40, PS BB, PP MBO"
+    },
+    {
+      "barNumber": "45",
+      "description": "H2 40, PL, but doji, TCH, MRV, need WSS since LOY MGB and might get 1 more"
+    },
+    {
+      "barNumber": "47",
+      "description": "L1 but LBL 34 and BTC BL 34 should avoid loss so PP 50% bounce soon. PP BB"
+    },
+    {
+      "barNumber": "49",
+      "description": "L2, DT 41, MA, COL, but PP MBO and BB LOD since MGA"
+    },
+    {
+      "barNumber": "52",
+      "description": "LL DB, but at MA in BTR so PP LBR STC and the MA"
+    },
+    {
+      "barNumber": "53",
+      "description": "H1 but BRB at MA, PP SA"
+    },
+    {
+      "barNumber": "54",
+      "description": "MDT 52 at MA but BLB, PP BB LOD"
+    },
+    {
+      "barNumber": "55",
+      "description": "SBD, but PP BB LOD. LOY MGB"
+    },
+    {
+      "barNumber": "57",
+      "description": "F BO but 3 BRB, LOY MMGB, PP SA"
+    },
+    {
+      "barNumber": "58",
+      "description": "OD, just above LOY"
+    },
+    {
+      "barNumber": "60",
+      "description": "test LOY, but 6 BRB. AIBRE 4 pts above"
+    },
+    {
+      "barNumber": "63",
+      "description": "W 58 61 at MA, but TR, better to wait for breakout or 2nd signal. Low"
+    },
+    {
+      "barNumber": "66",
+      "description": "L1, BL might give up. Cash index is very close to 20% correction and bear"
+    },
+    {
+      "barNumber": "67",
+      "description": "SBD, BL giving up. 2700 BRN MGB"
+    },
+    {
+      "barNumber": "69",
+      "description": "BBRBL"
+    },
+    {
+      "barNumber": "70",
+      "description": "L1 but PP BB or only 1 – 3 more bars down. Cash index down 20% from ATH. BR"
+    }
+  ],
+  "12": [
+    {
+      "barNumber": "1",
+      "description": "today is rollover day. June is the front month, but I will trade March today"
+    },
+    {
+      "barNumber": "3",
+      "description": "BBRB after limit down, PP will reverse up soon. BTW. Most traders should wait."
+    },
+    {
+      "barNumber": "4",
+      "description": "BBLBC, but need FT"
+    },
+    {
+      "barNumber": "5",
+      "description": "DTBF, PH, but far below MA and 4 was BBLB. PP TRO"
+    },
+    {
+      "barNumber": "6",
+      "description": "H1 but BRD after BBRBC, AIL, PP SA, BB2"
+    },
+    {
+      "barNumber": "8",
+      "description": "L2 but doji, far below MA, PP LOM"
+    },
+    {
+      "barNumber": "12",
+      "description": "W, but SPBL, room to 4 H MGA, PP BB"
+    },
+    {
+      "barNumber": "14",
+      "description": "H1, room to 4 C MGA"
+    },
+    {
+      "barNumber": "16",
+      "description": "f BO W, test 4 C, DT 4, COL near HOD and really at 18, might test 6 HL, PH,"
+    },
+    {
+      "barNumber": "17",
+      "description": "SDB, might test 6 L where BL will try to get DB HL MTR"
+    },
+    {
+      "barNumber": "19",
+      "description": "DB HL MTR 6, but 4 BBRB, PP SA, BB2"
+    },
+    {
+      "barNumber": "23",
+      "description": "OD, PB TRSD, S below"
+    },
+    {
+      "barNumber": "24",
+      "description": "BO but tail, weak BRT so PP BRTR"
+    },
+    {
+      "barNumber": "27",
+      "description": "W 9 20 25, HL MTR, but BRB and TC, so LRP. AIBRE, LBLM"
+    },
+    {
+      "barNumber": "28",
+      "description": "L1 but BLB after W bottom, LBLM, PS BB, far below MA, SS2"
+    },
+    {
+      "barNumber": "33",
+      "description": "BBLBC just below MA so PP STC, even tho BO above BRCH. SBU."
+    },
+    {
+      "barNumber": "34",
+      "description": "20GB S, but doji so LRP. Still AIS. DBL, BL wanted BL FT so might test LOD"
+    },
+    {
+      "barNumber": "35",
+      "description": "SBD, still AIS, but PS Tri 15 34, 1 31"
+    },
+    {
+      "barNumber": "37",
+      "description": "Tri, but BRB, AIS, PP SA"
+    },
+    {
+      "barNumber": "38",
+      "description": "HL MTR, still on 31 B, but BRB"
+    },
+    {
+      "barNumber": "39",
+      "description": "SBUM"
+    },
+    {
+      "barNumber": "42",
+      "description": "F BO, BX, AIBLE, might test 4 H BOP and MA"
+    },
+    {
+      "barNumber": "43",
+      "description": "SBD. BUDC"
+    },
+    {
+      "barNumber": "46",
+      "description": "H1 but doji, 5 BRB, above MA, PP SA. Might be in TTR"
+    },
+    {
+      "barNumber": "47",
+      "description": "OD, SBD, but will PP stay above 38 L and day might C around OOD for DD"
+    },
+    {
+      "barNumber": "54",
+      "description": "ioi at MA, DT 49, might test 49 L but PP MRVD"
+    },
+    {
+      "barNumber": "61",
+      "description": "H2 58, W 49 or 53, 58, HL MTR, but TC, most bars with tails, PP MRVU"
+    },
+    {
+      "barNumber": "62",
+      "description": "SBU but at MA, BRCH, need FT"
+    },
+    {
+      "barNumber": "63",
+      "description": "L1 at MA in BR CH, but PP BB 60, near bottom of TRD. Might C around OOD for"
+    },
+    {
+      "barNumber": "65",
+      "description": "WBLF 49 60 but doji, room to 39 L"
+    },
+    {
+      "barNumber": "66",
+      "description": "W, but tail, at MA, PS SA, BTW"
+    },
+    {
+      "barNumber": "67",
+      "description": "L1 at MA in BRCH, but doji, W bottom, PS BB, bottom of TRD, NS, HPW"
+    },
+    {
+      "barNumber": "69",
+      "description": "W but BRB. Still on 67 S but BRCH, PS BB 38 and LOD"
+    }
+  ],
+  "13": [
+    {
+      "barNumber": "1",
+      "description": "Emini up 5% in GX so locked limit up. Tested Dec 2018 L. Parabolic wedge SX."
+    },
+    {
+      "barNumber": "2",
+      "description": "CC BBRBC, AIS, far above MA, but PS SX and ORV soon"
+    },
+    {
+      "barNumber": "3",
+      "description": "H1 after GU, but 3 BRB, room to MA, SA"
+    },
+    {
+      "barNumber": "6",
+      "description": "H2 near MA after GU, PL, ORV"
+    },
+    {
+      "barNumber": "8",
+      "description": "LH DT 4, COL, AIS, but just above MA and still on 6 B, SS2"
+    },
+    {
+      "barNumber": "9",
+      "description": "H1, PL"
+    },
+    {
+      "barNumber": "11",
+      "description": "LH DT 1, L2 8, but SBU10"
+    },
+    {
+      "barNumber": "12",
+      "description": "SBD, AIBLE"
+    },
+    {
+      "barNumber": "15",
+      "description": "4 cc BRB, BBRBC, PS MG, but at MA and TRD likely"
+    },
+    {
+      "barNumber": "16",
+      "description": "FT, PP AIS, but PP BB 6"
+    },
+    {
+      "barNumber": "18",
+      "description": "BBRBC, BO, but TRD likely so BTC"
+    },
+    {
+      "barNumber": "23",
+      "description": "L1, AIS, but PS BB and W. might test COY"
+    },
+    {
+      "barNumber": "24",
+      "description": "SBD"
+    },
+    {
+      "barNumber": "25",
+      "description": "FT, 2LD likely. PS BLB 26, but SBR will S 20 pt PB"
+    },
+    {
+      "barNumber": "26",
+      "description": "W 6 18, but tail, 2LSD likely, BB2. L1 but BLB, far below MA, PS BB, LRP S"
+    },
+    {
+      "barNumber": "29",
+      "description": "W 6 18, PL but 8 BBRMC so LRP"
+    },
+    {
+      "barNumber": "30",
+      "description": "L1 but CC BLB after W, PP BB. PS LTR in TTRD"
+    },
+    {
+      "barNumber": "32",
+      "description": "H1 but tail, BBRB 31, just below MA, PP TTR, LOM"
+    },
+    {
+      "barNumber": "34",
+      "description": "L2 at MA, but doji, still on 29 B, SS2"
+    },
+    {
+      "barNumber": "36",
+      "description": "DB 32, REVU likely at some point today, but PP will stay mostly TRD so expect"
+    },
+    {
+      "barNumber": "38",
+      "description": "H1, AIL, 22 SX H and 50P MGA"
+    },
+    {
+      "barNumber": "41",
+      "description": "PW 37 39, PP PB, but still AIL and PP start of 1 – 2 week rally. BB around MA"
+    },
+    {
+      "barNumber": "44",
+      "description": "H1 at MA, BT 30, should go HR, but doji, 3 BRB, PS 2LSD"
+    },
+    {
+      "barNumber": "45",
+      "description": "SBU"
+    },
+    {
+      "barNumber": "49",
+      "description": "W 30 41, but 4 CCBLBC, MGA are 11 H, monthly BL TL around 2590, 60ma, SS2"
+    },
+    {
+      "barNumber": "50",
+      "description": "H1 but BRB, W 41 49, LBRM, PP SA"
+    },
+    {
+      "barNumber": "53",
+      "description": "W 41 49, but doji, PP MRV, less likely will steste 45 BX L"
+    },
+    {
+      "barNumber": "55",
+      "description": "SBD"
+    },
+    {
+      "barNumber": "57",
+      "description": "H1 but doji, 2 BRB, SA"
+    },
+    {
+      "barNumber": "58",
+      "description": "L1 but 2 dojis, PS SA and TTR"
+    },
+    {
+      "barNumber": "59",
+      "description": "MDT 58, but BLB, PS TTR, PP BB 56 and 45"
+    },
+    {
+      "barNumber": "61",
+      "description": "W 50 56 but doji, need WSS"
+    },
+    {
+      "barNumber": "63",
+      "description": "W 50 56, DB 45, oo so BOM"
+    },
+    {
+      "barNumber": "64",
+      "description": "DT 58, COL, but PP BB. 63 oo so BOM for MMU or MMD"
+    },
+    {
+      "barNumber": "65",
+      "description": "H1 but doji. 63 H is still OO BSB"
+    },
+    {
+      "barNumber": "68",
+      "description": "L2 64, F BO DT, but doji, room to HOY and 60ma, SS2"
+    }
+  ],
+  "16": [
+    {
+      "barNumber": "1",
+      "description": "locked limit down in GX."
+    },
+    {
+      "barNumber": "2",
+      "description": "BBRB, HL DB dec 2019 L, almost hit -13% 2nd limit level, PL"
+    },
+    {
+      "barNumber": "3",
+      "description": "F BO LOY, SX, PL"
+    },
+    {
+      "barNumber": "4",
+      "description": "L1 but doji, far below MA, SS2"
+    },
+    {
+      "barNumber": "5",
+      "description": "H2, PL, but still might get locked limit down so increased risk, PP better to"
+    },
+    {
+      "barNumber": "7",
+      "description": "L2, might reach -13% lim down, but more likely BB and SU to above LOU and EMA."
+    },
+    {
+      "barNumber": "9",
+      "description": "Tri 2 5, PL, more likely up since still on B above 3 and 6"
+    },
+    {
+      "barNumber": "11",
+      "description": "SBU"
+    },
+    {
+      "barNumber": "12",
+      "description": "CC BBLB, PS MG 11 using 4 H, but at MA and near lim down 1 so good place for"
+    },
+    {
+      "barNumber": "13",
+      "description": "H1 but BRD at MA, PS SA"
+    },
+    {
+      "barNumber": "14",
+      "description": "L2 4, BLT, MA, PS HOD, but 3 dojis. SS2"
+    },
+    {
+      "barNumber": "15",
+      "description": "H1 but 2 dojis, need stop below 11"
+    },
+    {
+      "barNumber": "18",
+      "description": "BBLBC, TGTA"
+    },
+    {
+      "barNumber": "22",
+      "description": "W 4 14, AIBLE, PS 2 LSD"
+    },
+    {
+      "barNumber": "26",
+      "description": "H1, test OOD, but room to 18 BX L, 2LD likely"
+    },
+    {
+      "barNumber": "30",
+      "description": "LH MTR but PP MRV down to 18 BX L"
+    },
+    {
+      "barNumber": "32",
+      "description": "BO, SBD, but PP TR so PS more BTC than STC"
+    },
+    {
+      "barNumber": "33",
+      "description": "F BO, H2 26, OOD and MA MGA, AIBRE, but small BLB, HPWB2. TR likely, might"
+    },
+    {
+      "barNumber": "36",
+      "description": "L1 at MA, but BLD, 4 BLB, 3LD,"
+    },
+    {
+      "barNumber": "38",
+      "description": "SBD"
+    },
+    {
+      "barNumber": "39",
+      "description": "CC BBRBC, but PS W, middle of TRD"
+    },
+    {
+      "barNumber": "41",
+      "description": "L1 but BLB, DBR 40, W, BB"
+    },
+    {
+      "barNumber": "44",
+      "description": "L2 below MA but BBLB 43"
+    },
+    {
+      "barNumber": "46",
+      "description": "BR IB COL, BP S, but BB 40 since stairs"
+    },
+    {
+      "barNumber": "49",
+      "description": "H4 but 2 BDR, PS SA, BB1"
+    },
+    {
+      "barNumber": "51",
+      "description": "OD, L1, room to LLW, but TTR"
+    },
+    {
+      "barNumber": "55",
+      "description": "ib, W 40 48 after H2 26 33 so CC bottoms, testing Tri 9 and LLW, but TC, and"
+    },
+    {
+      "barNumber": "56",
+      "description": "OD, BR CH, but BLB, SS2"
+    },
+    {
+      "barNumber": "58",
+      "description": "MDB 55, COH, PS start of swing up, but TRD so PP only 2 – 3 bars before BRB"
+    },
+    {
+      "barNumber": "59",
+      "description": "BBLBC so STC since TRD. BL take profits, PS STC. SBU, SS2"
+    },
+    {
+      "barNumber": "60",
+      "description": "BLTP, AIBLE, LPS"
+    },
+    {
+      "barNumber": "61",
+      "description": "H1, but CC BRB, BB2, still on 60 BLTP S"
+    },
+    {
+      "barNumber": "62",
+      "description": "H1, AIL, OOD MGA, but 3 BRB, LRP"
+    },
+    {
+      "barNumber": "65",
+      "description": "DT, but AIL 59, C above MA, tail, PS BB, SS2"
+    },
+    {
+      "barNumber": "68",
+      "description": "DB above MA after DT. BOM, slightly more bullish after 59. BL want COD above"
+    }
+  ],
+  "17": [
+    {
+      "barNumber": "1",
+      "description": "doji at MA in BR CH from Y 22, DT 72, PH, but TR, still holding just above Dec"
+    },
+    {
+      "barNumber": "3",
+      "description": "HL MTR, PL, but 3 BRB, GX L MGB, PP SA, BB2"
+    },
+    {
+      "barNumber": "4",
+      "description": "L1, GX L MGB, but BLB, PS BB"
+    },
+    {
+      "barNumber": "7",
+      "description": "OU, H2 3, HL DB LOY, PL, but TC 1, TC 65, PP MRV. PS ID"
+    },
+    {
+      "barNumber": "8",
+      "description": "small EB, tail, PP MRVU"
+    },
+    {
+      "barNumber": "9",
+      "description": "DTBF 4 at MA but 3 CC BLB, PS BB, SS2"
+    },
+    {
+      "barNumber": "10",
+      "description": "4 BLB after DB, AIL,BB, but small bodies, big tails, PP BLTR"
+    },
+    {
+      "barNumber": "13",
+      "description": "L2, COL, F BO MA, HH DT 4, AIBLE, but TC, SPBL, LRP, PS BB, SS2"
+    },
+    {
+      "barNumber": "16",
+      "description": "L3 so W, but BLB, only 1 BRB in 11 bars, PP BB, but weak rally and BL need BO"
+    },
+    {
+      "barNumber": "18",
+      "description": "COH, SPBL, PP will get BL BO and MMU soon for test Y 60 DT, GC LLU, 60ma, and"
+    },
+    {
+      "barNumber": "20",
+      "description": "BO, PS MMU"
+    },
+    {
+      "barNumber": "22",
+      "description": "BTC but at Y 60 H so PS DT, btw"
+    },
+    {
+      "barNumber": "24",
+      "description": "ioi H1, 60 ma and HOY MGA, but doji, BRB, just below Y 60 H so LRP, PS SA for"
+    },
+    {
+      "barNumber": "25",
+      "description": "MDT but BLB, TTR, AIL, PP BB"
+    },
+    {
+      "barNumber": "27",
+      "description": "H2, should test GX H, 60ma, and PS MMU above 19, but tail, TTR, PS FF"
+    },
+    {
+      "barNumber": "30",
+      "description": "3 cc BLB, should go HR but PS FF 27 H2"
+    },
+    {
+      "barNumber": "32",
+      "description": "BBLBL. At MMT from 20 GU, 60ma and HOY RS, PS ID. Less likely MG."
+    },
+    {
+      "barNumber": "33",
+      "description": "BX at RS, AIBLE 4 – 10 pts below, should test 32 BX L and MA, PP 2LSD"
+    },
+    {
+      "barNumber": "34",
+      "description": "BBRB, PP test MA and 32 L"
+    },
+    {
+      "barNumber": "36",
+      "description": "3 CC BBRBC, SA, should test 27 apex of FF"
+    },
+    {
+      "barNumber": "40",
+      "description": "L1 but PP BB and around 26 L at bottom of FF, esp since 3LD so PS PW 30 38."
+    },
+    {
+      "barNumber": "42",
+      "description": "DB 26 at 1 H, PW, but 9 BBRMC, MRVU"
+    },
+    {
+      "barNumber": "43",
+      "description": "L1 but PP MBO, might test OOD"
+    },
+    {
+      "barNumber": "46",
+      "description": "H2 at OOD. Since 33 reasonable BTC, should get at least halfway there"
+    },
+    {
+      "barNumber": "48",
+      "description": "L1 but DD, 2 BLB, TRD, BB. Should test OOW, which is MP of 46 H and 33 C."
+    },
+    {
+      "barNumber": "53",
+      "description": "DT 43 LH MTR, but MGA, PP BB, SS2"
+    },
+    {
+      "barNumber": "55",
+      "description": "H1, MGA"
+    },
+    {
+      "barNumber": "59",
+      "description": "PW 47 52 at 60ma and OOW, but 33 C still MGA, SS2"
+    },
+    {
+      "barNumber": "60",
+      "description": "H1, 32 c MGA, but PS W 32 58, TR, better to wait for breakout or 2nd signal."
+    },
+    {
+      "barNumber": "62",
+      "description": "W 52 59, top of TRD, 60ma, AIBLE, but DD, TC, LRP S, MRV"
+    },
+    {
+      "barNumber": "66",
+      "description": "L1, room to OOD, 2LSD likely, but BLB, LRP"
+    },
+    {
+      "barNumber": "70",
+      "description": "ii so BOM. L1 but MDB at 1 H, still AIL, BBLB 68, SS2"
+    }
+  ],
+  "18": [
+    {
+      "barNumber": "1",
+      "description": "LLD in GX. BGD. BLB, PL, but tail. L might be -7% limit, but quick reversal"
+    },
+    {
+      "barNumber": "2",
+      "description": "L1 but PS BB for PB from 1. H1 but BRB. PP LOM"
+    },
+    {
+      "barNumber": "4",
+      "description": "H2 but BRB"
+    },
+    {
+      "barNumber": "6",
+      "description": "AIL, but alternating BL and BR bars so lack of urgency. F BO 1, bad FT 5, PS W"
+    },
+    {
+      "barNumber": "8",
+      "description": "W 3 5 at MA, PH, but TC so PP more SW before down. 4 was bad B SB so MGB"
+    },
+    {
+      "barNumber": "9",
+      "description": "H1, but just below MA, still S below8"
+    },
+    {
+      "barNumber": "13",
+      "description": "DT LH 10 but tail TTR, SS2"
+    },
+    {
+      "barNumber": "14",
+      "description": "Tri 6 11, but just below MA and still on 8 S, 4 H and L MGB, PP SA"
+    },
+    {
+      "barNumber": "15",
+      "description": "weak B, still on 8 S, 4 H MGB, but BLB"
+    },
+    {
+      "barNumber": "16",
+      "description": "SBD"
+    },
+    {
+      "barNumber": "18",
+      "description": "H2 12 but SBD 16 17, 4 L MGB, AIS, SA"
+    },
+    {
+      "barNumber": "22",
+      "description": "HL DB 1 but small BLB, 6 BRB, LOD MGB, PP SA, BB2"
+    },
+    {
+      "barNumber": "23",
+      "description": "L1, AIS, LOD and Dec 2018 L MGB, but 2 BLB, TRD"
+    },
+    {
+      "barNumber": "25",
+      "description": "H2 but TTR, DD, BB2"
+    },
+    {
+      "barNumber": "26",
+      "description": "L2, AIS, but DD, bottom of TRD, NS, HPWS2"
+    },
+    {
+      "barNumber": "28",
+      "description": "f L2, test LOY, OU, HL DB 1, but tail, just below MA, HPW"
+    },
+    {
+      "barNumber": "29",
+      "description": "BBLB at MA so LBR will S. BL need strong FT before AIL"
+    },
+    {
+      "barNumber": "30",
+      "description": "LH in BR CH 8, but 3 BLB, PS BB"
+    },
+    {
+      "barNumber": "33",
+      "description": "MDT 31 below MA, AIS, but bottom of TRD"
+    },
+    {
+      "barNumber": "35",
+      "description": "Tri 1 28, but just below MA, AIS, BB2"
+    },
+    {
+      "barNumber": "37",
+      "description": "L 1 at MA, BRB, AIS, but bottom of TRD, apex of Tri, NS"
+    },
+    {
+      "barNumber": "39",
+      "description": "F BO LOY, MDB, but just below MA, still on 37 S, BB2. TRI, BOM"
+    },
+    {
+      "barNumber": "42",
+      "description": "DB 1, might be -7% limit down"
+    },
+    {
+      "barNumber": "44",
+      "description": "F BO, but doji, TCH, SPBR, PP SA"
+    },
+    {
+      "barNumber": "48",
+      "description": "test of Jan 20, 2017 open when Trump took office, PL, AIBRE, but TCH, SPBR,"
+    },
+    {
+      "barNumber": "49",
+      "description": "L1 but DD after S X and 2 BBLB, PP BB for 2LSU"
+    },
+    {
+      "barNumber": "51",
+      "description": "L2 but 2 dojis, SX, far below MA, SS2. Might get late day PTG back to apex of"
+    },
+    {
+      "barNumber": "53",
+      "description": "STC, but PP PTG soon"
+    },
+    {
+      "barNumber": "58",
+      "description": "LL MTR, MM from HOD to OOD, C above MP, AIBRE, might get back to OOD for DDD,"
+    },
+    {
+      "barNumber": "60",
+      "description": "SBU, but BBLBC at MA so BR will STC for scalp. 20GBS"
+    },
+    {
+      "barNumber": "62",
+      "description": "H1, OOD MGA, but 2 BRB at MA"
+    },
+    {
+      "barNumber": "63",
+      "description": "C above 61, PS MMU"
+    },
+    {
+      "barNumber": "64",
+      "description": "DT 49, 2 LU 60, but BLB, AIL, room to OOD"
+    },
+    {
+      "barNumber": "65",
+      "description": "H1 but BRB, 3LU, just below TGTs, PP SA"
+    },
+    {
+      "barNumber": "67",
+      "description": "W 60 64, near OOD and Dec 2018 L and LOY, AIBLE 4 pts below but BLB, SS2,"
+    }
+  ],
+  "19": [
+    {
+      "barNumber": "1",
+      "description": "BBRBC, PS AIS for test 72 HL and maybe 1/20/17 open when Trump took office"
+    },
+    {
+      "barNumber": "2",
+      "description": "cc BBBRC, AIS, STC, but PS BRTR from Y"
+    },
+    {
+      "barNumber": "4",
+      "description": "SX, HL, test 72 BSB H and small BL TL, PL, but 3 CC BRB, PP MRV"
+    },
+    {
+      "barNumber": "6",
+      "description": "3 CC BBLBC, AIL, but still in Y TR. Since NW on daily and at SP, increased"
+    },
+    {
+      "barNumber": "10",
+      "description": "HH DT 78 at 60ma, BBRBC, PH, but strong rally, MRV. BL need BO far above"
+    },
+    {
+      "barNumber": "11",
+      "description": "H1, but DD after BBRB, just below 60ma, BB2, maybe near MA"
+    },
+    {
+      "barNumber": "13",
+      "description": "MDT at 60ma, but 2 BLB, MRV"
+    },
+    {
+      "barNumber": "14",
+      "description": "SBD"
+    },
+    {
+      "barNumber": "15",
+      "description": "H2 but doji after SBD, SA"
+    },
+    {
+      "barNumber": "17",
+      "description": "H2 15, W 10 15, but DD, PP TR, MBOU"
+    },
+    {
+      "barNumber": "19",
+      "description": "LH but 3 BLD, AIL, LOM"
+    },
+    {
+      "barNumber": "21",
+      "description": "OU, AIL, should go above 60ma and HOY since Y is BSB on daily chart and there"
+    },
+    {
+      "barNumber": "25",
+      "description": "H1, should BO above HOY, but PS BLT since W 78 10 at 60MA"
+    },
+    {
+      "barNumber": "27",
+      "description": "H1, BLB, but at RS of HOY and 60MA, BB2."
+    },
+    {
+      "barNumber": "28",
+      "description": "f BO HOY, MDT 26, but 8 BBLMC, SS1"
+    },
+    {
+      "barNumber": "30",
+      "description": "SDB after W top, might test 17 L"
+    },
+    {
+      "barNumber": "32",
+      "description": "L1 but BLD, PP BB"
+    },
+    {
+      "barNumber": "34",
+      "description": "W 26 31 but many BBRB, 2LSD likely, PP SA for test 17 HL"
+    },
+    {
+      "barNumber": "37",
+      "description": "L1, room to 17 L MGB, but 3LD 31 35, PS BB and bounce up to 60ma soon"
+    },
+    {
+      "barNumber": "38",
+      "description": "W 31 35, DB HL 17, COH, but TC and TR10, PP SA around 60ma, room to 17 L,"
+    },
+    {
+      "barNumber": "41",
+      "description": "4 CC BLB but at 60ma, PP more STC, but BB"
+    },
+    {
+      "barNumber": "45",
+      "description": "MDT, LH MTR, but TTR, above MA, AIL, LOM, PP BB"
+    },
+    {
+      "barNumber": "46",
+      "description": "H2 at MA but just below 60MA, LOM, HPWB2"
+    },
+    {
+      "barNumber": "49",
+      "description": "Tri above MA, PS TRSU, but TTR between 10 – 11:30 so HRP of BLTP"
+    },
+    {
+      "barNumber": "54",
+      "description": "BLTP, LH DT 26 at 60ma"
+    },
+    {
+      "barNumber": "56",
+      "description": "H1 but 3 BBRB, SA, BB2"
+    },
+    {
+      "barNumber": "57",
+      "description": "H1 at MA, COH, but 3 BRB, top of TR, LRP"
+    },
+    {
+      "barNumber": "59",
+      "description": "LH but 3 BLB, BB"
+    },
+    {
+      "barNumber": "63",
+      "description": "F BO HOD, W 42 54, but 3 BLB, SS2"
+    },
+    {
+      "barNumber": "64",
+      "description": "H1 but weak BO, BRB, PP SA"
+    },
+    {
+      "barNumber": "66",
+      "description": "L1 but BLB middle of TR 42, SS2, PS BB and below 56"
+    },
+    {
+      "barNumber": "67",
+      "description": "BBRR but tail. Might get test OOD since TRD"
+    },
+    {
+      "barNumber": "69",
+      "description": "DB 48, PW 65 67, LBLM, AIBRE, but TR, better to wait for breakout or 2nd"
+    }
+  ],
+  "23": [
+    {
+      "barNumber": "1",
+      "description": "C above MP so RB but TC and BRB, BTW"
+    },
+    {
+      "barNumber": "3",
+      "description": "BL IB after SX, F BO LOY and LLW and W BR CH from Y 36 77, C above MP, PL"
+    },
+    {
+      "barNumber": "6",
+      "description": "DT 1 at MA but 4 BLB, AIL, BB"
+    },
+    {
+      "barNumber": "8",
+      "description": "ioi, BL IB, AIL, but just below EMA, PP MBOU"
+    },
+    {
+      "barNumber": "11",
+      "description": "DB, and a measured move up\">DBBF, but TTR, just below MA, BOM"
+    },
+    {
+      "barNumber": "13",
+      "description": "HST 7 10 but still on 3 B and B SSB, slightly more bullish. BOM"
+    },
+    {
+      "barNumber": "14",
+      "description": "WBLF 7 11, F BO HST, but BRB, just below MA. BOM."
+    },
+    {
+      "barNumber": "18",
+      "description": "3 CC BBRC, AIS"
+    },
+    {
+      "barNumber": "19",
+      "description": "HL MTR, COL, but below MA, PP 2LSD after 18, HPWB#"
+    },
+    {
+      "barNumber": "20",
+      "description": "L1 but DD after BLB, LRP S. might get below GX L, ESP since ledge bottom"
+    },
+    {
+      "barNumber": "23",
+      "description": "BBRBC, STC"
+    },
+    {
+      "barNumber": "24",
+      "description": "L1, GX L MGB, but BLB, PS BB"
+    },
+    {
+      "barNumber": "28",
+      "description": "PW 19 25, PL, AIBRE, but tail, TC, GX L just below, HPWB2"
+    },
+    {
+      "barNumber": "31",
+      "description": "L1 but 4 BLB, PP AIL, BB"
+    },
+    {
+      "barNumber": "33",
+      "description": "H1, LH but PP MRV since TC 28 and still below MA"
+    },
+    {
+      "barNumber": "34",
+      "description": "SBU. C above MA, but tail"
+    },
+    {
+      "barNumber": "35",
+      "description": "FT, but tail, need more FT. L2 31, 2LT 31, but cc BLB, PP BB, SS2"
+    },
+    {
+      "barNumber": "37",
+      "description": "H1 but BRD, CC BRB, at MA in BR CH, BB2"
+    },
+    {
+      "barNumber": "39",
+      "description": "BBLBC, BTC, BO, should test HOD and BR TL"
+    },
+    {
+      "barNumber": "41",
+      "description": "H1, MGA, but BRB, PS SA"
+    },
+    {
+      "barNumber": "44",
+      "description": "H1 but PP 1 more leg uo to TGTA"
+    },
+    {
+      "barNumber": "46",
+      "description": "L4 31 35 42, BBRB, AIBLE, PP 2 LSD to MA, ffL, 35 H BOP"
+    },
+    {
+      "barNumber": "49",
+      "description": "H1 at MA but doji, 3 BBRB, should fall below 35 H, PP SA, BB2"
+    },
+    {
+      "barNumber": "51",
+      "description": "MW, HL, but 5 BBRB, PS SA, BB2"
+    },
+    {
+      "barNumber": "55",
+      "description": "DB 37 but 3 BBRB, SA"
+    },
+    {
+      "barNumber": "56",
+      "description": "L1 but DB 37, SS2"
+    },
+    {
+      "barNumber": "57",
+      "description": "DB 37, MDB, but 4 BBRL, tail, PS SA and TTR"
+    },
+    {
+      "barNumber": "59",
+      "description": "HL MTR, HSB 2 28, H3 55 57, F L2, DB 37, COH, PL"
+    },
+    {
+      "barNumber": "62",
+      "description": "B1 but DD after BBRB just below MA so LRP"
+    },
+    {
+      "barNumber": "65",
+      "description": "WBRF 56 60, but middle of TTR 55, TR, better to wait for breakout or 2nd"
+    },
+    {
+      "barNumber": "67",
+      "description": "HL DB 59, but TTR, TR, better to wait for breakout or 2nd signal. Low"
+    },
+    {
+      "barNumber": "68",
+      "description": "L1 after WBRF 65, but bottom of TTR, LOM"
+    }
+  ],
+  "24": [
+    {
+      "barNumber": "1",
+      "description": "BGU. PL, but not big bar and not far above 60MA, HPWB2"
+    },
+    {
+      "barNumber": "2",
+      "description": "f BO HOY and 60MA and Dec 2018 L, BRB, PH, but doji, SS2"
+    },
+    {
+      "barNumber": "3",
+      "description": "CC BRB, COL, far above MA, AIS, but small bars, still above RS, 1 PL, PS TRO"
+    },
+    {
+      "barNumber": "4",
+      "description": "H1, still on 1 B, PL, but 2 BRB, PS SA around 1 H"
+    },
+    {
+      "barNumber": "5",
+      "description": "F BO HOY 2es but CC BLB, PP BB. TRO."
+    },
+    {
+      "barNumber": "7",
+      "description": "H2, AIL, but doji and BRB, LOM"
+    },
+    {
+      "barNumber": "9",
+      "description": "OU, COH, C above 5 so BO, PP BTC"
+    },
+    {
+      "barNumber": "10",
+      "description": "FT, BTC, but tail, so weak BO"
+    },
+    {
+      "barNumber": "12",
+      "description": "F BO, but 5 BLB, BB"
+    },
+    {
+      "barNumber": "14",
+      "description": "H1 but tails, BRB 13, far above MA, 8 apex of tri MGB, far above MA, HPWB2"
+    },
+    {
+      "barNumber": "17",
+      "description": "H2 but tail, SBD 16, HPWB2"
+    },
+    {
+      "barNumber": "19",
+      "description": "L1, apex of Tri and MA MGB, but 2 dojis, PP TRD"
+    },
+    {
+      "barNumber": "20",
+      "description": "WBLF 13 16, AIL, but BBRB, MRV, PP SA"
+    },
+    {
+      "barNumber": "25",
+      "description": "H1, BL CH, but BRB, weak rally, PS BLTR"
+    },
+    {
+      "barNumber": "27",
+      "description": "NW 2 12 and 21 24, AIBLE 5 pts below, but doji, HPWS2, PP BB since SPBL"
+    },
+    {
+      "barNumber": "29",
+      "description": "H1, SPBL, but tail, NS"
+    },
+    {
+      "barNumber": "32",
+      "description": "NW 24 27, OD, AIBLE, but tail SPBL, PP BB since SPBL"
+    },
+    {
+      "barNumber": "34",
+      "description": "H1, OU, SPBL, but PP easier to B PB with Lim order"
+    },
+    {
+      "barNumber": "36",
+      "description": "BBLL"
+    },
+    {
+      "barNumber": "37",
+      "description": "H1 but BRB, SA, then TR likely"
+    },
+    {
+      "barNumber": "39",
+      "description": "BX, FF 32, CC BX, PP TBTLSD, but tail"
+    },
+    {
+      "barNumber": "41",
+      "description": "3 CC BRB, PP STC and SA for 2LSD"
+    },
+    {
+      "barNumber": "42",
+      "description": "SBD"
+    },
+    {
+      "barNumber": "43",
+      "description": "L1 but PS 1 more brief leg down and then TR after BUDC"
+    },
+    {
+      "barNumber": "46",
+      "description": "L1 but tail, BLB 45, TR likely, PP BB"
+    },
+    {
+      "barNumber": "47",
+      "description": "H2 44, DB 29, bounce likely but BRB, MRV"
+    },
+    {
+      "barNumber": "50",
+      "description": "L1, but 3 BLB, TTR, PP MRV and TR"
+    },
+    {
+      "barNumber": "54",
+      "description": "L1, AIS, but tail, PP BB 20 and LOD, and PS below 53"
+    },
+    {
+      "barNumber": "57",
+      "description": "PW 45 53, test OOD, PP TRD, AIBRE, but 7 BRB, doji, BB2"
+    },
+    {
+      "barNumber": "59",
+      "description": "CC BBLBC, 2LSU likely, but just below MA and after 7 BRB, BB2, PS SA around"
+    },
+    {
+      "barNumber": "60",
+      "description": "BR C at MA, PP SSTC, but MRV, BB since 2LSU likely"
+    },
+    {
+      "barNumber": "63",
+      "description": "L2 at MA, but MRV, PP will remain TRD"
+    },
+    {
+      "barNumber": "64",
+      "description": "H1, HOD and 50 LH MGA, but BRB"
+    },
+    {
+      "barNumber": "66",
+      "description": "SBU"
+    },
+    {
+      "barNumber": "69",
+      "description": "LH DT 38, L4 60 62 56, but DD, TC, HOD MGA, SS2"
+    }
+  ],
+  "27": [
+    {
+      "barNumber": "1",
+      "description": "BGD. DD, TRO likely"
+    },
+    {
+      "barNumber": "2",
+      "description": "L1, GX L MGB, but doji after BLB, far below MA, MBOD"
+    },
+    {
+      "barNumber": "3",
+      "description": "BBRB, 60ma MGB"
+    },
+    {
+      "barNumber": "4",
+      "description": "SX at 60ma, H2, PL, but 3 BRB, PP MRU and TRO"
+    },
+    {
+      "barNumber": "6",
+      "description": "L1 but 2 BLB, LOM, BB"
+    },
+    {
+      "barNumber": "9",
+      "description": "LH DT 2, L2 6, 4 H MGB for SBR, BRB so bad FT from 8 BO, STC for test 4 H."
+    },
+    {
+      "barNumber": "14",
+      "description": "HL MTR, PL, still on 4 B, but DD, middle of TRO, LOM"
+    },
+    {
+      "barNumber": "16",
+      "description": "BLB, TRI 4 14, but tail, just below MA, 60ma MGB"
+    },
+    {
+      "barNumber": "17",
+      "description": "COH, AIL since 8, HL MTR, but still BOM"
+    },
+    {
+      "barNumber": "20",
+      "description": "BO, PS MMU, but 40% chance it will fail"
+    },
+    {
+      "barNumber": "21",
+      "description": "H1, 2LU likely after 20, but BRB, PP SA"
+    },
+    {
+      "barNumber": "22",
+      "description": "PW 17 20 but BLB. AIBLE 45 pts below or 1 pt below BRB"
+    },
+    {
+      "barNumber": "23",
+      "description": "PW, AIBLE, but tail, TC, stop far above, SS2. 4 did not fall below 60ma so"
+    },
+    {
+      "barNumber": "25",
+      "description": "BT 9 and 19, but only BLD, 2 BRB, need WSS, PS SA and more SD, HPWB2"
+    },
+    {
+      "barNumber": "26",
+      "description": "L1, 60ma MGB, but 3 dojis, middle of TRD"
+    },
+    {
+      "barNumber": "28",
+      "description": "H2 but BRB, SA"
+    },
+    {
+      "barNumber": "29",
+      "description": "L1, 60ma and LOD MGB, but BLB, PS BB"
+    },
+    {
+      "barNumber": "33",
+      "description": "DB 14 HL MTR, MDB, W 25 28, but 2 dojis"
+    },
+    {
+      "barNumber": "36",
+      "description": "DTBF 28, ii, but 34 big enough and C far enough above 29 and MA to make 2LU"
+    },
+    {
+      "barNumber": "37",
+      "description": "OU, SBU, but tail"
+    },
+    {
+      "barNumber": "39",
+      "description": "f BO DT 29 34, but 3 BLBC, BB"
+    },
+    {
+      "barNumber": "41",
+      "description": "oo bull flag, but PS W 34 39 and PS SW before up, HPW"
+    },
+    {
+      "barNumber": "43",
+      "description": "W 34 39, but 3 BLB, SS2"
+    },
+    {
+      "barNumber": "44",
+      "description": "SBD"
+    },
+    {
+      "barNumber": "46",
+      "description": "DB 41, but tail, 2LSD likely after W and 44 SDB"
+    },
+    {
+      "barNumber": "50",
+      "description": "SBU"
+    },
+    {
+      "barNumber": "53",
+      "description": "W 2 22, 2ES, L2, but tail"
+    },
+    {
+      "barNumber": "55",
+      "description": "BBRBC but at MA in BL CH so PS more BTC than STC"
+    },
+    {
+      "barNumber": "56",
+      "description": "HL in BLCH but 3 BRB, BB2"
+    },
+    {
+      "barNumber": "59",
+      "description": "HST 43 51, but CC BBLBC, PP BB. H1, but BRB, BL CH, SA"
+    },
+    {
+      "barNumber": "62",
+      "description": "W 22 51, but CC BLBL, SS2"
+    },
+    {
+      "barNumber": "64",
+      "description": "HL PB to MA in BLCH, but DD, 3 BRB, BB2"
+    },
+    {
+      "barNumber": "67",
+      "description": "BO and FT, BTC, but still BLCH so PP PB soon. COY MGA and HLW MGB"
+    },
+    {
+      "barNumber": "69",
+      "description": "W 51 61, AIBLE, but 4 BLB, SS2"
+    }
+  ]
+}
