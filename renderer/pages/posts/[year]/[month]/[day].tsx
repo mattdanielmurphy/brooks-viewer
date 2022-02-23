@@ -142,7 +142,7 @@ function PostContent({ year, month, day, postText }) {
 function surroundTagsWithSpaces(text: string, tags: string[]) {
 	tags.forEach((tag) => {
 		text = text
-			.replaceAll(`<${tag}>`, ` <${tag}>`)
+			.replaceAll(`<${tag}`, ` <${tag}`)
 			.replaceAll(`</${tag}>`, `</${tag}> `)
 	})
 	console.log(text)
@@ -150,7 +150,7 @@ function surroundTagsWithSpaces(text: string, tags: string[]) {
 }
 
 function surroundInlineTagsWithSpaces(text: string) {
-	return surroundTagsWithSpaces(text, ['strong', 'em'])
+	return surroundTagsWithSpaces(text, ['strong', 'em', 'a'])
 }
 
 function Post() {
