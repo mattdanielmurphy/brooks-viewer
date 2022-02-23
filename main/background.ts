@@ -201,12 +201,17 @@ ipcMain.handle('get-months-available-for-trading-course', async (event) => {
 	return monthsAvailable
 })
 
-ipcMain.handle('get-path-to-image', async (event, { pathFromDataFolder }) => {
-	const filePath = path.join(pathToDataFolder, pathFromDataFolder)
+ipcMain.handle('get-path-to-image', async (event, { folder, name }) => {
+	const pathToImage = path.join(folder, 'images', name)
+	const fullPathToImage = path.join(
+		process.cwd(),
+		'renderer',
+		'public',
+		pathToImage,
+	)
 
-	if (fs.existsSync(filePath)) {
-		return path.join('/', pathFromDataFolder)
-	} else return null
+	if (fs.existsSync(fullPathToImage)) return '/' + pathToImage
+	else return null
 })
 
 app.on('window-all-closed', () => {

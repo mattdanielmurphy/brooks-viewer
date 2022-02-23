@@ -54,17 +54,14 @@ function PostContent({ year, month, day, postText }) {
 			day = addLeadingZeroes(day)
 
 			// change to execute on main process
-			const pathToImage = path.join(
-				'price-action',
-				'images',
-				`${year}-${month}-${day}.png`,
-			)
 
 			ipcRenderer
 				.invoke('get-path-to-image', {
-					pathFromDataFolder: pathToImage,
+					folder: 'price-action',
+					name: `${year}-${month}-${day}.png`,
 				})
 				.then((pathToImage) => {
+					console.log('path', pathToImage)
 					if (pathToImage) setBarByBarImageSource(pathToImage)
 				})
 		}
@@ -145,7 +142,7 @@ function surroundTagsWithSpaces(text: string, tags: string[]) {
 			.replaceAll(`<${tag}`, ` <${tag}`)
 			.replaceAll(`</${tag}>`, `</${tag}> `)
 	})
-	console.log(text)
+
 	return text
 }
 
@@ -220,7 +217,6 @@ function Post() {
 					pathToImages,
 					imageSrc,
 				)
-
 				if (fs.existsSync(imagePath)) {
 					const fixedImagePathsText = text.replace(
 						/src="([^"]*)"/g,
