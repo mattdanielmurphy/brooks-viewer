@@ -194,10 +194,13 @@ function Post() {
 
 				const elementsBelowH2 = getNext([el])
 				elementsBelowH2.forEach((el) => {
-					if (el.name === 'hr') return
-					if (el.attribs.class === 'caption') return
-					if ($(el).text().includes('I will update again')) return
-					if ($(el).text().includes('See theweekly updatefor a discussion'))
+					if (
+						el.name === 'hr' ||
+						el.attribs.class === 'caption' ||
+						$(el).text().includes('I will update again') ||
+						$(el).text().includes('Weekend report table of contents') ||
+						$(el).text().includes('See theweekly updatefor a discussion')
+					)
 						return
 					filteredContent.push(el)
 				})
