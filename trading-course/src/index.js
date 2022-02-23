@@ -13,6 +13,7 @@ import {
 } from '../utilities'
 import { isNumber, promisify } from 'util'
 
+import { areNumbers } from './util'
 import child_process from 'child_process'
 import { image as downloadImage } from 'image-downloader'
 import { htmlToText } from 'html-to-text'
@@ -66,6 +67,7 @@ async function saveRawHtml($) {
 					}${fileExtension}`
 
 					$(this).attr('src', fileName)
+					console.log('image fileName', fileName)
 					images.push({ src: imageLink, fileName })
 				}
 			})
@@ -135,7 +137,9 @@ async function downloadHtmlAndImagesFromPosts() {
 		// for each page of URls
 		for (const [j, url] of Object.entries(pageOfUrls)) {
 			// for each url of pageOfUrls
-			const shortUrl = url.split('market-update/')[1].slice(0, -1)
+			const splitUrl = url.split(/market-update\/|analysis\//)[1]
+			if (!splitUrl) continue
+			const shortUrl = splitUrl.slice(0, -1)
 			log(
 				`Downloading blog post '${shortenString(shortUrl, 40)} `,
 				`[${urlsDownloaded++ + 2}/${totalUrls}]`,
@@ -160,6 +164,7 @@ async function downloadHtmlAndImagesFromPosts() {
 
 async function getPostUrls(pageEnd = 1, pageStart = 1, rewrite = false) {
 	const url = 'https://www.brookstradingcourse.com/blog/market-update'
+	// const url = 'https://www.brookstradingcourse.com/blog/analysis'
 	const numPages = pageEnd - pageStart + 1
 	const db = await getDatabase('postUrls', {
 		downloaded: {},
@@ -225,10 +230,6 @@ async function interpretCommandLineInput() {
 		\t\tget-urls <endPage> [startPage]
 		\t\tdownload-posts`)
 	}
-	function areNumbers() {
-		const args = Array.prototype.slice.call(arguments)
-		return args.every((v) => typeof Number(v) === 'number' || !v)
-	}
 	await clearLog()
 	const args = process.argv.slice(2)
 	if (args.length === 0) throw new Error('No command given')
@@ -241,7 +242,8 @@ async function interpretCommandLineInput() {
 			console.log(args[1], args[2])
 			if (!areNumbers(args[1], args[2]))
 				throw new Error('Invalid arguments provided for GET-URLs command')
-			await getPostUrls(args[1], args[2])
+
+			await getPostUrls(args[1], args[2], args[3] === 'rewrite')
 			log('Done! URLs saved to ./data/postUrls.json')
 			break
 		case 'download-posts':

@@ -124,7 +124,8 @@ dist
 .node_modules.nosync
 node_modules
 image-exports
+backups of data/
 old exports
-data/images/
-data/html/
-data/*.json
+# data/images/
+# data/html/
+# data/*.json

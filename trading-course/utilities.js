@@ -85,7 +85,7 @@ export async function getDateFromTime(time) {
 	return [year, monthToNumber(monthString), day, monthString]
 }
 
-export async function cooldown(maxTime = 3000) {
+export async function cooldown(maxTime = 2000) {
 	return new Promise(function (resolve) {
 		setTimeout(() => resolve(), 400 + Math.random() * maxTime)
 	})

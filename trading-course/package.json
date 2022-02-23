@@ -21,7 +21,7 @@
   "scripts": {
     "babel-node": "babel-node --presets='@babel/preset-env' --ignore='foo|bar|baz'",
     "execute": "npm run babel-node -- ./src/index.js",
-    "dev": "nodemon --exec npm run babel-node -- ./src/index.js"
+    "dev": "nodemon --watch ./src --exec npm run babel-node -- ./src/index.js"
   },
   "version": "1.0.0"
 }

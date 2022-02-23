@@ -16,7 +16,7 @@
       - scrapes from date last scraped to now
   - [] Frontend
     - [] Date Picker / Post Viewer
-    - [] Bar-By-Bar Viewer
+    - [] Bar-By-Bar Viewer (accessed through Post Viewer)
 
 
 Doing right now: refactoring so everything is downloaded as its own self-contained function, then new functions will read from the local database without redownloading

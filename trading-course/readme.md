@@ -15,3 +15,10 @@
     - day
       - 1-EMINI PRE-OPEN.txt
       - 1-EMINI PARABOLIC EDGE.png
+
+## CSV Structure
+- year
+  - month
+    - day
+      - 1-EMINI PRE-OPEN.csv
+      - 1-EMINI PARABOLIC EDGE.png
