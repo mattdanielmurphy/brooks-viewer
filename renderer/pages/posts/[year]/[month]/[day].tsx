@@ -15,7 +15,12 @@ import path from 'path'
 import router, { useRouter } from 'next/dist/client/router'
 
 async function getPostText(year, month, day) {
-	const pathToDatabase = path.join('trading-course', 'html', `${year}-${month}`)
+	const pathToDatabase = path.join(
+		'trading-course',
+		'data',
+		'html',
+		`${year}-${month}`,
+	)
 	const db =
 		(await ipcRenderer.invoke('get-database', { pathToDatabase })) || {}
 	if (db.data && db.data[day]) {

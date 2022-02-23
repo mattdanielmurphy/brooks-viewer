@@ -12,7 +12,8 @@ const electronLocalshortcut = require('electron-localshortcut')
 
 const readdir = util.promisify(fs.readdir)
 
-const pathToDataFolder = path.join(app.getPath('userData'), 'data')
+const pathToDataFolder = path.resolve('data-scrapers')
+console.log(pathToDataFolder)
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -145,7 +146,12 @@ ipcMain.handle('get-database', async (event, { pathToDatabase }) => {
 })
 
 ipcMain.handle('get-days-for-month', async (event, { year, month }) => {
-	const pathToDb = path.join('trading-course', 'html', `${year}-${month}`)
+	const pathToDb = path.join(
+		'trading-course',
+		'data',
+		'html',
+		`${year}-${month}`,
+	)
 	const db = await getDatabase(pathToDb)
 	if (db) {
 		const days = Object.keys(db.data)
@@ -172,6 +178,7 @@ ipcMain.handle('get-months-available-for-trading-course', async (event) => {
 	const pathToMonthsFiles = path.join(
 		pathToDataFolder,
 		'trading-course',
+		'data',
 		'html',
 	)
 	interface MonthsAvailable {
