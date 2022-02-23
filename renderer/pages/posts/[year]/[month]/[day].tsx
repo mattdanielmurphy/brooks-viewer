@@ -24,11 +24,6 @@ async function getPostText(year, month, day) {
 	} else return ''
 }
 
-const styles = {
-	fontFamily: 'sans-serif',
-	padding: '0.5rem 2rem 2rem 2rem',
-}
-
 function PostContent({ year, month, day, postText }) {
 	const [barByBarImageSource, setBarByBarImageSource] = useState('')
 	const [showingBarByBarImage, setShowingBarByBarImage] = useState(false)
@@ -71,39 +66,86 @@ function PostContent({ year, month, day, postText }) {
 	}, [year, month, day])
 
 	return (
-		<div style={styles}>
+		<div id='post-content'>
 			<div
 				style={{
 					height: '2em',
 				}}
 			>
-				<BarByBarButton
-					year={year}
-					month={month}
-					day={day}
-					setShowingBarByBarImage={setShowingBarByBarImage}
-					showingBarByBarImage={showingBarByBarImage}
-				/>
-				<button onClick={() => router.replace('#bar-by-bar-chart')}>
-					Go to bar-by-bar image
-				</button>
+				{barByBarImageSource && (
+					<>
+						<BarByBarButton
+							year={year}
+							month={month}
+							day={day}
+							setShowingBarByBarImage={setShowingBarByBarImage}
+							showingBarByBarImage={showingBarByBarImage}
+						/>
+						<button onClick={() => router.replace('#bar-by-bar-chart')}>
+							Go to bar-by-bar image
+						</button>
+					</>
+				)}
 			</div>
 			<h1>
 				Emini &amp; Forex Trading Update {year}/{month}/{day}
 			</h1>
 			<div id='post-text' dangerouslySetInnerHTML={{ __html: postText }}></div>
 
-			<h1>Bar by bar chart</h1>
-			<img src={barByBarImageSource} alt='' id='bar-by-bar-chart' />
-			<BarByBarButton
-				year={year}
-				month={month}
-				day={day}
-				setShowingBarByBarImage={setShowingBarByBarImage}
-				showingBarByBarImage={showingBarByBarImage}
-			/>
+			{barByBarImageSource && (
+				<>
+					<h1>Bar by bar chart</h1>
+					<img src={barByBarImageSource} alt='' id='bar-by-bar-chart' />
+					<BarByBarButton
+						year={year}
+						month={month}
+						day={day}
+						setShowingBarByBarImage={setShowingBarByBarImage}
+						showingBarByBarImage={showingBarByBarImage}
+					/>
+				</>
+			)}
+			<style jsx global>{`
+				#post-text li {
+					margin-bottom: 0.6em;
+				}
+				#post-text {
+					line-height: 1.2;
+				}
+				sup {
+					margin-right: 0.2em;
+					vertical-align: top;
+					font-size: 0.7em;
+				}
+				h2,
+				h3 {
+					margin-top: 1.5em;
+				}
+				#post-content {
+					font-family: sans-serif;
+					padding: 0.5rem 2rem 2rem 2rem;
+					margin-left: 15rem;
+				}
+			`}</style>
 		</div>
 	)
+}
+
+//? TEXT FORMATTING UTILITY
+// tags like strong
+
+function surroundTagsWithSpaces(text: string, tags: string[]) {
+	tags.forEach((tag) => {
+		text = text
+			.replaceAll(`<${tag}>`, ` <${tag}>`)
+			.replaceAll(`</${tag}>`, `</${tag}> `)
+	})
+	console.log(text)
+	return text
+}
+
+function surroundInlineTagsWithSpaces(text: string) {
+	return surroundTagsWithSpaces(text, ['strong', 'em'])
 }
 
 function Post() {
@@ -140,7 +182,7 @@ function Post() {
 				if (heading.includes('Pre-Open')) $(el).text('Pre')
 				if (heading.includes('Summary of today')) $(el).text('EOD Summary')
 
-				if (i > 1) $(el).css('margin-top', '3em') // add space between sections at heading. don't put space above first heading... isn't i==0 because true first heading is removed anyway ("Emini and Forex Trading Update")
+				// if (i > 1) $(el).css('margin-top', '3em') // add space between sections at heading. don't put space above first heading... isn't i==0 because true first heading is removed anyway ("Emini and Forex Trading Update")
 
 				// * to add links at the top to quickly navigate through headings
 				$(el).attr('id', String(i))
@@ -156,29 +198,35 @@ function Post() {
 				})
 			})
 			text = filteredContent.map((el) => cheerio.html(el)).join('')
-			// text = $(filteredContent).html()
-			const imageSrc = /src="([^"]*)"/g.exec(text)![1]
-			const imagePath = path.join(
-				process.cwd(),
-				'renderer',
-				'public',
-				pathToImages,
-				imageSrc,
-			)
-
-			if (fs.existsSync(imagePath)) {
-				const fixedImagePathsText = text.replace(
-					/src="([^"]*)"/g,
-					`src="${pathToImages}/$1"`,
-				)
-				setPostText(fixedImagePathsText)
+			text = surroundInlineTagsWithSpaces(text)
+			const imgSrcMatches = /src="([^"]*)"/g.exec(text)
+			if (!imgSrcMatches) {
+				console.log('no match for image src', text)
+				setPostText(text)
 			} else {
-				const fixedImagePathsText = text.replace(
-					/<a href="([^"]*)"><img (?:loading="lazy")? src="([^"]*)"/g,
-					`<a href="$1"><img src="$1"`,
+				const imageSrc = imgSrcMatches[1]
+				const imagePath = path.join(
+					process.cwd(),
+					'renderer',
+					'public',
+					pathToImages,
+					imageSrc,
 				)
 
-				setPostText(fixedImagePathsText)
+				if (fs.existsSync(imagePath)) {
+					const fixedImagePathsText = text.replace(
+						/src="([^"]*)"/g,
+						`src="${pathToImages}/$1"`,
+					)
+					setPostText(fixedImagePathsText)
+				} else {
+					const fixedImagePathsText = text.replace(
+						/<a href="([^"]*)"><img (?:loading="lazy")? src="([^"]*)"/g,
+						`<a href="$1"><img src="$1"`,
+					)
+
+					setPostText(fixedImagePathsText)
+				}
 			}
 		})
 	}, [router.query])
@@ -189,13 +237,7 @@ function Post() {
 					{year}/{month}/{day}
 				</title>
 			</Head>
-			<main
-				style={{
-					display: 'flex',
-					maxWidth: '60em',
-					margin: '4em auto',
-				}}
-			>
+			<main>
 				<Nav
 					year={year}
 					month={month}
@@ -213,6 +255,17 @@ function Post() {
 					/>
 				)}
 			</main>
+			<style jsx global>{`
+				body {
+					display: flex;
+					align-content: center;
+					justify-content: center;
+				}
+				main {
+					margin-top: 2em;
+					max-width: 60em;
+				}
+			`}</style>
 		</React.Fragment>
 	)
 }
