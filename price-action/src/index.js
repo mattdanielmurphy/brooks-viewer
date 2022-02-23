@@ -1,10 +1,14 @@
 #!/usr/bin/env node
 
-import { JSONFile, Low } from 'lowdb'
+import {
+	getDatabase,
+	logToDb,
+	makeDatabase,
+	makeLocalFolder,
+} from './utilities'
 
 import { exec } from 'child_process'
 import { htmlToText } from 'html-to-text'
-import { makeLocalFolder } from './utilities'
 import parseInput from './cli-options'
 import path from 'path'
 import puppeteer from 'puppeteer'
@@ -15,14 +19,7 @@ const createCsvWriter = require('csv-writer').createArrayCsvWriter
 
 require('dotenv').config()
 
-// Use JSON file for storage
-const file = path.join(__dirname, '/..', 'db.json')
-const adapter = new JSONFile(file)
-const db = new Low(adapter)
-
-// set default data
-// db.data ||= { posts: {} }
-// db.write()
+let signedIn = false
 
 async function setUpPuppeteer() {
 	const browser = await puppeteer.launch({ headless: false })
@@ -46,12 +43,24 @@ async function signIn(page) {
 		page.click('input[name="login"]'),
 	])
 	await page.waitForSelector('.maintitle')
+	signedIn = true
 }
 
 async function getListOfPosts(page) {
-	return await await page.evaluate(() => {
+	if (!page) {
+		console.log('no page!')
+		return []
+	}
+	return await page.evaluate(() => {
 		const elements = document.querySelectorAll('.row3 .name')
 		const results = []
+		if (elements.length === 0) {
+			console.error(
+				'No elements found for selector: ".row3 .name" for page',
+				page.toString(),
+			)
+			return results
+		}
 		for (const el of elements) {
 			const author = el.firstChild.innerText
 			const numReplies = el.parentNode.parentNode.querySelectorAll(
@@ -63,11 +72,17 @@ async function getListOfPosts(page) {
 				el.parentNode.parentNode.querySelectorAll('a.topictitle')[0].href
 
 			// date
-			const regex = RegExp(/\d\d-\d\d-\d{4}/)
-			const originalDateString = regex.exec(title)[0]
-			const [monthString, dayString, yearString] = originalDateString.split('-')
-			const dateString = yearString + '-' + monthString + '-' + dayString
-			results.push([title, author, numReplies, url, dateString])
+			const regex = RegExp(/\d?\d-\d?\d-\d{4}/)
+			const dateStringMatches = regex.exec(title)
+			if (!dateStringMatches) {
+				console.error('Invalid regex for retrieving date from title:' + title)
+			} else {
+				const originalDateString = dateStringMatches && dateStringMatches[0]
+				const [monthString, dayString, yearString] =
+					originalDateString.split('-')
+				const dateString = yearString + '-' + monthString + '-' + dayString
+				results.push([title, author, numReplies, url, dateString])
+			}
 		}
 		return results
 	})
@@ -90,28 +105,59 @@ async function getAnalysisPostsForPage(page) {
 	})
 }
 
-async function savePostsToCSVs(page, analysisPosts) {
+async function renameExtension(pathToDir) {
+	const fs = require('fs')
+
+	pathToDir = path.join(__dirname, '../', pathToDir)
+	fs.readdirSync(pathToDir).forEach((fileName) => {
+		const existingPath = path.join(pathToDir, fileName)
+		const newPath = pathToDir + '.png'
+		fs.rename(existingPath, newPath, () => {
+			fs.rmdirSync(pathToDir)
+		})
+	})
+}
+
+async function saveBarByBarAnalysisToDisk(analysis, year, month, day) {
+	const pathToDatabaseFile = path.join('html', `${year}-${month}`)
+	const db = await getDatabase(pathToDatabaseFile, {})
+	if (db.data[day]) {
+		console.log('duplicate analysis for day', year, month, day)
+	}
+	db.data[day] = analysis
+	await db.write()
+}
+
+async function savePosts(page, analysisPosts) {
+	if (!analysisPosts) return
+	analysisPosts = Object.values(analysisPosts)
+	const db = await getDatabase('db')
 	for (const [i, post] of analysisPosts.entries()) {
 		const { url, dateString } = post
-		const [yearString, monthString, dayString] = dateString.split('-')
-		if (
-			db.data.daySavedAsCSV.includes(
-				yearString + '-' + monthString + '-' + dayString,
-			)
-		) {
+		const [year, monthString, dayString] = dateString.split('-')
+		const month = monthString.replace(/0?(\d?\d)/, '$1') // remove leading zero
+		const day = dayString.replace(/0?(\d?\d)/, '$1') // remove leading zero
+		if (!year || !month || !day) {
+			console.log('Error: date item not found\n', dateString, '\n', url, '\n')
+		}
+
+		if (db.data.daysSavedToDisk.includes(year + '-' + month + '-' + day)) {
 			process.stdout.write(
-				`Post ${i + 1} of ${analysisPosts.length} already exists.\r`,
+				`Post ${i + 1} of ${analysisPosts.length} already exists.\n\r`,
 			)
 			continue
 		}
-		process.stdout.write(`Scraping post ${i + 1} of ${analysisPosts.length}\r`)
+		process.stdout.write(
+			`Scraping post ${i + 1} of ${analysisPosts.length}... (${url})\r`,
+		)
 
 		await page.goto(url)
-		await page
-			.waitForSelector('div.quote')
-			.catch((err) =>
-				error.log('Error looking for quote block... is this an old post?', err),
-			)
+		let skipPage = false
+		await page.waitForSelector('div.quote', { timeout: 100 }).catch((err) => {
+			console.log('No quote block for page\n', page.url(), '\n')
+			skipPage = true
+		})
+		if (skipPage) continue
 		// first quote:
 		//   each bar is after a <br>
 		const imageSrc = await page.evaluate(
@@ -122,50 +168,50 @@ async function savePostsToCSVs(page, analysisPosts) {
 			() => document.querySelectorAll('div.quote')[0].innerHTML,
 		)
 		const splitAnalysisHTML = analysisHTML.split('<br>')
-		const analysis = splitAnalysisHTML.map((string) => [htmlToText(string)])
+		const analysis = splitAnalysisHTML.reduce((filtered, string) => {
+			const text = htmlToText(string)
+			console.log(text)
+			const matches = text.match(/^-?(\d{1,2})\s(.*)/s) // only thing that doesn't match is '/n'
+			if (matches) {
+				const [, barNumber, description] = matches
+				filtered.push({ barNumber, description })
+			}
+			// console.log(filtered)
+			return filtered
+		}, [])
 
-		await makeLocalFolder(yearString, monthString)
-		const dirPath = path.join(
-			__dirname,
-			'/..',
-			'exports',
-			yearString,
-			monthString,
-		)
-		const csvPath = path.join(
-			dirPath,
-			`${yearString}-${monthString}-${dayString}.csv`,
-		)
-		const imagePath = path.join(
-			dirPath,
-			`${yearString}-${monthString}-${dayString}.png`,
-		)
-		await downloadImage({
-			url: imageSrc,
-			dest: imagePath,
-		})
-		const csvWriter = createCsvWriter({
-			path: csvPath,
-			header: [url],
-		})
-		await csvWriter.writeRecords(analysis)
-		if (!db.data.monthSavedAsCSV.includes(yearString + '-' + monthString))
-			db.data.monthSavedAsCSV.push(yearString + '-' + monthString)
+		// // * IMAGES
+		// const imageName = dateString
+		// const imagePath = path.join('data', 'images', imageName)
+		// await makeLocalFolder(imagePath)
+		// const fullImagePath = path.join(__dirname, '../', imagePath)
+		// await downloadImage({ url: imageSrc, dest: fullImagePath }).catch((err) => {
+		// 	console.log('error downloading image: ' + { imageSrc, fullImagePath })
+		// 	logToDb({ imageSrc, fullImagePath })
+		// })
 
-		// checked for daySaved at top
-		db.data.daySavedAsCSV.push(yearString + '-' + monthString + '-' + dayString)
+		// // * RENAME IMAGE EXTENSION SO CAN OPEN
+		// await renameExtension(imagePath)
+
+		await saveBarByBarAnalysisToDisk(analysis, year, month, day)
+		db.data.daysSavedToDisk.push(`${year}-${month}-${day}`)
 		await db.write()
 	}
 }
 
-async function scrapeAllPages(page, onlyFirstPage) {
-	await db.read()
-	const finalIndex = onlyFirstPage ? 0 : 3150
-	// for (let i = 0; i < 3150; i += 50) {
-	for (let i = 0; i < finalIndex; i += 50) {
+async function scrapeAllPages(page, firstPage = 0, lastPage = 1) {
+	const db = await getDatabase('db', {
+		monthsSavedToDisk: [],
+		posts: {},
+		daysSavedToDisk: [],
+	})
+	const lastPossibleIndex = 3150
+	const lastIndex = Math.min(lastPage * 50, lastPossibleIndex)
+
+	if (!signIn) await signIn(page)
+	for (let i = firstPage; i <= lastIndex; i += 50) {
 		if (i === 0) {
 			await page.goto('https://www.brookspriceaction.com/viewforum.php?f=1')
-			await signIn(page)
 		} else {
 			await page.goto(
 				`https://www.brookspriceaction.com/viewforum.php?f=1&topicdays=0&start=${i}`,
@@ -174,20 +220,20 @@ async function scrapeAllPages(page, onlyFirstPage) {
 		const analysisPosts = await getAnalysisPostsForPage(page)
 		for (const post of analysisPosts) {
 			const [, , , url, dateString] = post
-			console.log(url, dateString)
-			const [yearString, monthString, dayString] = dateString.split('-')
-			if (!db.data.posts[yearString]) {
-				db.data.posts[yearString] = {}
-				await db.write()
+			// console.log(`getting: ${url} ... ${dateString}`)
+			const [year, monthString, dayString] = dateString.split('-')
+			const month = monthString.replace(/0?(\d?\d)/, '$1') // remove leading zero
+			const day = dayString.replace(/0?(\d?\d)/, '$1') // remove leading zero
+			if (!db.data.posts[year]) {
+				db.data.posts[year] = {}
 			}
-			if (!db.data.posts[yearString][monthString]) {
-				db.data.posts[yearString][monthString] = []
-				await db.write()
+			if (!db.data.posts[year][month]) {
+				db.data.posts[year][month] = {}
 			}
-			db.data.posts[yearString][monthString].push({
+			db.data.posts[year][month][day] = {
 				url,
 				dateString,
-			})
+			}
 			await db.write()
 		}
 		// const [title, author, numReplies, url, dateString] = analysisPosts
@@ -195,28 +241,44 @@ async function scrapeAllPages(page, onlyFirstPage) {
 }
 
 async function getPostsForMonth(page, year, month) {
-	await db.read()
+	const db = await getDatabase('db')
 	// if current month, scrape 1st page, redownload CSVs
 	const currentMonth = new Date().getMonth() + 1
-	const monthIsCurrentMonth = currentMonth === month
+	const currentYear = new Date().getFullYear()
+	const monthIsCurrentMonth = currentMonth === month && currentYear === year
+	const inFuture = new Date(year, month - 1).getTime() > new Date().getTime()
+	if (inFuture) {
+		console.log('Date is in future. All done.')
+		return []
+	}
 	// if CSV not saved already, fetch it
 	if (monthIsCurrentMonth) {
-		await signIn(page)
+		if (!signedIn) await signIn(page)
 		process.stdout.write(
 			'Scraping page 1 because searching for current month...',
 		)
-		await scrapeAllPages(page, true)
+		await scrapeAllPages(page)
 		console.log('pages scraped')
 		const posts = db.data.posts[year][month]
-		await savePostsToCSVs(page, posts)
+		await savePosts(page, posts)
+		db.data.monthsSavedToDisk.push(`${year}-${month}`)
+		await db.write()
 		console.log('posts saved')
-	} else if (db.data.monthSavedAsCSV.includes(year + '-' + month)) {
+	} else if (db.data.monthsSavedToDisk.includes(year + '-' + month)) {
+		console.log('files already exist')
 		// open folder
-		console.log('csv files already exist... opening')
 	} else {
-		await signIn(page)
 		const posts = db.data.posts[year][month]
-		await savePostsToCSVs(page, posts)
+		// ! Needs to check if posts exist, if they don't, must scrape more
+		if (posts) {
+			if (!signedIn) await signIn(page)
+			await savePosts(page, posts)
+			db.data.monthsSavedToDisk.push(`${year}-${month}`)
+			await db.write()
+		} else
+			console.error(
+				'Error: no posts found for that month in database (you must scrape further back)',
+			)
 	}
 	const dirPath = path.join(
 		__dirname,
@@ -228,15 +290,29 @@ async function getPostsForMonth(page, year, month) {
 	exec(`explorer.exe "${dirPath}"`)
 }
 
-async function scrape() {
-	const [year, month] = await parseInput()
-	const [browser, page] = await setUpPuppeteer()
-	const scraping = false
-	if (scraping) {
-		await scrapeAllPages(page)
+async function getPostsForYear(page, year) {
+	for (let month = 1; month <= 12; month++) {
+		console.log('Getting posts for ', year + '-' + month, '\n')
+		await getPostsForMonth(page, year, month)
 	}
+}
 
-	await getPostsForMonth(page, year, month)
+async function scrape() {
+	// const [year, month] = await parseInput()
+	const [browser, page] = await setUpPuppeteer()
+
+	// * TO SCRAPE
+	// await scrapeAllPages(page)
+
+	// const year = 2021
+	// const month = 1
+	// await getPostsForMonth(page, year, month)
+
+	for (let year = 2020; year >= 2015; year--) {
+		console.log('Getting posts for ', year, '...')
+		await getPostsForYear(page, year)
+		console.log('Done getting posts for ', year, '\n')
+	}
 	browser.close()
 }
 

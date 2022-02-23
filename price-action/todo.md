@@ -1,5 +1,11 @@
 # To Do
 ## brookstradingcourse (no sign-in)
+### bugs to fix asap
+- summary of today's S&P many features
+  - remove blur below image and above "End of day Summary"
+- other type:
+  - at the bottom of the page
+
 ### fix
 - remove link tag around images (links to site)
 - fix removing image tag for text version
